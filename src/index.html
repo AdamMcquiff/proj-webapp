@@ -2,30 +2,29 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+
 		<!-- TODO: replace title with more something better -->
 		<title>Project Management Application</title>
 		<base href="/">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<!-- TODO: replace favicon with generated icon -->
 		<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico">
-		
-		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	</head>
 
 	<body>
 		<app-root></app-root>
 
 		<script>
-			// TODO: create service worker file
 			if (navigator.serviceWorker) {  
 			  navigator.serviceWorker.register('/service-worker.js')
-				.then(registration => {
-				  console.log('Service worker registered. Scope is: ', registration.scope);
-				})
-				.catch(error => {
-				  console.log('Error: ', error);
-				});
+					.then(registration => {
+						console.log('Service worker registered. Scope is: ', registration.scope);
+					})
+					.catch(error => {
+						console.log('Error: ', error);
+					});
 			}
 		</script>
 	</body>
