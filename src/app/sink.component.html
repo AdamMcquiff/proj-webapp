@@ -3,16 +3,19 @@
 
     <article class="sink-section">
         <h2 class="sink-section-title">Buttons</h2>
-    
-        <button class="btn">Create</button>  
-        <button class="btn btn--warning">Delete</button><br><br>
+
+        <button class="btn">Create</button>
+        <button class="btn btn--warning">Delete</button>
+        
+        <br><br>
+        
         <a class="btn" href="">Save comment</a>
         <a class="btn btn--secondary" href="">Draft comment</a>
     </article>
 
     <article class="sink-section">
         <h2 class="sink-section-title">Form Fields</h2>
-    
+
         <label class="form-label">
             <span class="form-label-title">Project Title</span>
             <span class="form-label-subtext">You can call your new project anything.</span>
@@ -34,10 +37,30 @@
         <label class="form-label">
             <span class="form-label-title">Message</span>
             <span class="form-label-subtext">You can call your new project anything.</span>
-            <textarea class="form-input"></textarea>
-        </label>    
-        
+            <textarea class="form-input form-textarea"></textarea>
+        </label>
+
         <input type="submit" class="btn" value="Send message">
     </article>
 
+    <article class="sink-section">
+        <h2 class="sink-section-title">Tables</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{c.id}}</td>
+                    <td>{{c.firstname}}</td>
+                    <td>{{c.lastname}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
 </main>
