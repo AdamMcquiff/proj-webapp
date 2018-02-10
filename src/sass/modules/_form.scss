@@ -1,0 +1,49 @@
+/* 
+ * Form fields 
+ *
+ */
+
+.form {
+    &-label {
+        color: black;
+
+        display: block;
+        
+        font-family: $libre-franklin;
+
+        margin: 0 0 1em 0;
+
+        &-title {
+            display: block;
+            font-size: 1.125em;
+        }
+
+        &-subtext {
+            color: $light-gray;
+            display: block;
+            font-weight: 200;
+            margin: { top: .375em; }
+        }
+    }
+
+    &-input {    
+        background: #F0F0F0;
+        
+        border: none;
+        border-radius: 3px;
+        
+        color: #505050;
+        
+        display: block;
+        
+        font-family: $libre-franklin;
+        font-size: 1em;
+        
+        margin: { top: .75em; }
+        padding: .75em;
+
+        resize: none;
+
+        width: 100%;
+    }
+}

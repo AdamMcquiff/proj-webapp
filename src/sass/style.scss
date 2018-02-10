@@ -1,5 +1,6 @@
 // Partials
 @import 'partials/normalise';
+@import 'partials/mixins';
 @import 'partials/base';
 @import 'partials/variables';
 @import 'partials/typography';
@@ -7,3 +8,4 @@
 // Modules
 @import 'modules/sink';
 @import 'modules/buttons';
+@import 'modules/form';
