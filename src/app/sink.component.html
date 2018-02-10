@@ -46,19 +46,33 @@
     <article class="sink-section">
         <h2 class="sink-section-title">Tables</h2>
 
-        <table>
-            <thead>
+        <table class="table">
+            <thead class="table-head">
                 <tr>
-                    <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th class="table-head-cell">Key</th>
+                    <th class="table-head-cell">Summary</th>
+                    <th class="table-head-cell">Assingee</th>
+                    <th class="table-head-cell"><span class="hidden">View</span></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>{{c.id}}</td>
-                    <td>{{c.firstname}}</td>
-                    <td>{{c.lastname}}</td>
+            <tbody class="table-body">
+                <tr class="table-body-row">
+                    <td class="table-body-cell">A223</td>
+                    <td class="table-body-cell">Lorem ipsum dolor sit amet</td>
+                    <td class="table-body-cell">John Doe</td>
+                    <td class="table-body-cell">View</td>
+                </tr>
+                <tr class="table-body-row">
+                    <td class="table-body-cell">C353</td>
+                    <td class="table-body-cell">Lorem ipsum dolor sit amet</td>
+                    <td class="table-body-cell">Lisa Jones</td>
+                    <td class="table-body-cell">View</td>
+                </tr>
+                <tr class="table-body-row">
+                    <td class="table-body-cell">B356</td>
+                    <td class="table-body-cell">Lorem ipsum dolor sit amet</td>
+                    <td class="table-body-cell">Lisa Jones</td>
+                    <td class="table-body-cell">View</td>
                 </tr>
             </tbody>
         </table>

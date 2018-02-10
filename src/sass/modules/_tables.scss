@@ -1,0 +1,40 @@
+/* 
+ * Tables
+ *
+ */
+
+%cell {
+    font-family: $libre-franklin;
+    padding: .75em 0;
+}
+
+.table {
+    width: 100%;
+    
+    &-head {
+        border-bottom: 1px solid #CFCFCF;
+
+        &-cell {
+            @extend %cell;
+            font-weight: 400;
+        }
+    }
+
+    &-body {
+        &-row {
+            &:nth-of-type(odd) {
+                background: #F5F5F6;
+            }
+        }
+
+        &-cell {
+            @extend %cell;
+            color: #707070;
+            font-weight: 200; 
+
+            &:first-of-type {
+                padding: { left: .75em; right: 1em; }
+            }
+        }
+    }
+} 

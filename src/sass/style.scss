@@ -4,8 +4,11 @@
 @import 'partials/base';
 @import 'partials/variables';
 @import 'partials/typography';
+@import 'partials/utils';
 
 // Modules
 @import 'modules/sink';
 @import 'modules/buttons';
-@import 'modules/form';
+@import 'modules/forms';
+@import 'modules/tables';
+ 
