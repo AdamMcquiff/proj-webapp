@@ -38,4 +38,19 @@
         -ms-transform: scale(1.05);
         transform: scale(1.05);   
     }
+
+    &--secondary {
+        background: none;
+        box-shadow: none;
+        color: $blue;
+        padding: { left: 1em; right: 1em; }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: none;
+            box-shadow: none;
+            color: $dark-blue;
+        }
+    }
 }
