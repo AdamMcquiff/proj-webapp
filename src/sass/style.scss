@@ -1,3 +1,9 @@
-html {
-    color: red;
-}
+// Partials
+@import 'partials/normalise';
+@import 'partials/base';
+@import 'partials/variables';
+@import 'partials/typography';
+
+// Modules
+@import 'modules/sink';
+@import 'modules/buttons';
