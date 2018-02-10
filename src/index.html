@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
 
-		<!-- TODO: replace title with more something better -->
-		<title>Project Management Application</title>
-		<base href="/">
+<head>
+	<meta charset="utf-8">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- TODO: replace title with more something better -->
+	<title>Project Management Application</title>
+	<base href="/">
 
-		<!-- TODO: replace favicon with generated icon -->
-		<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico">
-	</head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<body>
-		<app-root></app-root>
+	<!-- TODO: replace favicon with generated icon -->
+	<link rel="icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico">
+</head>
 
-		<script>
-			if (navigator.serviceWorker) {  
-			  navigator.serviceWorker.register('/service-worker.js')
-					.then(registration => {
-						console.log('Service worker registered. Scope is: ', registration.scope);
-					})
-					.catch(error => {
-						console.log('Error: ', error);
-					});
-			}
-		</script>
-	</body>
+<body>
+	<app-root></app-root>
+
+	<script>
+		if (navigator.serviceWorker) {
+		  navigator.serviceWorker.register('/service-worker.js')
+			.then(registration => {
+			  console.log('Service worker registered. Scope is: ', registration.scope);
+			})
+			.catch(error => {
+			  console.log('Error: ', error);
+			});
+		}
+	</script>
+</body>
+
 </html>
