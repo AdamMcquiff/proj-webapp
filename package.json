@@ -1,6 +1,7 @@
 {
   "name": "project-webapp",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "sasslintConfig": "./.sass-lint.yml",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
