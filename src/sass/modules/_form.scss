@@ -11,7 +11,7 @@
         
         font-family: $libre-franklin;
 
-        margin: 0 0 1em 0;
+        margin: 0 0 1.5em 0;
 
         &-title {
             display: block;
@@ -29,7 +29,7 @@
     &-input {    
         background: #F0F0F0;
         
-        border: none;
+        border: 1px solid #D7D6D6;
         border-radius: 3px;
         
         color: #505050;
@@ -40,10 +40,19 @@
         font-size: 1em;
         
         margin: { top: .75em; }
-        padding: .75em;
+        outline: 0;
+        padding: .75em 1em;
 
         resize: none;
-
+        transition: all .3s ease;
         width: 100%;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: darken(#F0F0F0, 10%);
+            border-color: darken(#D7D6D6, 10%);
+            color: #000;
+        }
     }
 }
