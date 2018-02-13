@@ -1,0 +1,54 @@
+/* 
+ * Dialog
+ *
+ */ 
+
+.dialog {
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
+    font-family: $libre-franklin;
+    
+    padding: 0;
+    width: 31.25em;
+    
+    &-header {
+        background: $dark-blue;
+
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
+        color: white;
+        padding: 1em;
+        position: relative;
+
+        &-title {
+            font-size: 1.25em;
+        }
+    }
+    
+    &-body {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        padding: 1em;
+    }
+
+    &-dismiss-btn {
+        background: url('../assets/img/icons/white-cross.svg');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        
+        border: none;
+
+        cursor: pointer;
+        
+        float: right;
+        height: 1.75em;
+        position: absolute;
+        right: 1.5em;
+        top: 1.65em;
+        width: 1.75em;
+    }
+}
