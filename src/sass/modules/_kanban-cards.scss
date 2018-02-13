@@ -1,0 +1,79 @@
+/*
+ * Kanban Cards
+ *
+ */
+
+.kanban-card {
+    border-radius: 3px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
+    display: inline-block;
+    
+    font-family: $libre-franklin;
+
+    margin: { bottom: 1em; right: 1em; }
+    
+    width: 16em;
+
+    &-header {
+        background: $dark-blue;
+        
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
+        color: white;
+
+        padding: .75em 1em;
+    }
+
+    &-title {
+        font-size: 1.125em;
+    }
+
+    &-body {
+        background: $blue;
+
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+
+        padding: .75em 1em .5em;
+    }
+
+    &-task {
+        // Stop the card flickering on hover in webkit browsers
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;
+
+        background: white;
+        
+        border-radius: 3px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        
+        color: $darker-gray;
+        
+        display: block;
+        
+        font-size: .9em;
+        
+        margin: .25em 0 .75em;
+        outline-color: $outline-color;
+        padding: .75em;
+
+        position: relative;
+        text-decoration: none;
+
+        transition: all .3s ease;
+
+        &:hover,
+        &:focus,
+        &:active {
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.36);
+
+            color: black;
+
+            -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            transform: scale(1.05);   
+        }
+    }
+}
