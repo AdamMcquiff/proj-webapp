@@ -1,0 +1,44 @@
+/* 
+ * Sign in layout 
+ *
+ */
+
+.sign-in {
+    background: $dark-blue;
+
+    color: white;
+
+    font-family: $libre-franklin;
+
+    &-title {
+        font-size: 1.625em;
+        margin: 1em auto;
+        text-align: center;
+    } 
+
+    &-form,
+    &-aside {
+        background: white;
+
+        border-radius: 3px;
+        
+        margin: 2em auto 0;
+        padding: 2em 1.5em;
+        width: 28.125em;
+    }
+
+    &-forgot-password {
+        float: right;
+        font-size: .9em;
+    }
+
+    &-btn {
+        font-size: 1.125em;
+        width: 100%;
+    }
+
+    &-aside {
+        color: black;
+        text-align: center;
+    }
+}
