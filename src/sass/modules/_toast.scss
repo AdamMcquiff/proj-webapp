@@ -1,0 +1,33 @@
+/* 
+ * Toast Notifications
+ *
+ */ 
+
+.toast {
+    background: $yellow;
+
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
+    font-family: $libre-franklin;
+    font-weight: 200;
+
+    &-featured {
+        font-weight: 500;
+    }
+
+    &-dismiss-btn {
+        background: url('../assets/img/icons/yellow-cross.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        
+        border: none;
+
+        margin: { left: 1em; }
+        height: 1.25em;
+
+        cursor: pointer;
+    }
+}
