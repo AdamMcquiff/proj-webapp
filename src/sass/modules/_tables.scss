@@ -42,7 +42,6 @@
 
             font-size: .9em;
             
-            padding: { right: 1.125em };
             position: relative;
 
             padding: 0 2em 0 1em;
@@ -79,6 +78,49 @@
                 &:after {
                     -webkit-filter: grayscale(0); 
                     filter: grayscale(0);
+                    opacity: 1;
+                }
+            }
+        }
+
+        &-delete {
+            background: none;
+            
+            border: 0;
+
+            cursor: pointer;
+
+            float: right;
+            
+            font-size: .9em;
+            
+            height: 1em;
+            margin: 0 1em;
+            padding: 0;
+            position: relative;
+            width: 1.25em;
+
+            &:after {
+                background: url('../assets/img/icons/delete.svg') 50% no-repeat;
+                background-size: contain; 
+
+                bottom: 0;
+                content: '';
+                display: inline-block;
+                left: 0;
+                opacity: .7;
+                position: absolute;
+                top: 0;
+
+                transition: all .3s ease;
+                
+                width: 1.25em;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                &:after {
                     opacity: 1;
                 }
             }

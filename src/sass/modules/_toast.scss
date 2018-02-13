@@ -19,15 +19,15 @@
 
     &-dismiss-btn {
         background: url('../assets/img/icons/yellow-cross.svg');
-        background-size: contain;
-        background-repeat: no-repeat;
         background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
         
         border: none;
 
-        margin: { left: 1em; }
-        height: 1.25em;
-
         cursor: pointer;
+        
+        height: 1.25em;
+        margin: { left: 1em; }
     }
 }
