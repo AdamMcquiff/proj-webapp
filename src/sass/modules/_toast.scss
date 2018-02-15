@@ -29,5 +29,14 @@
         
         height: 1.25em;
         margin: { left: 1em; }
+
+        opacity: .6;
+        transition: all .3s ease;
+
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: 1;
+        }
     }
 }

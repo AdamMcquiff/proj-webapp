@@ -45,10 +45,18 @@
         cursor: pointer;
         
         float: right;
-        height: 1.75em;
+        height: 1.5em;
+        opacity: .8;
         position: absolute;
         right: 1.5em;
-        top: 1.65em;
-        width: 1.75em;
+        top: 1.80em;
+        transition: all .3s ease;
+        width: 1.5em;
+
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: 1;
+        }
     }
 }
