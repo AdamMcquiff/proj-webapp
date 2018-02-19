@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { SinkComponent } from './modules/sink/sink.component';
 import { LoginComponent } from './modules/login/login.component';
+import { HttpService } from './services/http.service';
  
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  exports: [ RouterModule ],
+  providers: [ HttpService ],
 })
 export class AppRoutingModule {}
