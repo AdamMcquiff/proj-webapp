@@ -2,9 +2,11 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
  
 import { AppComponent } from './app.component';
-import { SinkComponent } from './sink.component';
+import { SinkComponent } from './modules/sink/sink.component';
+import { LoginComponent } from './modules/login/login.component';
  
 const routes: Routes = [
+    { path: 'login', component: LoginComponent },
     { path: 'sink', component: SinkComponent },
     // { path: '**', component: PageNotFoundComponent }
 ];

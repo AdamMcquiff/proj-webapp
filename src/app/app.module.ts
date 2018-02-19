@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { SinkComponent } from './sink.component';
+import { SinkComponent } from './modules/sink/sink.component';
+import { LoginComponent } from './modules/login/login.component';
 
 import { AppRoutingModule }     from './app-routing.module'; 
 
@@ -14,7 +15,8 @@ import { AppRoutingModule }     from './app-routing.module';
   ],
   declarations: [
     AppComponent,
-    SinkComponent
+    SinkComponent,
+    LoginComponent
   ],
   providers: [],
   bootstrap: [ AppComponent ],
