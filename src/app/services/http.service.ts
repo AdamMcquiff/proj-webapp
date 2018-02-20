@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { environment } from "../../environments/environment";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -10,7 +11,7 @@ const httpOptions = {
 
 @Injectable()
 export class HttpService {
-  baseUrl = "http://projectmanage.test/api/";
+  baseUrl = environment.api_url;
 
   constructor(private http: HttpClient) {}
 
