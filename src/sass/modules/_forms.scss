@@ -24,6 +24,11 @@
             font-weight: 200;
             margin: { top: .375em; }
         }
+
+        &-error {
+            color: $red;
+            margin: .75em 0 1em;
+        }
     }
 
     &-input {    

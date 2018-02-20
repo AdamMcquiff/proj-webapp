@@ -10,6 +10,9 @@
 
     font-family: $libre-franklin;
 
+    min-height: 100vh;
+    padding: { top: 6em; }
+
     &-title {
         font-size: 1.625em;
         margin: 1em auto;

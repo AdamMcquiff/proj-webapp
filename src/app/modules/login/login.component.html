@@ -1,3 +1,49 @@
-<main>
+<main class="sign-in">
+    <h1 class="sign-in-title">Sign in to your account</h1>
+
+    <section class="sign-in-form">
+        <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+            <label class="form-label">
+                <span class="form-label-title">Email address</span>
+
+                <div *ngIf="email.invalid && email.touched" class="form-label-error" role="alert">
+                    <div *ngIf = "email.errors?.required">
+                        Email field can't be blank
+                    </div>
+            
+                    <div *ngIf = "email.errors?.pattern">
+                        The email provided doesn't seem right
+                    </div>
+                </div>
+                
+                <input type="email" class="form-input" placeholder="Enter your email address..." formControlName="email">
+            </label>
     
+            <label class="form-label">
+                <span class="form-label-title">
+                    Password
+                    <span class="sign-in-forgot-password">
+                        <a href="">
+                            Forgot password?
+                        </a>
+                    </span>
+                </span>
+
+                <div *ngIf="(password.invalid && password.touched)" class="form-label-error" role="alert">
+                    Your password must be at least 8 characters
+                </div>
+                
+                <input type="password" class="form-input" placeholder="Enter your password..." formControlName="password">
+            </label>
+    
+            <input type="submit" class="btn sign-in-btn" value="Sign in">
+        </form>
+    </section>
+
+    <aside class="sign-in-aside">
+        <p>
+            New user? 
+            <a href="">Create an account</a>.
+        </p>
+    </aside>
 </main>
