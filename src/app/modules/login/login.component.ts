@@ -12,10 +12,7 @@ import { APIResponse } from "../../interfaces/api-response.interface";
 @Component({
   selector: "login",
   templateUrl: "./login.component.html",
-  providers: [
-    HttpService, 
-    EmailValidator
-  ]
+  providers: [ HttpService ]
 })
 
 export class LoginComponent {
@@ -51,7 +48,7 @@ export class LoginComponent {
       .subscribe(
         (data: APIResponse) => {
           localStorage.setItem('token', data.meta.token);
-          // this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard']);
         },
         error => this.serverErrors = error
       );  
