@@ -10,9 +10,15 @@ const httpOptions = {
 
 @Injectable()
 export class HttpService {
+  baseUrl = "http://projectmanage.test/api/";
+
   constructor(private http: HttpClient) {}
 
-  get(url) {
-    return this.http.get(url, httpOptions);
+  get(endpoint) {
+    return this.http.get(this.baseUrl + endpoint, httpOptions);
+  }
+
+  post(endpoint, data) {
+    return this.http.post(this.baseUrl + endpoint, data, httpOptions);
   }
 }

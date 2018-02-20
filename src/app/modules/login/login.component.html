@@ -7,15 +7,21 @@
                 <span class="form-label-title">Email address</span>
 
                 <div *ngIf="email.invalid && email.touched" class="form-label-error" role="alert">
-                    <div *ngIf = "email.errors?.required">
+                    <div *ngIf="email.errors?.required">
                         Email field can't be blank
                     </div>
             
-                    <div *ngIf = "email.errors?.pattern">
+                    <div *ngIf="email.errors?.pattern">
                         The email provided doesn't seem right
                     </div>
                 </div>
-                
+
+                <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
+                    <div *ngIf="serverErrors.error.error">
+                        Unable to login, please check you entered your email and password correctly
+                    </div>
+                </div>
+
                 <input type="email" class="form-input" placeholder="Enter your email address..." formControlName="email">
             </label>
     
