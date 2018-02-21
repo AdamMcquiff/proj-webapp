@@ -1,11 +1,11 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
  
-import { AppComponent } from './app.component';
+import { AppComponent } from '../app.component';
 
-import { SinkComponent } from './modules/sink/sink.component';
-import { LoginComponent } from './modules/login/login.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { SinkComponent } from '../modules/sink/sink.component';
+import { LoginComponent } from '../modules/login/login.component';
+import { DashboardComponent } from '../modules/dashboard/dashboard.component';
 
 import { HttpService } from './services/http.service';
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service'

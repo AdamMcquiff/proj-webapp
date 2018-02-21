@@ -12,10 +12,10 @@ import { SinkComponent } from './modules/sink/sink.component';
 import { LoginComponent } from './modules/login/login.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
-import { AppRoutingModule } from './app-routing.module'; 
-import { HttpService } from './services/http.service';
-import { AuthService } from './services/auth.service';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AppRoutingModule } from './common/app-routing.module'; 
+import { HttpService } from './common/services/http.service';
+import { AuthService } from './common/services/auth.service';
+import { AuthGuardService } from './common/services/auth-guard.service';
 
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {

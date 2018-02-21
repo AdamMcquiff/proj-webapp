@@ -5,20 +5,20 @@ import { EmailValidator } from "@angular/forms";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
-import { HttpService } from "../../common/services/http.service";
-import { User } from "../../common/models/user.model";
-import { APIResponse } from "../../common/interfaces/api-response.interface";
+import { HttpService } from "../../services/http.service";
+import { User } from "../../models/user.model";
+import { APIResponse } from "../../interfaces/api-response.interface";
 
 @Component({
-  selector: "login",
-  templateUrl: "./login.component.html",
+  selector: "register",
+  templateUrl: "./register.component.html",
   providers: [ HttpService ]
 })
 
-export class LoginComponent {
-  title = "login";
+export class RegisterComponent {
+  title = "register";
   
-  loginForm: FormGroup;
+  registerForm: FormGroup;
   
   serverErrors = {};
 
@@ -27,7 +27,7 @@ export class LoginComponent {
   constructor(private httpService: HttpService, private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
       email: ["", [
         Validators.required,
         Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$")
@@ -40,9 +40,9 @@ export class LoginComponent {
   }
 
   public onFormSubmit() {
-    if (!this.loginForm.valid) return;
+    if (!this.registerForm.valid) return;
   
-    this.user = this.loginForm.value;
+    this.user = this.registerForm.value;
 
     this.httpService.post('authenticate', this.user)
       .subscribe(
@@ -55,10 +55,10 @@ export class LoginComponent {
   }
 
   get email() { 
-    return this.loginForm.get('email'); 
+    return this.registerForm.get('email'); 
   }
 
   get password() { 
-    return this.loginForm.get('password'); 
+    return this.registerForm.get('password'); 
   }
 }
