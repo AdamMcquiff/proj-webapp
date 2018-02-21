@@ -5,9 +5,9 @@ import { EmailValidator } from "@angular/forms";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
-import { HttpService } from "../../services/http.service";
-import { User } from "../../models/user.model";
-import { APIResponse } from "../../interfaces/api-response.interface";
+import { HttpService } from "../../common/services/http.service";
+import { User } from "../../common/models/user.model";
+import { APIResponse } from "../../common/interfaces/api-response.interface";
 
 @Component({
   selector: "register",

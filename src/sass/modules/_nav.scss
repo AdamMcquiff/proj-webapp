@@ -1,0 +1,121 @@
+/*
+ * Navigation
+ * 
+ */ 
+
+.nav {
+    background-color: $dark-blue;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    float: left;
+    font-family: $libre-franklin;
+    height: 100vh;
+    position: fixed;
+    width: susy-span(1.25 of 12);
+
+    &-avatar {
+        background: $blue;
+
+        border: 2px solid white;
+        border-radius: 100%;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        
+        height: 5em;
+        margin: 1.5em auto;
+        width: 5em;
+    }
+
+    &-hr {
+        border: 1px solid $blue;
+        margin: 1em 0;
+        opacity: .2;
+    }
+
+    &-btn {
+        background-color: transparent;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 95%;
+
+        border: 0;
+        border-radius: 100%;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        
+        cursor: pointer;
+
+        display: block;
+        font-size: 1em;
+        height: 2.5em;
+        margin: 1em auto;
+        opacity: .7;
+        padding: 0;
+        transition: all .3s ease;
+        width: 2.5em;
+
+
+        &:hover,
+        &:focus,
+        &:active {
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.32);
+            opacity: 1;
+        }
+
+        &--search {
+            background-image: url('../assets/img/icons/search.svg');
+        }
+
+        &--add {
+            background-image: url('../assets/img/icons/add.svg');
+        }
+    }
+
+    &-links {
+        margin: 1.5em 0;
+        text-align: center;
+    }
+
+    &-link {
+        color: white;
+
+        display: block;
+        padding: 1em 0;
+        text-decoration: none;
+        
+        font-size: .9em;
+        
+        opacity: .7;
+        transition: opacity .3s ease;
+        
+        &:before {
+            background-size: cover;
+            background-position: center;
+
+            content: '';
+            display: block;
+            height: 4em;
+            margin: -.5em auto;
+            width: 4em;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: 1;
+        }
+
+        &--dashboard {
+            &:before { background-image: url('../assets/img/icons/dashboard.svg'); }
+        }
+
+        &--projects {
+            &:before { background-image: url('../assets/img/icons/projects.svg'); }
+        }
+
+        &--teams {
+            &:before { background-image: url('../assets/img/icons/teams.svg'); }
+        }
+
+        &--clients {
+            &:before { background-image: url('../assets/img/icons/clients.svg'); }
+        }
+    }
+}

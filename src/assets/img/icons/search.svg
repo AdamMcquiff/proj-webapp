@@ -1,0 +1,16 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+	<style type="text/css">
+		.st0{opacity:0.85;}
+		.st1{fill:#FFFFFF;}
+	</style>
+	<g transform="translate(42 153)" class="st0">
+		<circle class="st1" cx="-31.1" cy="-142.1" r="3.8"/>
+		<g transform="matrix(1, 0, 0, 1, -42, -153)">
+			<path class="st1" d="M12,0C5.4,0,0,5.4,0,12s5.4,12,12,12s12-5.4,12-12C24,5.4,18.7,0,12,0C12,0,12,0,12,0z
+				M18.9,18.2l-0.8,0.8c-0.2,0.2-0.5,0.2-0.7,0c0,0,0,0,0,0L14.5,16c-0.1-0.1-0.2-0.1-0.3-0.1c-1,0.6-2.1,0.9-3.2,0.9
+				c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6c0,1.1-0.3,2.3-0.9,3.2c-0.1,0.1-0.1,0.3,0.1,0.3l2.9,2.9C19.2,17.6,19.1,17.9,18.9,18.2z"
+				/>
+		</g>
+	</g>
+</svg>
