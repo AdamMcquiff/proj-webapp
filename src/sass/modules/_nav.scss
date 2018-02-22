@@ -76,18 +76,16 @@
         color: white;
 
         display: block;
+        font-size: .9em;
+        opacity: .7;
         padding: 1em 0;
         text-decoration: none;
-        
-        font-size: .9em;
-        
-        opacity: .7;
         transition: opacity .3s ease;
         
         &:before {
-            background-size: cover;
             background-position: center;
-
+            background-size: cover;
+            
             content: '';
             display: block;
             height: 4em;

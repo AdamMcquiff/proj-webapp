@@ -11,7 +11,7 @@
     font-family: $libre-franklin;
 
     min-height: 100vh;
-    padding: { top: 6em; }
+    padding: { top: 3em; }
 
     &-title {
         font-size: 1.625em;
@@ -44,6 +44,7 @@
 
     &-btn {
         font-size: 1.125em;
+        text-align: center;
         width: 100%;
     }
 
@@ -55,5 +56,18 @@
         color: $darker-gray;
         margin: { top: 2em; }
         text-align: center;
+    }
+
+    &-success {
+        text-align: center;
+        
+        &-title {
+            @include type-setting(2);
+        }
+
+        &-text {
+            @include type-setting(0);
+            margin: { bottom: 1em; }
+        }
     }
 }

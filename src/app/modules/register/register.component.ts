@@ -19,6 +19,8 @@ import { AuthService } from "../../common/services/auth.service";
 export class RegisterComponent {
   title = "register";
   
+  registered = false;
+
   registerForm: FormGroup;
   
   serverErrors = {};
@@ -30,7 +32,14 @@ export class RegisterComponent {
   ngOnInit(): void {
     if (this.auth.isAuthenticated()) this.router.navigate(['dashboard'])
     
+    // TODO: validate password against confirm password
     this.registerForm = this.formBuilder.group({
+      name: ["", [
+        Validators.required,
+      ]],
+      username: ["", [
+        Validators.required,
+      ]],
       email: ["", [
         Validators.required,
         Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$")
@@ -38,7 +47,11 @@ export class RegisterComponent {
       password: ["", [
         Validators.required,
         Validators.minLength(8)
-      ]]
+      ]],
+      password_confirmation: ["", [
+        Validators.required,
+        Validators.minLength(8)
+      ]] 
     });
   }
 
@@ -46,15 +59,25 @@ export class RegisterComponent {
     if (!this.registerForm.valid) return;
   
     this.user = this.registerForm.value;
-
-    this.httpService.post('authenticate', this.user)
+    console.log(this.user)
+    this.httpService.post('register', this.user)
       .subscribe(
-        (data: APIResponse) => {
-          localStorage.setItem('token', data.meta.token);
-          this.router.navigate(['/dashboard']);
+        (data) => {
+          console.log('hit')
+          // localStorage.setItem('token', data.meta.token);
+          this.registered = true;
+          // this.router.navigate(['/dashboard']);
         },
-        error => this.serverErrors = error
+        error => console.log(error)
       );  
+  }
+
+  get name() { 
+    return this.registerForm.get('email'); 
+  }
+
+  get username() { 
+    return this.registerForm.get('password'); 
   }
 
   get email() { 
@@ -63,5 +86,9 @@ export class RegisterComponent {
 
   get password() { 
     return this.registerForm.get('password'); 
+  }
+
+  get confirmPassword() { 
+    return this.registerForm.get('confirmPassword'); 
   }
 }

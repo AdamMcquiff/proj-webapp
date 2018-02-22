@@ -1,8 +1,32 @@
 <main class="sign-in">
-    <h1 class="sign-in-title">Sign in to your account</h1>
+    <h1 class="sign-in-title">Register your account</h1>
 
     <section class="sign-in-form">
-        <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+        <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" *ngIf="!registered">
+            <label class="form-label">
+                <span class="form-label-title">Name</span>
+
+                <div *ngIf="name.invalid && name.touched" class="form-label-error" role="alert">
+                    <div *ngIf="name.errors?.required">
+                        Name field can't be blank
+                    </div>
+                </div>
+
+                <input type="text" class="form-input" placeholder="Enter your full name..." formControlName="name">
+            </label>
+
+            <label class="form-label">
+                <span class="form-label-title">Username</span>
+
+                <div *ngIf="username.invalid && username.touched" class="form-label-error" role="alert">
+                    <div *ngIf="username.errors?.required">
+                        Username field can't be blank
+                    </div>
+                </div>
+
+                <input type="text" class="form-input" placeholder="Enter a username..." formControlName="username">
+            </label>
+            
             <label class="form-label">
                 <span class="form-label-title">Email address</span>
 
@@ -16,23 +40,12 @@
                     </div>
                 </div>
 
-                <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
-                    <div *ngIf="serverErrors.error.error">
-                        Unable to login, please check you entered your email and password correctly
-                    </div>
-                </div>
-
                 <input type="email" class="form-input" placeholder="Enter your email address..." formControlName="email">
             </label>
     
             <label class="form-label">
                 <span class="form-label-title">
                     Password
-                    <span class="sign-in-forgot-password">
-                        <a href="">
-                            Forgot password?
-                        </a>
-                    </span>
                 </span>
 
                 <div *ngIf="(password.invalid && password.touched)" class="form-label-error" role="alert">
@@ -42,14 +55,30 @@
                 <input type="password" class="form-input" placeholder="Enter your password..." formControlName="password">
             </label>
     
-            <input type="submit" class="btn sign-in-btn" value="Sign in">
-        </form>
-    </section>
+            <label class="form-label">
+                <span class="form-label-title">
+                    Confirm Password
+                </span>
+                
+                <input type="password" class="form-input" placeholder="Enter your password again..." formControlName="password_confirmation">
+            </label>
 
-    <aside class="sign-in-aside">
-        <p>
-            New user? 
-            <a href="">Create an account</a>.
-        </p>
-    </aside>
+            <input type="submit" class="btn sign-in-btn" value="Sign up">
+
+            <p class="sign-in-footer-notice">
+                Already have an account?
+                <a routerLink="/login" routerLinkActive="active">Sign in</a>.
+            </p>
+        </form>
+
+        <div class="sign-in-success" *ngIf="registered">
+            <h2 class="sign-in-success-title">Congratulations :emoji:</h2>
+
+            <p class="sign-in-success-text">
+                Your account has been registered successfully.
+            </p>
+
+            <a class="btn sign-in-btn" routerLink="/dashboard" routerLinkActive="active">Let's go!</a>
+        </div>
+    </section>
 </main>
