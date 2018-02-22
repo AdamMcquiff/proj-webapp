@@ -1,3 +1,4 @@
+<primary-header *ngIf="auth.isAuthenticated()"></primary-header>
 <navigation *ngIf="auth.isAuthenticated()"></navigation>
 
 <router-outlet></router-outlet>

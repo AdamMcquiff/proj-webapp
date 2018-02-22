@@ -10,6 +10,7 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { AppComponent } from './app.component';
 import { SinkComponent } from './modules/sink/sink.component';
 import { NavComponent } from './common/nav/nav.component';
+import { HeaderComponent } from './common/header/header.component';
 import { LoginComponent } from './modules/login/login.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
@@ -33,6 +34,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   declarations: [
     AppComponent,
     NavComponent,
+    HeaderComponent,
     SinkComponent,
     LoginComponent,
     DashboardComponent
