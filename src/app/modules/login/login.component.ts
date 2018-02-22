@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 import { HttpService } from "../../common/services/http.service";
 import { User } from "../../common/models/user.model";
 import { APIResponse } from "../../common/interfaces/api-response.interface";
+import { AuthService } from "../../common/services/auth.service";
 
 @Component({
   selector: "login",
@@ -24,9 +25,11 @@ export class LoginComponent {
 
   private user: User;
 
-  constructor(private httpService: HttpService, private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private httpService: HttpService, private formBuilder: FormBuilder, private router: Router, public auth: AuthService) {}
 
   ngOnInit(): void {
+    if (this.auth.isAuthenticated()) this.router.navigate(['dashboard'])
+
     this.loginForm = this.formBuilder.group({
       email: ["", [
         Validators.required,

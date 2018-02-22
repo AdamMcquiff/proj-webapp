@@ -7,18 +7,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
-import { AppComponent } from './app.component';
-import { SinkComponent } from './modules/sink/sink.component';
-import { NavComponent } from './common/nav/nav.component';
-import { HeaderComponent } from './common/header/header.component';
-import { LoginComponent } from './modules/login/login.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
-
 import { AppRoutingModule } from './common/app-routing.module'; 
 import { HttpService } from './common/services/http.service';
 import { AuthService } from './common/services/auth.service';
 import { AuthGuardService } from './common/services/auth-guard.service';
 
+import { AppComponent } from './app.component';
+import { SinkComponent } from './modules/sink/sink.component';
+import { NavComponent } from './common/nav/nav.component';
+import { HeaderComponent } from './common/header/header.component';
+import { LoginComponent } from './modules/login/login.component';
+import { RegisterComponent } from './modules/register/register.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -37,6 +37,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     HeaderComponent,
     SinkComponent,
     LoginComponent,
+    RegisterComponent,
     DashboardComponent
   ],
   providers: [ 
