@@ -23,6 +23,7 @@ import { LoginComponent } from './modules/login/login.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { ForgottenPasswordComponent } from './modules/forgotten-password/forgotten-password.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { ProjectsComponent } from './modules/projects/projects.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -30,7 +31,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule, 
     HttpClientModule,
     AppRoutingModule,                        
     ReactiveFormsModule                
@@ -43,7 +44,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     LoginComponent,
     RegisterComponent,
     ForgottenPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProjectsComponent
   ],
   providers: [ 
     HttpService, 

@@ -11,12 +11,14 @@ import { LoginComponent } from '../modules/login/login.component';
 import { RegisterComponent } from '../modules/register/register.component';
 import { ForgottenPasswordComponent } from '../modules/forgotten-password/forgotten-password.component';
 import { DashboardComponent } from '../modules/dashboard/dashboard.component';
+import { ProjectsComponent } from '../modules/projects/projects.component';
  
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'forgotten-password', component: ForgottenPasswordComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard ] },
+    { path: 'projects', component: ProjectsComponent, canActivate: [ AuthGuard ] },
     { path: 'sink', component: SinkComponent, canActivate: [ AuthGuard ] },
     // { path: '**', component: PageNotFoundComponent }
 ];
