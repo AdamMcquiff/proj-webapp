@@ -7,9 +7,12 @@
     background-color: $dark-blue;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     float: left;
+
     font-family: $libre-franklin;
+    
     height: 100vh;
     position: fixed;
+    top: $header-height; 
     width: susy-span(1.25 of 12);
 
     &-avatar {

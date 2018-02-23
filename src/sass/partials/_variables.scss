@@ -3,6 +3,10 @@
  *
  */
 
+/* 
+ * Colours 
+ */ 
+
 $green:         #1FAA00;
 $light-green:   #64DD17;
 
@@ -14,11 +18,18 @@ $red:           #F44336;
 
 $yellow:        #FFEB3B;
 
-$lightest-gray: #F0F0F0;
-$lighter-gray:  #D7D6D6;
-$light-gray:    #CFCFCF;
-$gray:          #9E9E9E;
-$dark-gray:     #707070;
-$darker-gray:   #505050;
+$lightest-gray: #F5F5F6;
+$lighter-gray:  #F0F0F0;
+$light-gray:    #D7D6D6;
+$gray:          #CFCFCF;
+$dark-gray:     #9E9E9E;
+$darker-gray:   #707070;
+$darkest-gray:  #505050;
 
 $outline-color: darkorange;
+
+/* 
+ * Sizes
+ */
+
+$header-height: 3.125em;

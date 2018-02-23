@@ -1,0 +1,33 @@
+/*
+ * Main
+ *
+ */
+
+.main {
+    float: right;
+    position: relative;
+    top: $header-height;
+    width: susy-span(10.75 of 12);
+    
+    &-header {
+        background: $blue;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        padding: .75em 1em;
+        position: relative;
+        width: 100%;
+        
+        &-title {
+            @include type-setting(1);
+            color: white;
+            font-family: $libre-franklin;
+        }
+    }
+
+    &-body {
+        background-color: $lightest-gray;
+        
+        // Window height minus the height of 'Header', page header and page padding
+        min-height: calc(100vh - #{$header-height} - 2.0625em - 2em);
+        padding: 1em;
+    }
+}

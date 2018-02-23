@@ -5,13 +5,18 @@
 
 .header {
     @include clearfix;
+    background: white;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
     font-family: $libre-franklin;
+    
     padding: .75em 1em;
+    position: fixed;
     width: 100%;
+    z-index: 10;
 
     &-organisation {
-        color: $darker-gray;
+        color: $darkest-gray;
         float: left;
         letter-spacing: .0125em;
         padding: .2em 0 .125em;
@@ -57,7 +62,7 @@
     }
 
     &-hr {
-        border: { right: 1px solid rgba($light-gray, .5); }
+        border: { right: 1px solid rgba($gray, .5); }
         display: inline-block;
         height: 1.25em;
         margin: 0 .25em 0 .2em;

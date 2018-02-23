@@ -19,7 +19,7 @@
         }
 
         &-subtext { 
-            color: $gray;
+            color: $dark-gray;
             display: block;
             font-weight: 200;
             margin: { top: .375em; }
@@ -32,9 +32,9 @@
     }
 
     &-input {    
-        background: $lightest-gray;
+        background: $lighter-gray;
         
-        border: 1px solid $lighter-gray;
+        border: 1px solid $light-gray;
         border-radius: 3px;
         
         color: #505050;
@@ -55,8 +55,8 @@
         &:hover,
         &:focus,
         &:active {
-            background: darken($lightest-gray, 10%);
-            border-color: darken($lighter-gray, 10%);
+            background: darken($lighter-gray, 10%);
+            border-color: darken($light-gray, 10%);
             color: black;
         }
     }

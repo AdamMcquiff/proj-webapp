@@ -12,7 +12,7 @@
     width: 100%;
     
     &-head {
-        border-bottom: 1px solid $light-gray;
+        border-bottom: 1px solid $gray;
 
         &-cell {
             @extend %cell;
@@ -23,13 +23,13 @@
     &-body {
         &-row {
             &:nth-of-type(odd) {
-                background: $lightest-gray;
+                background: $lighter-gray;
             }
         }
 
         &-cell {
             @extend %cell;
-            color: $dark-gray;
+            color: $darker-gray;
             font-weight: 200; 
 
             &:first-of-type {
@@ -38,7 +38,7 @@
         }
 
         &-view {
-            color: $light-gray;
+            color: $gray;
 
             font-size: .9em;
             
@@ -73,7 +73,7 @@
             &:hover,
             &:focus,
             &:active {
-                color: $gray;
+                color: $dark-gray;
 
                 &:after {
                     -webkit-filter: grayscale(0); 

@@ -12,16 +12,16 @@
 @import 'partials/normalise';
 @import 'partials/mixins';
 @import 'partials/base';
+@import 'partials/grid';
 @import 'partials/variables';
 @import 'partials/typography';
 @import 'partials/utils';
 
 // Modules
-@import 'modules/sink';
 @import 'modules/buttons';
 @import 'modules/dashboard-widgets';
 @import 'modules/dialog';
-@import 'modules/forms';;
+@import 'modules/forms';
 @import 'modules/header';
 @import 'modules/kanban-cards';
 @import 'modules/nav';
@@ -29,4 +29,6 @@
 @import 'modules/toast';
  
 // Layouts
+@import 'layouts/sink';
+@import 'layouts/main';
 @import 'layouts/sign-in';
