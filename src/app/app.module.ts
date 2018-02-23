@@ -21,6 +21,7 @@ import { HeaderComponent } from './common/header/header.component';
 import { SinkComponent } from './modules/sink/sink.component';
 import { LoginComponent } from './modules/login/login.component';
 import { RegisterComponent } from './modules/register/register.component';
+import { ForgottenPasswordComponent } from './modules/forgotten-password/forgotten-password.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -41,6 +42,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SinkComponent,
     LoginComponent,
     RegisterComponent,
+    ForgottenPasswordComponent,
     DashboardComponent
   ],
   providers: [ 
