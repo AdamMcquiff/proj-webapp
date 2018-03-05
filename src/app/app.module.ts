@@ -19,6 +19,7 @@ import { NavComponent } from './common/nav/nav.component';
 import { HeaderComponent } from './common/header/header.component';
 
 import { SinkComponent } from './modules/sink/sink.component';
+import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { LoginComponent } from './modules/login/login.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { ForgottenPasswordComponent } from './modules/forgotten-password/forgotten-password.component';
@@ -43,6 +44,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NavComponent,
     HeaderComponent,
     SinkComponent,
+    PageNotFoundComponent,
     LoginComponent,
     RegisterComponent,
     ForgottenPasswordComponent,

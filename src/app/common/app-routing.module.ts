@@ -14,6 +14,7 @@ import { DashboardComponent } from '../modules/dashboard/dashboard.component';
 import { ProjectsComponent } from '../modules/projects/projects.component';
 import { TeamsComponent } from '../modules/teams/teams.component';
 import { ClientsComponent } from '../modules/clients/clients.component';
+import { PageNotFoundComponent } from '../modules/page-not-found/page-not-found.component';
  
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
     { path: 'teams', component: TeamsComponent, canActivate: [ AuthGuard ] },
     { path: 'clients', component: ClientsComponent, canActivate: [ AuthGuard ] },
     { path: 'sink', component: SinkComponent, canActivate: [ AuthGuard ] },
-    // { path: '**', component: PageNotFoundComponent }
+    { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
