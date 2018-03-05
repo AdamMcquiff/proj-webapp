@@ -1,9 +1,11 @@
 /* 
- * Task Widget
+ * Project Widget
  *
  */
 
-.task-widget {
+// TODO: add hover states, etc.
+
+.project-widget {
     &-row {
         border-bottom: 1px solid $lightest-gray;
         color: $darkest-gray;

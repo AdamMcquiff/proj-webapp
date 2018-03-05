@@ -1,0 +1,21 @@
+<article class="dashboard-widget task-widget">
+    <div class="dashboard-widget-header">
+        <h3 class="dashboard-widget-title">
+            Your Projects
+        </h3>
+    </div>
+    
+    <div class="dashboard-widget-body">
+        <div class="dashboard-widget-row">
+            <ul *ngIf="projects">
+                <li *ngFor="let project of projects" class="project-widget-row">
+                    {{ project.title }}
+                </li>
+            </ul>
+
+            <div *ngIf="!projects" class="dashboard-widget-no-data">
+                No active projects
+            </div>
+        </div>
+    </div>
+</article> 

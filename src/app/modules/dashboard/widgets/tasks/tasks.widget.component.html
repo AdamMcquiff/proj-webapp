@@ -7,8 +7,8 @@
     
     <div class="dashboard-widget-body">
         <div class="dashboard-widget-row">
-            <ul class="task-widget-tasks" *ngIf="tasks">
-                <li *ngFor="let task of tasks" class="task-widget-task">
+            <ul *ngIf="tasks">
+                <li *ngFor="let task of tasks" class="task-widget-row">
                     {{ task.id }} - {{ task.title }}
                 </li>
             </ul>
