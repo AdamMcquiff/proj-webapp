@@ -29,6 +29,7 @@ import { TeamsComponent } from './modules/teams/teams.component';
 import { ClientsComponent } from './modules/clients/clients.component';
 import { TasksDashboardWidgetComponent } from './modules/dashboard/widgets/tasks/tasks.widget.component';
 import { ProjectsDashboardWidgetComponent } from './modules/dashboard/widgets/projects/projects.widget.component';
+import { ProjectsDetailComponent } from './modules/projects/projects-detail.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -54,6 +55,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TasksDashboardWidgetComponent,
     ProjectsDashboardWidgetComponent,
     ProjectsComponent,
+    ProjectsDetailComponent,
     TeamsComponent,
     ClientsComponent
   ],

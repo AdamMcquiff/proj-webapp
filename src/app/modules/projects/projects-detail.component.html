@@ -1,0 +1,80 @@
+<main class="main">
+    <header class="main-header">
+        <h1 class="main-header-title" *ngIf="project">
+            {{ project.title }}
+        </h1>
+    </header>
+    
+    <aside class="main-aside">
+        <ul class="main-aside-links">
+            <li>
+                <a href="#" class="main-aside-link">All Projects</a>
+            </li>
+
+            <li>
+                <a href="#" class="main-aside-link">Active Projects</a>
+            </li>
+
+            <li>
+                <a href="#" class="main-aside-link">Archived Projects</a>
+            </li>
+        </ul>
+    </aside>
+    
+    <section class="main-body">
+        <header class="main-body-header">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">Summary</h2>
+            </div>  
+        </header>
+
+        <div class="main-body-content">
+            <div class="main-body-summary">
+                {{ project.summary }}
+            </div>
+        </div>
+
+        <header class="main-body-header">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">Iterations</h2>
+            </div>  
+
+            <div class="main-body-header-btns">
+                <a class="btn btn--secondary" href="">Import project</a>
+                <a class="btn" href="">Create project</a>    
+            </div>
+        </header>
+
+        <div class="main-body-content">
+            <table class="table">
+                <thead class="table-head">
+                    <tr>
+                        <th class="table-head-cell">Iteration</th>
+                        <th class="table-head-cell">Status</th>
+                        <th class="table-head-cell">Start Date</th>
+                        <th class="table-head-cell">Due Date</th>
+                        <th class="table-head-cell">
+                            <span class="hidden">View</span>
+                        </th>
+                    </tr>
+                </thead>
+    
+                <tbody class="table-body">
+                    <tr class="table-body-row" *ngFor="let iteration of project.iterations"> 
+                        <td class="table-body-cell">{{ iteration.title }}</td>
+                        <td class="table-body-cell">{{ iteration.status }}</td>
+                        <td class="table-body-cell">{{ iteration.start_date }}</td>
+                        <td class="table-body-cell">{{ iteration.end_date }}</td>
+                        <td class="table-body-cell table-body-cell--view">
+                            <a class="table-body-view" 
+                               [routerLink]="['/iterations', iteration.id]" 
+                               routerLinkActive="active" >
+                                View
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>

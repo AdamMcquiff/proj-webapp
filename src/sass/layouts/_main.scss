@@ -15,6 +15,9 @@
     &-header {
         background: $blue;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        box-sizing: content-box;
+
+        height: 2.0625em;
         padding: .75em 1em;
         position: relative;
         width: 100%;
@@ -22,22 +25,71 @@
         &-title {
             @include type-setting(1);
             color: white;
-            font-family: $libre-franklin;
+            font-family: $montserrat;
         }
     }
 
     &-aside {
-        border-right: 1px solid $gray;
-        width: 15em;
+        background-color: $lightest-gray;
+        border-right: 1px solid $gray; 
+        padding: 0 1em;
+        width: 13.5em;
+
+        &-link {
+            color: $purple;
+            display: block;
+            font-family: $libre-franklin;
+            font-size: 1.125em;
+            margin: 1.25em 0;
+            text-decoration: none;
+            transition: all .3s ease;
+
+            &:active,
+            &:hover,
+            &:focus {
+                color: $dark-purple;
+            }
+        }
     }
 
     &-body {
-        background-color: $lightest-gray;
-        
         flex-grow: 1;
 
         // Window height minus the height of 'Header', page header and page padding
         min-height: calc(100vh - #{$header-height} - 2.0625em - 2em);
-        padding: 1em;
+        padding: 1.75em 1.5em;
+
+        &-title {
+            float: left;
+            font-family: $montserrat;
+            font-size: 1.25em;
+        }
+
+        &-header {
+            @include clearfix;
+            margin: { bottom: 1em; }
+
+            &-title {    
+                width: susy-span(8 of 12);
+            }
+
+            &-btns {
+                float: right;
+                text-align: right;
+                width: susy-span(4 of 12);
+            }
+        }
+
+        &-content {
+            margin: { bottom: 1.5em; } 
+        }
+
+        &-summary {
+            @include type-setting(0);
+            color: $darkest-gray;
+            font-family: $libre-franklin;
+            font-weight: 200;
+            max-width: 27.5em;
+        }
     }
 }

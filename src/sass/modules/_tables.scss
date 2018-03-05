@@ -35,6 +35,11 @@
             &:first-of-type {
                 padding: { left: .75em; right: 1em; }
             }
+
+            &--view {
+                padding: { right: .5em; }
+                text-align: right;
+            }
         }
 
         &-view {

@@ -17,7 +17,6 @@ export class ProjectsDashboardWidgetComponent {
     this.httpService.get('projects')
       .subscribe((data: ProjectAPIResponse) => {
         this.projects = data.projects;
-        console.log(this.projects)
       });  
   }
 }
