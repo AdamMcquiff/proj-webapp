@@ -4,11 +4,14 @@
  */
 
 .main {
+    display: flex;
+    flex-wrap: wrap;
     float: right;
+    
     position: relative;
     top: $header-height;
-    width: susy-span(10.75 of 12);
-    
+    width: calc(100% - 7em);
+
     &-header {
         background: $blue;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -23,9 +26,16 @@
         }
     }
 
+    &-aside {
+        border-right: 1px solid $gray;
+        width: 15em;
+    }
+
     &-body {
         background-color: $lightest-gray;
         
+        flex-grow: 1;
+
         // Window height minus the height of 'Header', page header and page padding
         min-height: calc(100vh - #{$header-height} - 2.0625em - 2em);
         padding: 1em;

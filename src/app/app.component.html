@@ -2,6 +2,4 @@
 
 <navigation *ngIf="auth.isAuthenticated()"></navigation>
 
-<main [ngClass]="{ 'main': auth.isAuthenticated() }">
-    <router-outlet></router-outlet>
-</main>
+<router-outlet></router-outlet>
