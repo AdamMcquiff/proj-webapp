@@ -21,7 +21,7 @@ export class LoginComponent {
   
   loginForm: FormGroup;
   
-  serverErrors = { error: { error:{} }};
+  serverErrors = {};
 
   private user: User;
 
