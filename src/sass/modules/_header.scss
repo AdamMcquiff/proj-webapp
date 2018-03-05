@@ -16,11 +16,21 @@
     z-index: 10;
 
     &-organisation {
-        color: $darkest-gray;
         float: left;
-        letter-spacing: .0125em;
         padding: .3em 0 .125em;
-        text-transform: uppercase;
+
+        &-link {
+            color: $darkest-gray;
+            letter-spacing: .0125em;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            &:hover,
+            &:active,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
     }
 
     &-icons {

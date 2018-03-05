@@ -1,0 +1,21 @@
+<article class="dashboard-widget task-widget">
+    <div class="dashboard-widget-header">
+        <h3 class="dashboard-widget-title">
+            Your Tasks
+        </h3>
+    </div>
+    
+    <div class="dashboard-widget-body">
+        <div class="dashboard-widget-row">
+            <ul class="task-widget-tasks" *ngIf="tasks">
+                <li *ngFor="let task of tasks" class="task-widget-task">
+                    {{ task.id }} - {{ task.title }}
+                </li>
+            </ul>
+
+            <div *ngIf="!tasks" class="dashboard-widget-no-data">
+                No assigned tasks
+            </div>
+        </div>
+    </div>
+</article> 

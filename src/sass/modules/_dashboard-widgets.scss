@@ -31,9 +31,19 @@
     }
 
     &-body {
+        background: white;
+
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
 
-        padding: .75em 1em .5em;
+        height: 15em;
+
+        overflow: scroll;
+    }
+
+    &-no-data {
+        color: $darkest-gray;
+        padding: 1.5em 0;
+        text-align: center;
     }
 }

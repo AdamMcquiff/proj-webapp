@@ -27,6 +27,7 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { ProjectsComponent } from './modules/projects/projects.component';
 import { TeamsComponent } from './modules/teams/teams.component';
 import { ClientsComponent } from './modules/clients/clients.component';
+import { TasksDashboardWidgetComponent } from './modules/dashboard/widgets/tasks.widget.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -49,6 +50,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     RegisterComponent,
     ForgottenPasswordComponent,
     DashboardComponent,
+    TasksDashboardWidgetComponent,
     ProjectsComponent,
     TeamsComponent,
     ClientsComponent

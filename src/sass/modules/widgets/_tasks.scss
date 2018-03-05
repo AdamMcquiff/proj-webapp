@@ -1,0 +1,12 @@
+/* 
+ * Task Widget
+ *
+ */
+
+.task-widget {
+    &-task {
+        border-bottom: 1px solid $lightest-gray;
+        color: $darkest-gray;
+        padding: .75em 1em;
+    }
+}
