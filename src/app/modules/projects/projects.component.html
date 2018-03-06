@@ -22,6 +22,8 @@
     </aside>
 
     <section class="main-body">
+        <div class="loading" *ngIf="!projects"></div>
+
         <header class="main-body-header">
             <div class="main-body-header-title">
                 <h2 class="main-body-title">All Projects</h2>
@@ -33,7 +35,7 @@
             </div>
         </header>
 
-        <table class="table">
+        <table class="table" *ngIf="projects">
             <thead class="table-head">
                 <tr>
                     <th class="table-head-cell">Project</th>
@@ -47,7 +49,12 @@
 
             <tbody class="table-body">
                 <tr class="table-body-row" *ngFor="let project of projects"> 
-                    <td class="table-body-cell">{{ project.title }}</td>
+                    <td class="table-body-cell">
+                        <a [routerLink]="['/projects', project.id]" 
+                           routerLinkActive="active">
+                            {{ project.title }}
+                        </a>
+                    </td>
                     <td class="table-body-cell">{{ project.summary.substring(0, 25) + '...' }}</td>
                     <td class="table-body-cell">{{ project.methodology }}</td>
                     <td class="table-body-cell table-body-cell--view">

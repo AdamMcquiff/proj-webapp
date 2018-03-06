@@ -36,7 +36,7 @@
         border-right: 1px solid $gray; 
 
         // Window height minus the height of 'Header', page header and page padding
-        min-height: calc(100vh - #{$header-height} - 2.0625em - 2em);
+        min-height: calc(100vh - #{$header-height} - 2.0625em - 1.5em);
         padding: 0 1em;
         width: 13.5em;
 
@@ -82,6 +82,7 @@
     }
 
     &-body {
+        position: relative;
         background-color: white;
 
         flex-grow: 1;
