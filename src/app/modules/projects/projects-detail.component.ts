@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { HttpService } from "../../common/services/http.service";
 import { ActivatedRoute, Params } from "@angular/router";
 import { APIResponse } from "../../common/interfaces/api-response.interface";
+import { Project } from "../../common/models/project.model";
 
 @Component({
   selector: "projects",
@@ -10,23 +11,17 @@ import { APIResponse } from "../../common/interfaces/api-response.interface";
 })
 
 export class ProjectsDetailComponent {
-  title = "Projects";
-
-  projectId = null;
-  project: Object = null;
-  itertations: Object = null;
+  project: Project;
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
-      this.projectId = params['id'];
+      const projectId = params['id'];
 
-      this.httpService.get('projects/' + this.projectId)
+      this.httpService.get('projects/' + projectId)
         .subscribe((data: APIResponse) => {
-          console.log(data)
           this.project = data.data[0];
-          this.httpService.get
         })  
     });
   }

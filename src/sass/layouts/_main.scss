@@ -32,6 +32,9 @@
     &-aside {
         background-color: $lightest-gray;
         border-right: 1px solid $gray; 
+
+        // Window height minus the height of 'Header', page header and page padding
+        min-height: calc(100vh - #{$header-height} - 2.0625em - 2em);
         padding: 0 1em;
         width: 13.5em;
 
@@ -70,13 +73,13 @@
             margin: { bottom: 1em; }
 
             &-title {    
-                width: susy-span(8 of 12);
+                width: susy-span(6 of 12);
             }
 
             &-btns {
                 float: right;
                 text-align: right;
-                width: susy-span(4 of 12);
+                width: susy-span(6 of 12);
             }
         }
 

@@ -21,7 +21,7 @@
         </ul>
     </aside>
     
-    <section class="main-body">
+    <section class="main-body" *ngIf="project">
         <header class="main-body-header">
             <div class="main-body-header-title">
                 <h2 class="main-body-title">Summary</h2>
@@ -40,8 +40,8 @@
             </div>  
 
             <div class="main-body-header-btns">
-                <a class="btn btn--secondary" href="">Import project</a>
-                <a class="btn" href="">Create project</a>    
+                <a class="btn btn--secondary" href="">Import iteration</a>
+                <a class="btn" href="">Create iteration</a>    
             </div>
         </header>
 
@@ -62,7 +62,7 @@
                 <tbody class="table-body">
                     <tr class="table-body-row" *ngFor="let iteration of project.iterations"> 
                         <td class="table-body-cell">{{ iteration.title }}</td>
-                        <td class="table-body-cell">{{ iteration.status }}</td>
+                        <!-- <td class="table-body-cell">{{ iteration.status ? 'In Pr' }}</td> -->
                         <td class="table-body-cell">{{ iteration.start_date }}</td>
                         <td class="table-body-cell">{{ iteration.end_date }}</td>
                         <td class="table-body-cell table-body-cell--view">

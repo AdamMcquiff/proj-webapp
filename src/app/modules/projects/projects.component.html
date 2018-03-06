@@ -45,16 +45,16 @@
 
             <tbody class="table-body">
                 <tr class="table-body-row" *ngFor="let project of projects"> 
-                    <td class="table-body-cell">A223</td>
-                    <td class="table-body-cell">Lorem ipsum dolor sit amet</td>
-                    <td class="table-body-cell">John Doe</td>
+                    <td class="table-body-cell">{{ project.title }}</td>
+                    <td class="table-body-cell">{{ project.summary.substring(0, 25) + '...' }}</td>
+                    <td class="table-body-cell">{{ project.methodology }}</td>
                     <td class="table-body-cell table-body-cell--view">
                         <a class="table-body-view" 
                            [routerLink]="['/projects', project.id]" 
                            routerLinkActive="active" 
-                           aria-label="Task A223">
+                           aria-label="project.title">
                             View
-                        </a>
+                     </a>
                     </td>
                 </tr>
             </tbody>
