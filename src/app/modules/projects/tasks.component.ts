@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
-import { HttpService } from "../../common/services/http.service";
 import { ActivatedRoute, Params } from "@angular/router";
+
+import { HttpService } from "../../common/services/http.service";
 import { Project } from "../../common/models/project.model";
 import { APIResponse } from "../../common/interfaces/api-response.interface";
 
@@ -22,7 +23,6 @@ export class TasksComponent {
       this.httpService.get('projects/' + projectId)
         .subscribe((data: APIResponse) => {
           this.project = data.data[0];
-          console.log(this.project)
         })  
     });
   }

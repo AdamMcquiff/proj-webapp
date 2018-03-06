@@ -1,0 +1,42 @@
+<main class="main">
+    <header class="main-header">
+        <h1 class="main-header-title">
+            Kanban
+        </h1>
+    </header>
+    
+    <aside class="main-aside">
+        <project-nav [project]="project" *ngIf="project"></project-nav>
+    </aside>
+    
+    <section class="main-body" *ngIf="project">
+        <header class="main-body-header">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">All Tasks</h2>
+            </div>  
+
+            <div class="main-body-header-btns">
+                <a class="btn btn--secondary" href="">Import task</a>
+                <a class="btn" href="">Create task</a>    
+            </div>
+        </header>
+
+        <article class="kanban-card" *ngFor="let iteration of project.iterations">
+            <div class="kanban-card-header">
+                <h3 class="kanban-card-title">
+                    {{ iteration.title }}
+                </h3>
+            </div>
+            
+            <div class="kanban-card-body">
+                <a [routerLink]="['/projects', project.id, 'tasks', task.id]" 
+                   routerLinkActive="active" 
+                   class="kanban-card-task" 
+                   *ngFor="let task of project.tasks">
+                    Task {{ task.title }}
+                    <!-- TODO: add an arrow icon -->
+                </a>
+            </div>
+        </article>
+    </section>
+</main>

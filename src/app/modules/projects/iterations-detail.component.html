@@ -55,7 +55,7 @@
                         <td class="table-body-cell">{{ task.due_date }}</td>
                         <td class="table-body-cell table-body-cell--view">
                             <a class="table-body-view" 
-                               [routerLink]="['/tasks', task.id]" 
+                               [routerLink]="['/projects', project.id, 'tasks', task.id]" 
                                routerLinkActive="active">
                                 View
                             </a>

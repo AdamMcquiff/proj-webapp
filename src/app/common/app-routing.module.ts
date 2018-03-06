@@ -20,6 +20,7 @@ import { IterationsComponent } from '../modules/projects/iterations.component';
 import { IterationsDetailComponent } from '../modules/projects/iterations-detail.component';
 import { TasksComponent } from '../modules/projects/tasks.component';
 import { TasksDetailComponent } from '../modules/projects/tasks-detail.component';
+import { KanbanComponent } from '../modules/projects/kanban.component';
  
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
     { path: 'projects/:id/iterations/:iterationId', component: IterationsDetailComponent, canActivate: [ AuthGuard ] },
     { path: 'projects/:id/tasks', component: TasksComponent, canActivate: [ AuthGuard ] },
     { path: 'projects/:id/tasks/:taskId', component: TasksDetailComponent, canActivate: [ AuthGuard ] },
+    { path: 'projects/:id/kanban', component: KanbanComponent, canActivate: [ AuthGuard ] },
     
     { path: 'teams', component: TeamsComponent, canActivate: [ AuthGuard ] },
     { path: 'clients', component: ClientsComponent, canActivate: [ AuthGuard ] },

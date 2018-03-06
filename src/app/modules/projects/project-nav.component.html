@@ -18,7 +18,9 @@
     </li>
 
     <li>
-        <a href="#" class="main-aside-link">
+        <a [routerLink]="['/projects', project.id, 'kanban']" 
+           routerLinkActive="active"
+           class="main-aside-link">
             Kanban
         </a>
     </li>

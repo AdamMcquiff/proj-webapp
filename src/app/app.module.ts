@@ -39,6 +39,7 @@ import { IterationsComponent } from './modules/projects/iterations.component';
 import { IterationsDetailComponent } from './modules/projects/iterations-detail.component';
 import { TasksComponent } from './modules/projects/tasks.component';
 import { TasksDetailComponent } from './modules/projects/tasks-detail.component';
+import { KanbanComponent } from './modules/projects/kanban.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -70,6 +71,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     IterationsDetailComponent,
     TasksComponent,
     TasksDetailComponent,
+    KanbanComponent,
     TeamsComponent,
     ClientsComponent
   ],

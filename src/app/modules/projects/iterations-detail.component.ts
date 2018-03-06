@@ -1,8 +1,10 @@
 import { Component } from "@angular/core";
-import { HttpService } from "../../common/services/http.service";
 import { ActivatedRoute, Params } from "@angular/router";
+
+import { HttpService } from "../../common/services/http.service";
 import { Project } from "../../common/models/project.model";
 import { APIResponse } from "../../common/interfaces/api-response.interface";
+
 import * as moment from 'moment'; 
 
 @Component({
@@ -30,7 +32,6 @@ export class IterationsDetailComponent {
       this.httpService.get('iterations/' + iterationId)
         .subscribe((data: APIResponse) => {
           this.iteration = data.data[0];
-          console.log(this.iteration)
         })  
     });
   }

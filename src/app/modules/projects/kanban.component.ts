@@ -6,12 +6,12 @@ import { Project } from "../../common/models/project.model";
 import { APIResponse } from "../../common/interfaces/api-response.interface";
 
 @Component({
-  selector: "iterations",
-  templateUrl: "./iterations.component.html",
+  selector: "kanban",
+  templateUrl: "./kanban.component.html",
   providers: []
 })
 
-export class IterationsComponent {
+export class KanbanComponent {
   project: Project;
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
