@@ -9,6 +9,17 @@
     &-row {
         border-bottom: 1px solid $lightest-gray;
         color: $darkest-gray;
+    }
+
+    &-link {
+        display: block;
         padding: 1em;
+        transition: background-color .3s ease;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $lightest-gray;
+        }
     }
 }

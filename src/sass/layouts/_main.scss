@@ -4,6 +4,8 @@
  */
 
 .main {
+    background-color: $lightest-gray;
+
     display: flex;
     flex-wrap: wrap;
     float: right;
@@ -30,7 +32,6 @@
     }
 
     &-aside {
-        background-color: $lightest-gray;
         border-left: 1px solid $gray; 
         border-right: 1px solid $gray; 
 
@@ -81,6 +82,8 @@
     }
 
     &-body {
+        background-color: white;
+
         flex-grow: 1;
 
         // Window height minus the height of 'Header', page header and page padding
@@ -119,6 +122,10 @@
             font-family: $libre-franklin;
             font-weight: 200;
             max-width: 27.5em;
+        }
+
+        &--gray {
+            background-color: $lightest-gray;
         }
     }
 }
