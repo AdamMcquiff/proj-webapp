@@ -16,14 +16,24 @@ import { ProjectsDetailComponent } from '../modules/projects/projects-detail.com
 import { TeamsComponent } from '../modules/teams/teams.component';
 import { ClientsComponent } from '../modules/clients/clients.component';
 import { PageNotFoundComponent } from '../modules/page-not-found/page-not-found.component';
+import { IterationsComponent } from '../modules/projects/iterations.component';
+import { IterationsDetailComponent } from '../modules/projects/iterations-detail.component';
+import { TasksComponent } from '../modules/projects/tasks.component';
+import { TasksDetailComponent } from '../modules/projects/tasks-detail.component';
  
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'forgotten-password', component: ForgottenPasswordComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard ] },
+
     { path: 'projects', component: ProjectsComponent, canActivate: [ AuthGuard ] },
     { path: 'projects/:id', component: ProjectsDetailComponent, canActivate: [ AuthGuard ] },
+    { path: 'projects/:id/iterations', component: IterationsComponent, canActivate: [ AuthGuard ] },
+    { path: 'projects/:id/iterations/:iterationId', component: IterationsDetailComponent, canActivate: [ AuthGuard ] },
+    { path: 'projects/:id/tasks', component: TasksComponent, canActivate: [ AuthGuard ] },
+    { path: 'projects/:id/tasks/:taskId', component: TasksDetailComponent, canActivate: [ AuthGuard ] },
+    
     { path: 'teams', component: TeamsComponent, canActivate: [ AuthGuard ] },
     { path: 'clients', component: ClientsComponent, canActivate: [ AuthGuard ] },
     { path: 'sink', component: SinkComponent, canActivate: [ AuthGuard ] },

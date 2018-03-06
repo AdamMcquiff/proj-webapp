@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { HttpService } from "../../../../common/services/http.service";
-import { TaskAPIResponse } from "../../../tasks/task-api-response.interface";
+import { TaskAPIResponse } from "../../../projects/task-api-response.interface";
 
 @Component({
   selector: "dashboard-tasks-widget",

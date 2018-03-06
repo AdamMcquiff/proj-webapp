@@ -1,0 +1,25 @@
+<main class="main">
+    <header class="main-header">
+        <h1 class="main-header-title" *ngIf="task">
+            {{ task.title }}
+        </h1>
+    </header>
+    
+    <aside class="main-aside">
+        <project-nav [project]="project" *ngIf="project"></project-nav>
+    </aside>
+    
+    <section class="main-body" *ngIf="task">
+        <header class="main-body-header">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">Summary</h2>
+            </div>  
+        </header>
+
+        <div class="main-body-content">
+            <div class="main-body-summary">
+                {{ task.summary }}
+            </div>
+        </div>
+    </section>
+</main>

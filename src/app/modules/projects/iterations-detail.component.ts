@@ -1,32 +1,36 @@
 import { Component } from "@angular/core";
 import { HttpService } from "../../common/services/http.service";
 import { ActivatedRoute, Params } from "@angular/router";
-import { APIResponse } from "../../common/interfaces/api-response.interface";
 import { Project } from "../../common/models/project.model";
+import { APIResponse } from "../../common/interfaces/api-response.interface";
 import * as moment from 'moment'; 
 
 @Component({
-  selector: "projects",
-  templateUrl: "./projects-detail.component.html",
+  selector: "iterations-detail",
+  templateUrl: "./iterations-detail.component.html",
   providers: []
 })
 
-export class ProjectsDetailComponent {
+export class IterationsDetailComponent {
   project: Project;
+  iteration: Object;
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
       const projectId = params['id'];
+      const iterationId = params['iterationId'];
 
       this.httpService.get('projects/' + projectId)
         .subscribe((data: APIResponse) => {
           this.project = data.data[0];
-          
-          // TODO: reformat dates
-          // this.project.start_date = moment(this.project.start_date).format();
-          // this.project.due_date = moment(this.project.due_date).format();
+        })  
+
+      this.httpService.get('iterations/' + iterationId)
+        .subscribe((data: APIResponse) => {
+          this.iteration = data.data[0];
+          console.log(this.iteration)
         })  
     });
   }

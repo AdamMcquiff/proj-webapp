@@ -1,0 +1,33 @@
+<ul class="main-aside-links" *ngIf="project">
+    <li>
+        <a [routerLink]="['/projects', project.id]" 
+           routerLinkActive="active" 
+           class="main-aside-link">
+           Overview
+        </a>
+    </li>
+
+    <hr class="main-aside-hr">
+
+    <li>
+        <a [routerLink]="['/projects', project.id, 'tasks']" 
+           routerLinkActive="active" 
+           class="main-aside-link">
+            Tasks
+        </a>
+    </li>
+
+    <li>
+        <a href="#" class="main-aside-link">
+            Kanban
+        </a>
+    </li>
+
+    <li>
+        <a [routerLink]="['/projects', project.id, 'iterations']" 
+           routerLinkActive="active" 
+           class="main-aside-link">
+            Iterations
+        </a>
+    </li>
+</ul>

@@ -6,19 +6,7 @@
     </header>
     
     <aside class="main-aside">
-        <ul class="main-aside-links">
-            <li>
-                <a href="#" class="main-aside-link">All Projects</a>
-            </li>
-
-            <li>
-                <a href="#" class="main-aside-link">Active Projects</a>
-            </li>
-
-            <li>
-                <a href="#" class="main-aside-link">Archived Projects</a>
-            </li>
-        </ul>
+        <project-nav [project]="project"></project-nav>
     </aside>
     
     <section class="main-body" *ngIf="project">
@@ -62,19 +50,43 @@
                 <tbody class="table-body">
                     <tr class="table-body-row" *ngFor="let iteration of project.iterations"> 
                         <td class="table-body-cell">{{ iteration.title }}</td>
-                        <!-- <td class="table-body-cell">{{ iteration.status ? 'In Pr' }}</td> -->
+                        <td class="table-body-cell">{{ iteration.status }}</td>
                         <td class="table-body-cell">{{ iteration.start_date }}</td>
                         <td class="table-body-cell">{{ iteration.end_date }}</td>
                         <td class="table-body-cell table-body-cell--view">
                             <a class="table-body-view" 
-                               [routerLink]="['/iterations', iteration.id]" 
+                               [routerLink]="['/projects', project.id, 'iterations', iteration.id]" 
                                routerLinkActive="active" >
                                 View
                             </a>
                         </td>
                     </tr>
-                </tbody>
+                </tbody> 
             </table>
         </div>
     </section>
+
+
+    <aside class="main-aside" *ngIf="project">
+        <section class="main-aside-section">
+            <h2 class="main-aside-section-header">Dates</h2>
+
+            <div class="main-aside-section-body">
+                <dl>
+                    <dt>Start Date</dt>
+                    <dd>{{ project.start_date }}</dd>
+                    <dt>End Date</dt>
+                    <dd>{{ project.due_date }}</dd>
+                </dl>
+            </div>
+        </section>
+
+        <section class="main-aside-section">
+            <h2 class="main-aside-section-header">People</h2>
+
+            <div class="main-aside-section-body">
+                
+            </div>
+        </section>
+    </aside>
 </main>

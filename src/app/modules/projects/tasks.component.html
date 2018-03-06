@@ -1,0 +1,55 @@
+<main class="main">
+    <header class="main-header">
+        <h1 class="main-header-title">
+            Tasks
+        </h1>
+    </header>
+    
+    <aside class="main-aside">
+        <project-nav [project]="project" *ngIf="project"></project-nav>
+    </aside>
+    
+    <section class="main-body" *ngIf="project">
+        <header class="main-body-header">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">All Tasks</h2>
+            </div>  
+
+            <div class="main-body-header-btns">
+                <a class="btn btn--secondary" href="">Import task</a>
+                <a class="btn" href="">Create task</a>    
+            </div>
+        </header>
+
+        <table class="table">
+            <thead class="table-head">
+                <tr>
+                    <th class="table-head-cell">Title</th>
+                    <th class="table-head-cell">Summary</th>
+                    <th class="table-head-cell">Assignee</th>
+                    <th class="table-head-cell">Due Date</th>
+                    <th class="table-head-cell">
+                        <span class="hidden">View</span>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody class="table-body">
+                <tr class="table-body-row" *ngFor="let task of project.tasks"> 
+                    <td class="table-body-cell">{{ task.title }}</td>
+                    <td class="table-body-cell">{{ task.summary.substring(0, 25) + '...' }}</td>
+                    <td class="table-body-cell">{{ task.assignee }}</td>
+                    <td class="table-body-cell">{{ task.due_date }}</td>
+                    <td class="table-body-cell table-body-cell--view">
+                        <a class="table-body-view" 
+                            [routerLink]="['/projects', project.id, 'tasks', task.id]" 
+                            routerLinkActive="active" 
+                            aria-label="task.title">
+                            View
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>

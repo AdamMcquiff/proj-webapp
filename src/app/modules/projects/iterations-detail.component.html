@@ -1,0 +1,68 @@
+<main class="main">
+    <header class="main-header">
+        <h1 class="main-header-title" *ngIf="iteration">
+            {{ iteration.title }}
+        </h1>
+    </header>
+    
+    <aside class="main-aside">
+        <project-nav [project]="project" *ngIf="project"></project-nav>
+    </aside>
+    
+    <section class="main-body" *ngIf="iteration">
+        <header class="main-body-header">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">Summary</h2>
+            </div>  
+        </header>
+
+        <div class="main-body-content">
+            <div class="main-body-summary">
+                {{ iteration.summary }}
+            </div>
+        </div>
+
+        <header class="main-body-header">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">Tasks</h2>
+            </div>  
+
+            <div class="main-body-header-btns">
+                <a class="btn btn--secondary" href="">Import task</a>
+                <a class="btn" href="">Create task</a>    
+            </div>
+        </header>
+
+        <div class="main-body-content">
+            <table class="table">
+                <thead class="table-head">
+                    <tr>
+                        <th class="table-head-cell">Title</th>
+                        <th class="table-head-cell">Summary</th>
+                        <th class="table-head-cell">Assignee</th>
+                        <th class="table-head-cell">Due Date</th>
+                        <th class="table-head-cell">
+                            <span class="hidden">View</span>
+                        </th>
+                    </tr>
+                </thead>
+    
+                <tbody class="table-body">
+                    <tr class="table-body-row" *ngFor="let task of iteration.tasks"> 
+                        <td class="table-body-cell">{{ task.title }}</td>
+                        <td class="table-body-cell">{{ task.summary }}</td>
+                        <td class="table-body-cell">{{ task.assignee }}</td>
+                        <td class="table-body-cell">{{ task.due_date }}</td>
+                        <td class="table-body-cell table-body-cell--view">
+                            <a class="table-body-view" 
+                               [routerLink]="['/tasks', task.id]" 
+                               routerLinkActive="active">
+                                View
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
