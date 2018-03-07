@@ -21,7 +21,9 @@
 
         <header class="main-body-header">
             <div class="main-body-header-title">
-                <h2 class="main-body-title">{{ selectedTeam.name }} Members</h2>
+                <h2 class="main-body-title" *ngIf="selectedTeam">
+                    {{ selectedTeam.name }} Members
+                </h2>
             </div>  
 
             <div class="main-body-header-btns">
