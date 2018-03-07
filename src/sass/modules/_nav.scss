@@ -4,16 +4,21 @@
  */ 
 
 .nav {
-    background-color: $dark-blue;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    float: left;
+    position: relative;
 
-    font-family: $libre-franklin;
+    &-bar {
+        background-color: $dark-blue;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        float: left;
     
-    height: 100vh;
-    position: fixed;
-    top: $header-height; 
-    width: 7em;
+        font-family: $libre-franklin;
+        
+        height: 100vh;
+        position: fixed;
+        top: $header-height; 
+        width: 7em;
+        z-index: 2;
+    }
 
     &-avatar {
         background: $blue;
@@ -117,5 +122,42 @@
         &--clients {
             &:before { background-image: url('../assets/img/icons/clients.svg'); }
         }
+    }
+}
+
+.search-menu {
+    background-color: $blue;
+    color: white;
+
+    height: 100vh;
+    left: -14.25em;
+    padding: 6.5em 2em 0;
+    position: absolute;
+    top: 0;
+
+    transition: all .3s ease;
+
+    z-index: 1;
+
+    &.visible {
+        left: 7em;
+    }
+
+    &-title {
+        font-family: $montserrat;
+        font-size: 1.325em;
+    }
+
+    &-input {
+        border: 0;
+        border-radius: 3px;
+
+        display: block;
+
+        font-size: .65em;
+
+        margin: { top: 1em; }
+        min-width: 20em;
+        padding: 1em;
     }
 }

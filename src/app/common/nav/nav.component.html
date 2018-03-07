@@ -1,36 +1,50 @@
-<nav class="nav">
+<nav class="nav">  
 
-    <div class="nav-avatar"></div>
+    <div class="nav-bar">
 
-    <hr class="nav-hr">
+        <div class="nav-avatar"></div>
 
-    <button class="nav-btn nav-btn--search" aria-label="Search Menu"></button>
+        <hr class="nav-hr">
+    
+        <button class="nav-btn nav-btn--search" 
+                aria-label="Search Menu"
+                (click)="toggleSearch()">
+        </button>
+    
+        <button class="nav-btn nav-btn--add" aria-label="Add Menu"></button>
+    
+        <hr class="nav-hr">
+    
+        <ul class="nav-links">
+            <li>
+                <a routerLink="/dashboard" routerLinkActive="active" class="nav-link nav-link--dashboard">
+                    Dashboard   
+                </a>
+            </li>
+            <li>
+                <a routerLink="/projects" routerLinkActive="active" class="nav-link nav-link--projects">
+                    Projects   
+                </a>
+            </li>
+            <li>
+                <a routerLink="/teams" routerLinkActive="active" class="nav-link nav-link--teams">
+                    Teams   
+                </a>
+            </li>
+            <li>
+                <a routerLink="/clients" routerLinkActive="active" class="nav-link nav-link--clients">
+                    Clients   
+                </a>
+            </li>
+        </ul>
+        
+    </div>
 
-    <button class="nav-btn nav-btn--add" aria-label="Add Menu"></button>
-
-    <hr class="nav-hr">
-
-    <ul class="nav-links">
-        <li>
-            <a routerLink="/dashboard" routerLinkActive="active" class="nav-link nav-link--dashboard">
-                Dashboard   
-            </a>
-        </li>
-        <li>
-            <a routerLink="/projects" routerLinkActive="active" class="nav-link nav-link--projects">
-                Projects   
-            </a>
-        </li>
-        <li>
-            <a routerLink="/teams" routerLinkActive="active" class="nav-link nav-link--teams">
-                Teams   
-            </a>
-        </li>
-        <li>
-            <a routerLink="/clients" routerLinkActive="active" class="nav-link nav-link--clients">
-                Clients   
-            </a>
-        </li>
-    </ul>
-
+    <div class="search-menu" [ngClass]="{'visible': isSearchActive }">
+        <label class="search-menu-title">
+            Search...
+            <input class="search-menu-input" type="text" placeholder="Search projects, issues and team…">
+        </label>
+    </div>
+        
 </nav>

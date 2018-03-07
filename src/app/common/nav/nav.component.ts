@@ -7,7 +7,16 @@ import { Router } from "@angular/router";
 })
 
 export class NavComponent {
-  title = "nav";
+  isSearchActive: boolean = false;
 
   constructor() {}
+
+  ngOnInit(): void {
+
+  }
+
+  toggleSearch() {
+    console.log('hit', this.isSearchActive, !this.isSearchActive)
+    this.isSearchActive = !this.isSearchActive;
+  }
 }
