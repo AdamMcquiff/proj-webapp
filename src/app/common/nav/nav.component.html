@@ -40,11 +40,13 @@
         
     </div>
 
-    <div class="search-menu" [ngClass]="{'visible': isSearchActive }">
+    <div class="search-menu" [ngClass]="{ 'visible': isSearchActive }">
         <label class="search-menu-title">
             Search...
             <input class="search-menu-input" type="text" placeholder="Search projects, issues and team…">
         </label>
     </div>
-        
+    
 </nav>
+
+<div class="overlay" [ngClass]="{ 'visible': isMenuOpen }"></div>

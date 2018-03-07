@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
 })
 
 export class NavComponent {
+  isMenuOpen: boolean = false;
   isSearchActive: boolean = false;
 
   constructor() {}
@@ -16,7 +17,7 @@ export class NavComponent {
   }
 
   toggleSearch() {
-    console.log('hit', this.isSearchActive, !this.isSearchActive)
     this.isSearchActive = !this.isSearchActive;
+    this.isMenuOpen = this.isSearchActive;
   }
 }
