@@ -51,6 +51,7 @@ export class LoginComponent {
       .subscribe(
         (data: APIResponse) => {
           localStorage.setItem('token', data.meta.token);
+          this.httpService.refreshToken();
           this.router.navigate(['/dashboard']);
         },
         error => this.serverErrors = error

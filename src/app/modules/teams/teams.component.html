@@ -1,9 +1,61 @@
-<header class="main-header">
-    <h1 class="main-header-title">
-        Teams
-    </h1>
-</header>
-
-<section class="main-body">
+<main class="main">
+    <header class="main-header">
+        <h1 class="main-header-title">
+            Teams
+        </h1>
+    </header>
     
-</section>
+    <aside class="main-aside">
+        <ul class="main-aside-links" *ngIf="teams">
+            <li *ngFor="let team of teams">
+                <a (click)="changeTeam(team)"
+                     class="main-aside-link">
+                   {{ team.name }}
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <section class="main-body">
+        <div class="loading" *ngIf="!teams"></div>
+
+        <header class="main-body-header">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">{{ selectedTeam.name }} Members</h2>
+            </div>  
+
+            <div class="main-body-header-btns">
+                <a class="btn" href="">Invite member</a>    
+            </div>
+        </header>
+
+        <div class="main-body-content">
+            <table class="table" *ngIf="selectedTeam">
+                <thead class="table-head">
+                    <tr>
+                        <th class="table-head-cell">Name</th>
+                        <th class="table-head-cell">Role</th>
+                        <th class="table-head-cell">Day Rate</th>
+                        <th class="table-head-cell">
+                            <span class="hidden">View</span>
+                        </th>
+                    </tr>
+                </thead>
+    
+                <tbody class="table-body">
+                    <tr class="table-body-row" *ngFor="let user of selectedTeam.users"> 
+                        <td class="table-body-cell">{{ user.name }}</td>
+                        <td class="table-body-cell">{{ user.role }}</td>
+                        <td class="table-body-cell">{{ user.day_rate }}</td>
+                        <td class="table-body-cell">
+                            <button class="table-body-delete" 
+                                    aria-label="Delete user.name" 
+                                    title="Delete user.name">
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
