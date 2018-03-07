@@ -18,9 +18,6 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './common/nav/nav.component';
 import { HeaderComponent } from './common/header/header.component';
 
-import { SinkComponent } from './modules/sink/sink.component';
-import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
-
 import { LoginComponent } from './modules/login/login.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { ForgottenPasswordComponent } from './modules/forgotten-password/forgotten-password.component';
@@ -28,9 +25,6 @@ import { ForgottenPasswordComponent } from './modules/forgotten-password/forgott
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { TasksDashboardWidgetComponent } from './modules/dashboard/widgets/tasks/tasks.widget.component';
 import { ProjectsDashboardWidgetComponent } from './modules/dashboard/widgets/projects/projects.widget.component';
-
-import { TeamsComponent } from './modules/teams/teams.component';
-import { ClientsComponent } from './modules/clients/clients.component';
 
 import { ProjectsComponent } from './modules/projects/projects.component';
 import { ProjectNavComponent } from './modules/projects/project-nav.component';
@@ -40,6 +34,14 @@ import { IterationsDetailComponent } from './modules/projects/iterations-detail.
 import { TasksComponent } from './modules/projects/tasks.component';
 import { TasksDetailComponent } from './modules/projects/tasks-detail.component';
 import { KanbanComponent } from './modules/projects/kanban.component';
+
+import { TeamsComponent } from './modules/teams/teams.component';
+
+import { ClientsComponent } from './modules/clients/clients.component';
+import { ClientsDetailComponent } from './modules/clients/clients-detail.component';
+
+import { SinkComponent } from './modules/sink/sink.component';
+import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -56,8 +58,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppComponent,
     NavComponent,
     HeaderComponent,
-    SinkComponent,
-    PageNotFoundComponent,
     LoginComponent, 
     RegisterComponent,
     ForgottenPasswordComponent,
@@ -73,7 +73,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TasksDetailComponent,
     KanbanComponent,
     TeamsComponent,
-    ClientsComponent
+    ClientsComponent,
+    ClientsDetailComponent,
+    SinkComponent,
+    PageNotFoundComponent,
   ],
   providers: [ 
     HttpService, 

@@ -5,7 +5,53 @@
         </h1>
     </header>
 
+    <aside class="main-aside">
+        <!-- -->
+    </aside>
+    
+    
     <section class="main-body">
+        <div class="loading" *ngIf="!clients"></div>
+
+        <header class="main-body-header">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">Clients</h2>
+            </div>  
+
+            <div class="main-body-header-btns">
+                <a class="btn btn--secondary" href="">Import client</a>
+                <a class="btn" href="">Create client</a>    
+            </div>
+        </header>
+
+        <table class="table" *ngIf="clients">
+            <thead class="table-head">
+                <tr>
+                    <th class="table-head-cell">Name</th>
+                    <th class="table-head-cell">
+                        <span class="hidden">View</span>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody class="table-body">
+                <tr class="table-body-row" *ngFor="let client of clients"> 
+                    <td class="table-body-cell">
+                        <a [routerLink]="['/clients', client.id]" 
+                           routerLinkActive="active">
+                            {{ client.name }}
+                        </a>
+                    </td>
+                    <td class="table-body-cell table-body-cell--view">
+                        <a class="table-body-view" 
+                            [routerLink]="['/clients', client.id]" 
+                            routerLinkActive="active">
+                            View
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         
     </section>
 </main>

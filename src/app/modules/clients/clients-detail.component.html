@@ -1,0 +1,22 @@
+<main class="main">
+    <header class="main-header">
+        <h1 class="main-header-title">
+            Clients
+        </h1>
+    </header>
+
+    <aside class="main-aside">
+        <!-- -->
+    </aside>
+    
+    
+    <section class="main-body">
+        <div class="loading" *ngIf="!client"></div>
+
+        <header class="main-body-header" *ngIf="client">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">{{ client.name }}</h2>
+            </div>  
+        </header>
+    </section>
+</main>
