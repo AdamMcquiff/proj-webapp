@@ -28,9 +28,12 @@ import { SinkComponent } from '../modules/sink/sink.component';
 import { PageNotFoundComponent } from '../modules/page-not-found/page-not-found.component';
  
 const routes: Routes = [
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'forgotten-password', component: ForgottenPasswordComponent },
+    
     { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard ] },
 
     { path: 'projects', component: ProjectsComponent, canActivate: [ AuthGuard ] },
@@ -47,7 +50,7 @@ const routes: Routes = [
     { path: 'clients/:id', component: ClientsDetailComponent, canActivate: [ AuthGuard ] },
     
     { path: 'sink', component: SinkComponent, canActivate: [ AuthGuard ] },
-    { path: '**', component: PageNotFoundComponent }
+    { path: '**', component: PageNotFoundComponent, canActivate: [ AuthGuard ] }
 ];
 
 @NgModule({
