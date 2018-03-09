@@ -17,6 +17,8 @@ import { AppComponent } from './app.component';
 
 import { NavComponent } from './common/nav/nav.component';
 import { SearchMenuComponent } from './common/nav/search-menu.component';
+import { AddMenuComponent } from './common/nav/add-menu.component';
+import { AvatarMenuComponent } from './common/nav/avatar-menu.component';
 import { HeaderComponent } from './common/header/header.component';
 
 import { LoginComponent } from './modules/login/login.component';
@@ -59,6 +61,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppComponent,
     NavComponent,
     SearchMenuComponent,
+    AddMenuComponent,
+    AvatarMenuComponent,
     HeaderComponent,
     LoginComponent, 
     RegisterComponent,

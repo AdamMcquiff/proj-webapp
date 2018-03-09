@@ -1,0 +1,15 @@
+<div class="add-menu" [ngClass]="{ 'visible': isOpen }">
+    
+    <button class="add-menu-dismiss-btn" 
+            aria-label="Dismiss" 
+            title="Dismiss" 
+            (click)="toggleDialog()">
+    </button>
+    
+    <label class="add-menu-title">
+        Create...
+    </label>
+
+</div>
+
+<div class="overlay" [ngClass]="{ 'visible': isOpen }"></div>

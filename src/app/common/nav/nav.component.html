@@ -2,22 +2,27 @@
 
     <div class="nav-bar">
 
-        <div class="nav-avatar"></div>
+        <div class="nav-avatar"
+             role="button"
+             aria-label="Toggle personal settings menu"
+             (click)="toggleAvatarMenu()">
+        </div>
 
         <hr class="nav-hr">
     
         <button class="nav-btn nav-btn--search" 
-                aria-label="Search Menu"
-                (click)="toggleSearch()">
+                aria-label="Toggle search menu"
+                (click)="toggleSearchMenu()">
         </button>
     
         <button class="nav-btn nav-btn--add" 
-                aria-label="Add Menu">
+                aria-label="Toggle create menu"
+                (click)="toggleAddMenu()">
         </button>
     
         <hr class="nav-hr">
     
-        <ul class="nav-links">
+        <ul class="nav-links"> 
 
             <li>
                 <a routerLink="/dashboard" 
@@ -55,6 +60,10 @@
         
     </div>
 
-    <search-menu [isOpen]="isSearchActive"></search-menu>
-    
+    <search-menu [isOpen]="isSearchMenuActive"></search-menu>
+
+    <add-menu [isOpen]="isCreateMenuActive"></add-menu>
+
+    <avatar-menu [isOpen]="isAvatarMenuActive"></avatar-menu>
+
 </nav>

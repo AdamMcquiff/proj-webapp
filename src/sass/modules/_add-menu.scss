@@ -1,0 +1,56 @@
+/*
+ * Add Menu
+ *
+ */
+
+.add-menu {
+    background-color: $blue;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    color: white;
+
+    height: 100vh;
+    padding: 9.5em 2em 0;
+    position: absolute;
+    top: 0;
+    
+    transform: translateX(-14.25em);
+    transition: transform .3s ease;
+    will-change: transform;
+
+    z-index: 3;
+
+    &.visible {
+        transform: translateX(7em);
+    }
+
+    &-title {
+        font-family: $montserrat;
+        font-size: 1.325em;
+    }
+
+    &-dismiss-btn {
+        background: url('../assets/img/icons/white-cross.svg');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        
+        border: none;
+
+        cursor: pointer;
+        
+        float: right;
+        height: 1.5em;
+        opacity: .8;
+        position: absolute;
+        right: 1.5em;
+        top: 6.5em;
+        transition: all .3s ease;
+        width: 1.5em;
+
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: 1;
+        }
+    }
+}
