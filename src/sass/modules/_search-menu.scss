@@ -1,0 +1,43 @@
+/*
+ * Search Menu
+ *
+ */
+
+.search-menu {
+    background-color: $blue;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    color: white;
+
+    height: 100vh;
+    padding: 9.5em 2em 0;
+    position: absolute;
+    top: 0;
+    
+    transform: translateX(-14.25em);
+    transition: transform .3s ease;
+    will-change: transform;
+
+    z-index: 2;
+
+    &.visible {
+        transform: translateX(7em);
+    }
+
+    &-title {
+        font-family: $montserrat;
+        font-size: 1.325em;
+    }
+
+    &-input {
+        border: 0;
+        border-radius: 3px;
+
+        display: block;
+
+        font-size: .65em;
+
+        margin: { top: 1em; }
+        min-width: 20em;
+        padding: 1em;
+    }
+}

@@ -41,8 +41,8 @@
         width: 13.5em;
 
         &-link {
-            cursor: pointer;
             color: $purple;
+            cursor: pointer;
             display: block;
             font-family: $libre-franklin;
             font-size: 1.125em;
@@ -80,17 +80,22 @@
                 padding: 1em;
             }
         }
+
+        &--wider {
+            width: 16em;
+        }
     }
 
     &-body {
-        position: relative;
         background-color: white;
 
         flex-grow: 1;
-
+        
         // Window height minus the height of 'Header', page header and page padding
         min-height: calc(100vh - #{$header-height} - 2.0625em - 2em);
+
         padding: 1.75em 1.5em;
+        position: relative;
 
         &-title {
             float: left;
@@ -128,6 +133,25 @@
 
         &--gray {
             background-color: $lightest-gray;
+        }
+    }
+
+    &-detail-list {
+        @include clearfix;
+        font-family: $libre-franklin;
+
+        &-term {
+            float: left;
+            margin: .5em 0;
+            width: susy-span(6 of 12);
+        }
+
+        &-data {
+            color: $darkest-gray;
+            float: left;
+            font-weight: 200;
+            margin: .5em 0;
+            width: susy-span(6 of 12);
         }
     }
 }

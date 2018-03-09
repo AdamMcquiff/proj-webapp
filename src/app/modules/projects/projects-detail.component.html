@@ -66,16 +66,25 @@
         </div>
     </section>
 
-    <aside class="main-aside" *ngIf="project">
+    <aside class="main-aside main-aside--wider" *ngIf="project">
         <section class="main-aside-section">
             <h2 class="main-aside-section-header">Dates</h2>
 
             <div class="main-aside-section-body">
-                <dl>
-                    <dt>Start Date</dt>
-                    <dd>{{ project.start_date }}</dd>
-                    <dt>End Date</dt>
-                    <dd>{{ project.due_date }}</dd>
+                <dl class="main-detail-list">
+                    <dt class="main-detail-list-term">
+                        Start Date
+                    </dt>
+                    <dd class="main-detail-list-data">
+                        {{ project.start_date }}
+                    </dd>
+                    
+                    <dt class="main-detail-list-term">
+                        End Date
+                    </dt>
+                    <dd class="main-detail-list-data">
+                        {{ project.due_date }}
+                    </dd>
                 </dl>
             </div>
         </section>
@@ -84,7 +93,20 @@
             <h2 class="main-aside-section-header">People</h2>
 
             <div class="main-aside-section-body">
-                <!-- TODO: -->
+                <!-- TODO: sort in order: project manager -> team member -> client -->
+                <div class="user-card" *ngFor="let user of project.users">
+                    <div class="user-card-avatar"></div>
+
+                    <div class="user-card-title">
+                        {{ user.name }}
+                    </div>
+                    <div class="user-card-subtext">
+                        {{ user.username }}
+                    </div>
+                    <div class="user-card-body">
+                        {{ user.project_manager ? "Project Manager" : "Team Member" }}
+                    </div>
+                </div>
             </div>
         </section>
     </aside>
