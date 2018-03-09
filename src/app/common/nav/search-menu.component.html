@@ -1,0 +1,17 @@
+<div class="search-menu" [ngClass]="{ 'visible': isOpen }">
+    <button class="search-menu-dismiss-btn" 
+            aria-label="Dismiss" 
+            title="Dismiss" 
+            (click)="toggleDialog()">
+    </button>
+    
+    <label class="search-menu-title">
+        Search...
+
+        <input type="text" 
+               class="search-menu-input" 
+               placeholder="Search projects, issues and team&hellip;">
+    </label>
+</div>
+
+<div class="overlay" [ngClass]="{ 'visible': isOpen }"></div>

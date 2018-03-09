@@ -5,11 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './sink.component.html'
 })
 
-export class SinkComponent {
-  title = 'sink';
-
-  constructor () { 
-
-  }
-}
+export class SinkComponent {}
 

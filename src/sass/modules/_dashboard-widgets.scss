@@ -3,16 +3,16 @@
  *
  */
 
-.dashboard-widget {
+ .dashboard-widget {
     border-radius: 3px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-
+    
     display: inline-block;
     
     font-family: $libre-franklin;
-
-    margin: { bottom: 1em; right: 1em; }
     
+    margin: { bottom: 1em; right: 1em; }
+    position: relative;
     width: 17.5em;
 
     &-header {

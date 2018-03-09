@@ -17,7 +17,7 @@
         position: fixed;
         top: $header-height; 
         width: 7em;
-        z-index: 3;
+        z-index: 4;
     }
 
     &-avatar {
@@ -58,7 +58,6 @@
         padding: 0;
         transition: all .3s ease;
         width: 2.5em;
-
 
         &:hover,
         &:focus,

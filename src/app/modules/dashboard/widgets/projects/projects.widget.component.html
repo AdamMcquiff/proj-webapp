@@ -6,6 +6,8 @@
     </div>
     
     <div class="dashboard-widget-body">
+        <div class="loading loading--small" *ngIf="!projects"></div>
+
         <div class="dashboard-widget-row">
             <ul *ngIf="projects">
                 <li *ngFor="let project of projects" class="project-widget-row">
@@ -15,7 +17,7 @@
                 </li>
             </ul>
 
-            <div *ngIf="!projects" class="dashboard-widget-no-data">
+            <div *ngIf="projects && !projects.length" class="dashboard-widget-no-data">
                 No active projects
             </div>
         </div>

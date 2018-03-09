@@ -10,12 +10,6 @@ export class NavComponent {
   isMenuOpen: boolean = false;
   isSearchActive: boolean = false;
 
-  constructor() {}
-
-  ngOnInit(): void {
-
-  }
-
   toggleSearch() {
     this.isSearchActive = !this.isSearchActive;
     this.isMenuOpen = this.isSearchActive;

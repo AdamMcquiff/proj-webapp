@@ -6,6 +6,8 @@
     </div>
     
     <div class="dashboard-widget-body">
+        <div class="loading loading--small" *ngIf="!tasks"></div>
+
         <div class="dashboard-widget-row">
             <ul *ngIf="tasks">
                 <li *ngFor="let task of tasks" class="task-widget-row">
@@ -13,7 +15,7 @@
                 </li>
             </ul>
 
-            <div *ngIf="!tasks" class="dashboard-widget-no-data">
+            <div *ngIf="tasks && !tasks.length" class="dashboard-widget-no-data">
                 No assigned tasks
             </div>
         </div>

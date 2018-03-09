@@ -17,7 +17,7 @@
     transition: transform .3s ease;
     will-change: transform;
 
-    z-index: 2;
+    z-index: 3;
 
     &.visible {
         transform: translateX(7em);
@@ -39,5 +39,31 @@
         margin: { top: 1em; }
         min-width: 20em;
         padding: 1em;
+    }
+
+    &-dismiss-btn {
+        background: url('../assets/img/icons/white-cross.svg');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        
+        border: none;
+
+        cursor: pointer;
+        
+        float: right;
+        height: 1.5em;
+        opacity: .8;
+        position: absolute;
+        right: 1.5em;
+        top: 6.5em;
+        transition: all .3s ease;
+        width: 1.5em;
+
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: 1;
+        }
     }
 }

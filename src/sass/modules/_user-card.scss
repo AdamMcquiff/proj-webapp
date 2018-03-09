@@ -4,22 +4,22 @@
  */
 
 .user-card {
-    margin: .5em 0;
     display: inline-block;
-    width: 100%;
     font-family: $libre-franklin;
+    margin: .5em 0;
+    width: 100%;
 
     &-avatar {
-        float: left;
-        border-radius: 100%;
-        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-
         background-image: url('../assets/img/icons/avatar-placeholder.svg');
         background-size: contain;
         
-        width: 3em;
+        border-radius: 100%;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        
+        float: left;
         height: 3em;
         margin: { right: .5em; }
+        width: 3em;
     }
 
     &-title {
