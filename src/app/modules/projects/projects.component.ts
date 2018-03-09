@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { HttpService } from "../../common/services/http.service";
-import { ProjectAPIResponse } from "./project-api-response.interface";
+import { APIResponse } from "../../common/interfaces/api-response.interface";
 
 @Component({
   selector: "projects",
@@ -17,8 +17,8 @@ export class ProjectsComponent {
 
   ngOnInit(): void {
     this.httpService.get('projects')
-      .subscribe((data: ProjectAPIResponse) => {
-        this.projects = data.projects;
+      .subscribe((data: APIResponse) => {
+        this.projects = data.data;
       });  
   }
 }
