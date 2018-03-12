@@ -1,7 +1,10 @@
 <header class="header">
     <div class="header-organisation">
-        <a routerLink="/dashboard" routerLinkActive="active" class="header-organisation-link">
-            University of Funderland
+        <a routerLink="/dashboard" 
+           routerLinkActive="active" 
+           class="header-organisation-link"
+           *ngIf="user">
+            {{ this.user.organisation.name }}
         </a>
     </div>
 
