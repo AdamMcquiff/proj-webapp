@@ -7,28 +7,33 @@ import { Router } from "@angular/router";
 })
 
 export class NavComponent {
-  isSearchMenuActive: boolean = false;
-  isCreateMenuActive: boolean = false;
-  isAvatarMenuActive: boolean = false;
-
-  toggleSearchMenu() {
-    this.resetMenus();
-    this.isSearchMenuActive = !this.isSearchMenuActive;
+  isMenuOpen = {
+    search: false,
+    create: false,
+    avatar: false
   }
 
-  toggleAddMenu() {
-    this.resetMenus();
-    this.isCreateMenuActive = !this.isCreateMenuActive;
-  }
+  toggleMenu(menu: string) {
+    let isMenuOpen = Object.assign({}, this.isMenuOpen);
 
-  toggleAvatarMenu() {
-    this.resetMenus();
-    this.isAvatarMenuActive = !this.isAvatarMenuActive;
+    this.resetMenus(); 
+
+    switch (menu) {
+      case "search":
+        this.isMenuOpen.search = !isMenuOpen.search;
+        break;
+      case "create":
+        this.isMenuOpen.create = !isMenuOpen.create;
+        break;
+      case "avatar":
+        this.isMenuOpen.avatar = !isMenuOpen.avatar;
+        break;
+    }
   }
 
   private resetMenus() {
-    this.isSearchMenuActive = false;
-    this.isCreateMenuActive = false;
-    this.isAvatarMenuActive = false;
+    Object.keys(this.isMenuOpen).map(key => {
+      this.isMenuOpen[key] = false;
+    });
   }
 }

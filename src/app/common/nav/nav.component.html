@@ -5,19 +5,19 @@
         <div class="nav-avatar"
              role="button"
              aria-label="Toggle personal settings menu"
-             (click)="toggleAvatarMenu()">
+             (click)="toggleMenu('avatar')">
         </div>
 
         <hr class="nav-hr">
     
         <button class="nav-btn nav-btn--search" 
                 aria-label="Toggle search menu"
-                (click)="toggleSearchMenu()">
+                (click)="toggleMenu('search')">
         </button>
     
         <button class="nav-btn nav-btn--add" 
                 aria-label="Toggle create menu"
-                (click)="toggleAddMenu()">
+                (click)="toggleMenu('create')">
         </button>
     
         <hr class="nav-hr">
@@ -60,10 +60,10 @@
         
     </div>
 
-    <search-menu [isOpen]="isSearchMenuActive"></search-menu>
+    <search-menu [isOpen]="isMenuOpen.search"></search-menu>
 
-    <add-menu [isOpen]="isCreateMenuActive"></add-menu>
+    <add-menu [isOpen]="isMenuOpen.create"></add-menu>
 
-    <avatar-menu [isOpen]="isAvatarMenuActive"></avatar-menu>
+    <avatar-menu [isOpen]="isMenuOpen.avatar"></avatar-menu>
 
 </nav>
