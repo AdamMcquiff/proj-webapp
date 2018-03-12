@@ -24,7 +24,7 @@ export class AvatarMenuComponent {
         this.user = data.data;
       });  
   }
-  
+
   toggleDialog() {
     this.isOpen = !this.isOpen;
   }

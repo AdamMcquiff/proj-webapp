@@ -25,6 +25,7 @@
     "@types/moment": "^2.13.0",
     "angular2-jwt": "^0.2.3",
     "core-js": "^2.5.3",
+    "dialog-polyfill": "^0.4.9",
     "moment": "^2.21.0",
     "rxjs": "^5.5.6",
     "susy": "^3.0.3",

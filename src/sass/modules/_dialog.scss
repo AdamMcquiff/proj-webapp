@@ -10,9 +10,12 @@
 
     font-family: $libre-franklin;
     
+    margin: 6em auto 0;
     padding: 0;
     width: 31.25em;
     
+    z-index: 10;
+
     &--hidden {
         animation: hide-dialog 5s 1;
     }
@@ -35,7 +38,7 @@
     &-body {
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
-        padding: 1em;
+        padding: 2em 1.5em;
     }
 
     &-dismiss-btn {

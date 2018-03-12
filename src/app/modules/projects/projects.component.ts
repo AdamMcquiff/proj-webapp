@@ -9,9 +9,9 @@ import { APIResponse } from "../../common/interfaces/api-response.interface";
 })
 
 export class ProjectsComponent {
-  title = "Projects";
-
   projects: Object = null
+
+  isProjectDialogOpen: boolean = false;
 
   constructor(private httpService: HttpService) {}
 
@@ -20,5 +20,9 @@ export class ProjectsComponent {
       .subscribe((data: APIResponse) => {
         this.projects = data.data;
       });  
+  }
+
+  toggleCreateProjectDialog() {
+    this.isProjectDialogOpen = !this.isProjectDialogOpen;
   }
 }

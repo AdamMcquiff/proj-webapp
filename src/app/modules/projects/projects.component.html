@@ -31,7 +31,7 @@
 
             <div class="main-body-header-btns">
                 <a class="btn btn--secondary" href="">Import project</a>
-                <a class="btn" href="">Create project</a>    
+                <button class="btn" (click)="toggleCreateProjectDialog()">Create project</button>    
             </div>
         </header>
 
@@ -69,4 +69,9 @@
             </tbody>
         </table>
     </section>
+
+    <base-dialog [isOpen]="isProjectDialogOpen"></base-dialog>
+
+
+    <div class="overlay" [ngClass]="{ 'visible': isProjectDialogOpen }"></div>
 </main>

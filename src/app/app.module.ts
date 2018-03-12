@@ -20,6 +20,7 @@ import { SearchMenuComponent } from './common/nav/search-menu.component';
 import { AddMenuComponent } from './common/nav/add-menu.component';
 import { AvatarMenuComponent } from './common/nav/avatar-menu.component';
 import { HeaderComponent } from './common/header/header.component';
+import { DialogComponent } from './common/dialog/dialog.component';
 
 import { LoginComponent } from './modules/login/login.component';
 import { RegisterComponent } from './modules/register/register.component';
@@ -64,6 +65,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AddMenuComponent,
     AvatarMenuComponent,
     HeaderComponent,
+    DialogComponent,
     LoginComponent, 
     RegisterComponent,
     ForgottenPasswordComponent,
