@@ -49,14 +49,19 @@
     
                 <tbody class="table-body">
                     <tr class="table-body-row" *ngFor="let iteration of project.iterations"> 
-                        <td class="table-body-cell">{{ iteration.title }}</td>
+                        <td class="table-body-cell">
+                            <a [routerLink]="['/projects', project.id, 'iterations', iteration.id]" 
+                               routerLinkActive="active">
+                                {{ iteration.title }}
+                            </a>
+                        </td>
                         <td class="table-body-cell">{{ iteration.status }}</td>
                         <td class="table-body-cell">{{ iteration.start_date }}</td>
                         <td class="table-body-cell">{{ iteration.end_date }}</td>
                         <td class="table-body-cell table-body-cell--view">
                             <a class="table-body-view" 
                                [routerLink]="['/projects', project.id, 'iterations', iteration.id]" 
-                               routerLinkActive="active" >
+                               routerLinkActive="active">
                                 View
                             </a>
                         </td>
@@ -67,6 +72,42 @@
     </section>
 
     <aside class="main-aside main-aside--wider" *ngIf="project">
+        <section class="main-aside-section">
+            <h2 class="main-aside-section-header">Context</h2>
+
+            <div class="main-aside-section-body">
+                <dl class="main-detail-list">
+                    <dt class="main-detail-list-term">
+                        Client
+                    </dt>
+                    <dd class="main-detail-list-data">
+                        {{ project.client.name }}
+                    </dd>
+                    
+                    <dt class="main-detail-list-term">
+                        Status
+                    </dt>
+                    <dd class="main-detail-list-data">
+                        {{ project.status ? 'Complete' : 'In progress' }}
+                    </dd>
+                    
+                    <dt class="main-detail-list-term">
+                        Methodology
+                    </dt>
+                    <dd class="main-detail-list-data">
+                        {{ project.methodology }}
+                    </dd>
+                    
+                    <dt class="main-detail-list-term">
+                        Budget
+                    </dt>
+                    <dd class="main-detail-list-data">
+                        £ {{ project.budget.toFixed(2) }}
+                    </dd>
+                </dl>
+            </div>
+        </section>
+
         <section class="main-aside-section">
             <h2 class="main-aside-section-header">Dates</h2>
 
@@ -96,12 +137,14 @@
                 <!-- TODO: sort in order: project manager -> team member -> client -->
                 <div class="user-card" *ngFor="let user of project.users">
                     <div class="user-card-avatar"></div>
-
-                    <div class="user-card-title">
-                        {{ user.name }}
-                    </div>
-                    <div class="user-card-subtext">
-                        {{ user.username }}
+                    
+                    <div class="user-card-header">
+                        <div class="user-card-title">
+                            {{ user.name }}
+                        </div>
+                        <div class="user-card-subtext">
+                            {{ user.username }}
+                        </div>
                     </div>
                     <div class="user-card-body">
                         {{ user.project_manager ? "Project Manager" : "Team Member" }}

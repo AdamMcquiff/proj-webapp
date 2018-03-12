@@ -8,6 +8,7 @@
     font-family: $libre-franklin;
     margin: .5em 0;
     width: 100%;
+    font-size: .85em;
 
     &-avatar {
         background-image: url('../assets/img/icons/avatar-placeholder.svg');
@@ -22,16 +23,23 @@
         width: 3em;
     }
 
-    &-title {
+    &-header {
+        float: left;
+        width: calc(100% - 3.5em);
+    }
 
+    &-title {
+        font-weight: 500;
     }
 
     &-subtext {
-
+        color: $gray;
+        font-size: .9em;
+        margin: { left: .5em; }
     }
 
     &-body {
-
+        float: left;
     }
 }
   

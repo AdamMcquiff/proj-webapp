@@ -73,11 +73,13 @@
                 <div class="user-card">
                     <div class="user-card-avatar"></div>
 
-                    <div class="user-card-title">
-                        {{ task.assignee ? task.assignee.name : 'Unassigned' }}
-                    </div>
-                    <div class="user-card-subtext">
-                        {{ task.assignee ? task.assignee.username : '--' }}
+                    <div class="user-card-header">
+                        <div class="user-card-title">
+                            {{ task.assignee ? task.assignee.name : 'Unassigned' }}
+                        </div>
+                        <div class="user-card-subtext">
+                            {{ task.assignee ? task.assignee.username : '--' }}
+                        </div>
                     </div>
                     <div class="user-card-body">
                         Assignee
@@ -87,11 +89,13 @@
                 <div class="user-card">
                     <div class="user-card-avatar"></div>
 
-                    <div class="user-card-title">
-                        {{ task.reporter ? task.reporter.name : 'Unassigned' }}
-                    </div>
-                    <div class="user-card-subtext">
-                        {{ task.reporter ? task.reporter.username : '--' }}
+                    <div class="user-card-header">
+                        <div class="user-card-title">
+                            {{ task.reporter ? task.reporter.name : 'Unassigned' }}
+                        </div>
+                        <div class="user-card-subtext">
+                            {{ task.reporter ? task.reporter.username : '--' }}
+                        </div>
                     </div>
                     <div class="user-card-body">
                         Reporter

@@ -26,9 +26,8 @@ export class ProjectsDetailComponent {
         .subscribe((data: APIResponse) => {
           this.project = data.data[0];
 
-          // TODO: reformat dates
-          // this.project.start_date = moment(this.project.start_date).format();
-          // this.project.due_date = moment(this.project.due_date).format();
+          this.project.start_date = moment(this.project.start_date).format("DD/MM/YYYY");
+          this.project.due_date = moment(this.project.due_date).format("DD/MM/YYYY");
         })  
     });
   }
