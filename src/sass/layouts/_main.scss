@@ -92,7 +92,7 @@
         flex-grow: 1;
         
         // Window height minus the height of 'Header', page header and page padding
-        min-height: calc(100vh - #{$header-height} - 2.0625em - 2em);
+        min-height: calc(100vh - #{$header-height} - 2.0625em - 1.5em);
 
         padding: 1.75em 1.5em;
         position: relative;

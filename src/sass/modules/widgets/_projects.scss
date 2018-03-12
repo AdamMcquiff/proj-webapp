@@ -12,14 +12,22 @@
     }
 
     &-link {
+        background-image: url('../assets/img/icons/arrow-point-to-right.svg');
+        background-size: 1em;
+        background-position: 95%;
+        background-repeat: no-repeat;
+
+        color: $purple;
         display: block;
         padding: 1em;
-        transition: background-color .3s ease;
+        text-decoration: none;
+        transition: background-color .3s ease, color .3s ease;
 
         &:hover,
         &:focus,
         &:active {
             background-color: $lightest-gray;
+            color: $dark-purple;
         }
     }
 }

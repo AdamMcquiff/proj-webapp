@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { HttpService } from "../../../../common/services/http.service";
-import { TaskAPIResponse } from "../../../projects/task-api-response.interface";
+import { APIResponse } from "../../../../common/interfaces/api-response.interface";
 
 @Component({
   selector: "dashboard-tasks-widget",
@@ -15,8 +15,8 @@ export class TasksDashboardWidgetComponent {
 
   ngOnInit(): void {
     this.httpService.get('tasks')
-      .subscribe((data: TaskAPIResponse) => {
-        this.tasks = data.tasks;
+      .subscribe((data: APIResponse) => {
+        this.tasks = data.data;
       });  
   }
 }
