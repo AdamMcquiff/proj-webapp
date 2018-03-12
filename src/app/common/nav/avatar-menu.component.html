@@ -1,4 +1,4 @@
-<div class="avatar-menu" [ngClass]="{ 'visible': isOpen }">
+<div class="avatar-menu" [ngClass]="{ 'visible': isOpen }" [attr.aria-expanded]="isOpen ? true : false">
     
     <button class="avatar-menu-dismiss-btn" 
             aria-label="Dismiss" 

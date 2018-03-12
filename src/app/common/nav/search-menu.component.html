@@ -1,4 +1,4 @@
-<div class="search-menu" [ngClass]="{ 'visible': isOpen }">
+<div class="search-menu" [ngClass]="{ 'visible': isOpen }" [attr.aria-expanded]="isOpen ? true : false">
 
     <button class="search-menu-dismiss-btn" 
             aria-label="Dismiss" 
