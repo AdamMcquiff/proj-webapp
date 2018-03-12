@@ -5,10 +5,12 @@
 
 .user-card {
     display: inline-block;
+
     font-family: $libre-franklin;
+    font-size: .85em;
+    
     margin: .5em 0;
     width: 100%;
-    font-size: .85em;
 
     &-avatar {
         background-image: url('../assets/img/icons/avatar-placeholder.svg');

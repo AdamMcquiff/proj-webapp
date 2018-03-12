@@ -6,10 +6,88 @@
             (click)="toggleDialog()">
     </button>
     
-    <label class="avatar-menu-title">
+    <h2 class="avatar-menu-title">
         Settings...
-    </label>
+    </h2>
 
+    <section class="avatar-menu-section">
+
+        <h3 class="avatar-menu-section-title">
+            Personal Details
+        </h3>
+    
+        <hr class="avatar-menu-hr">    
+    
+        <dl class="avatar-menu-list" *ngIf="user">
+            <dt class="avatar-menu-list-term">
+                Name
+            </dt>
+            <dd class="avatar-menu-list-data">
+                {{ user.name }}
+            </dd>
+            
+            <dt class="avatar-menu-list-term">
+                Email
+            </dt>
+            <dd class="avatar-menu-list-data">
+                {{ user.email }}
+            </dd>
+        </dl>
+
+    </section>
+
+    <section class="avatar-menu-section">
+
+        <h3 class="avatar-menu-section-title">
+            Notifications
+        </h3>
+    
+        <hr class="avatar-menu-hr">
+    
+        <h4 class="avatar-menu-section-subtitle">
+            Notify me about
+        </h4>
+    
+        <div>
+            <label class="avatar-menu-checkbox">
+                <input type="checkbox" id="" name="" value="">
+                Tasks
+            </label>
+    
+            <label class="avatar-menu-checkbox">
+                <input type="checkbox" id="" name="" value="">
+                Projects
+            </label>
+    
+            <label class="avatar-menu-checkbox">
+                <input type="checkbox" id="" name="" value="">
+                Team Members
+            </label>
+        </div>
+    
+        <h4 class="avatar-menu-section-subtitle">
+            Email me about
+        </h4>
+    
+        <div>
+            <label class="avatar-menu-checkbox">
+                <input type="checkbox" id="" name="" value="">
+                Tasks
+            </label>
+    
+            <label class="avatar-menu-checkbox">
+                <input type="checkbox" id="" name="" value="">
+                Projects
+            </label>
+    
+            <label class="avatar-menu-checkbox">
+                <input type="checkbox" id="" name="" value="">
+                Team Members
+            </label>
+        </div>
+    
+    </section>    
+    
 </div>
 
 <div class="overlay" [ngClass]="{ 'visible': isOpen }"></div>
