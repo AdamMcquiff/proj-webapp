@@ -1,14 +1,15 @@
-import { Observable } from "rxjs/Observable";
-
 import { Component } from "@angular/core";
 import { EmailValidator } from "@angular/forms";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
-import { HttpService } from "../../common/services/http.service";
-import { User } from "../../common/models/user.model";
-import { APIResponse } from "../../common/interfaces/api-response.interface";
-import { AuthService } from "../../common/services/auth.service";
+import { Observable } from "rxjs/Observable";
+
+import { User } from "../user.model";
+
+import { HttpService } from "../../../common/services/http.service";
+
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: "forgotten-password",
@@ -17,8 +18,6 @@ import { AuthService } from "../../common/services/auth.service";
 })
 
 export class ForgottenPasswordComponent {
-  title = "forgotten password";
-  
   emailForm: FormGroup;
   
   serverErrors = {};
@@ -47,10 +46,7 @@ export class ForgottenPasswordComponent {
 
     this.httpService.post('password/email', this.user)
       .subscribe(
-        (data) => {
-          console.log(data)
-          this.emailSent = true;
-        },
+        data  => this.emailSent = true,
         error => console.log(error)
       );  
   }

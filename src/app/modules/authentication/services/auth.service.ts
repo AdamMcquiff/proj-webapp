@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { JwtHelper } from 'angular2-jwt';
 import { Router } from '@angular/router';
+import { JwtHelper } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
-
   constructor(private router: Router) {}
 
   public isAuthenticated(): boolean {
@@ -17,5 +16,4 @@ export class AuthService {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
-
 } 

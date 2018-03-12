@@ -1,14 +1,15 @@
-import { Observable } from "rxjs/Observable";
-
 import { Component } from "@angular/core";
 import { EmailValidator } from "@angular/forms";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
-import { HttpService } from "../../common/services/http.service";
-import { User } from "../../common/models/user.model";
-import { APIResponse } from "../../common/interfaces/api-response.interface";
-import { AuthService } from "../../common/services/auth.service";
+import { Observable } from "rxjs/Observable";
+
+import { User } from "../user.model";
+
+import { HttpService } from "../../../common/services/http.service";
+
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: "register",
@@ -17,8 +18,6 @@ import { AuthService } from "../../common/services/auth.service";
 })
 
 export class RegisterComponent {
-  title = "register";
-  
   registered = false;
 
   registerForm: FormGroup;
@@ -55,6 +54,7 @@ export class RegisterComponent {
     });
   }
 
+  // TODO: sort
   public onFormSubmit() {
     if (!this.registerForm.valid) return;
   

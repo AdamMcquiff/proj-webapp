@@ -4,12 +4,11 @@ import { APIResponse } from "../../common/interfaces/api-response.interface";
 
 @Component({
   selector: "projects",
-  templateUrl: "./projects.component.html",
-  providers: []
+  templateUrl: "./projects.component.html"
 })
 
 export class ProjectsComponent {
-  projects: Object = null
+  projects: Object;
 
   isProjectDialogOpen: boolean = false;
 

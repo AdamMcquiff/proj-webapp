@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 
+import { Project } from "./project.model";
+
 import { HttpService } from "../../common/services/http.service";
 import { APIResponse } from "../../common/interfaces/api-response.interface";
-import { Project } from "../../common/models/project.model";
 
 import * as moment from 'moment'; 
 

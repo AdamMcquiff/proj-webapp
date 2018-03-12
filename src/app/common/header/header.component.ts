@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
-import { AuthService } from "../services/auth.service";
 import { HttpService } from "../services/http.service";
+import { AuthService } from "../../modules/authentication/services/auth.service";
 
 import { APIResponse } from "../interfaces/api-response.interface";
 

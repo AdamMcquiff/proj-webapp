@@ -1,10 +1,10 @@
 import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
 
-import { AuthService } from "../services/auth.service";
+import { APIResponse } from "../interfaces/api-response.interface";
 import { HttpService } from "../services/http.service";
 
-import { APIResponse } from "../interfaces/api-response.interface";
+import { AuthService } from "../../modules/authentication/services/auth.service";
 
 @Component({
   selector: "avatar-menu",

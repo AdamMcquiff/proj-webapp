@@ -1,16 +1,16 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 
-import { HttpService } from "../../common/services/http.service";
-import { Project } from "../../common/models/project.model";
-import { APIResponse } from "../../common/interfaces/api-response.interface";
+import { Project } from "../project.model";
+
+import { HttpService } from "../../../common/services/http.service";
+import { APIResponse } from "../../../common/interfaces/api-response.interface";
 
 import * as moment from 'moment'; 
 
 @Component({
   selector: "iterations-detail",
-  templateUrl: "./iterations-detail.component.html",
-  providers: []
+  templateUrl: "./iterations-detail.component.html"
 })
 
 export class IterationsDetailComponent {

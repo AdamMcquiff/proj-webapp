@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
-import { HttpService } from "../../../../common/services/http.service";
-import { APIResponse } from "../../../../common/interfaces/api-response.interface";
+
+import { APIResponse } from "../../../common/interfaces/api-response.interface";
+import { HttpService } from "../../../common/services/http.service";
 
 @Component({
   selector: "dashboard-projects-widget",

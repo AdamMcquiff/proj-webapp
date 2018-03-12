@@ -9,8 +9,8 @@ import { APIResponse } from "../../common/interfaces/api-response.interface";
 })
 
 export class TeamsComponent {
-  teams: Object = null;
-  selectedTeam: Object = null;
+  teams: Object;
+  selectedTeam: Object;
 
   constructor(private httpService: HttpService) {}
 
