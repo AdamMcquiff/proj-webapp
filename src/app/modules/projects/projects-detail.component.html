@@ -18,7 +18,7 @@
 
         <div class="main-body-content">
             <div class="main-body-summary">
-                {{ project.summary }}
+                {{ project.summary ? project.summary : '--' }}
             </div>
         </div>
 
@@ -47,7 +47,7 @@
                     </tr>
                 </thead>
     
-                <tbody class="table-body">
+                <tbody class="table-body" *ngIf="project.iterations.length">
                     <tr class="table-body-row" *ngFor="let iteration of project.iterations"> 
                         <td class="table-body-cell">
                             <a [routerLink]="['/projects', project.id, 'iterations', iteration.id]" 
@@ -68,6 +68,10 @@
                     </tr>
                 </tbody> 
             </table>
+
+            <div *ngIf="!project.iterations.length" class="table-no-content">
+                This project has no iterations yet.
+            </div>
         </div>
     </section>
 
@@ -81,7 +85,7 @@
                         Client
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ project.client.name }}
+                        {{ project.client ? project.client.name : '--' }}
                     </dd>
                     
                     <dt class="main-detail-list-term">
@@ -95,14 +99,14 @@
                         Methodology
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ project.methodology }}
+                        {{ project.methodology ? project.methodology : '--' }}
                     </dd>
                     
                     <dt class="main-detail-list-term">
                         Budget
                     </dt>
                     <dd class="main-detail-list-data">
-                        £ {{ project.budget.toFixed(2) }}
+                        £ {{ project.budget ? project.budget.toFixed(2) : '--' }}
                     </dd>
                 </dl>
             </div>
@@ -117,14 +121,14 @@
                         Start Date
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ project.start_date }}
+                        {{ project.start_date ? project.start_date : '--' }}
                     </dd>
                     
                     <dt class="main-detail-list-term">
                         End Date
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ project.due_date }}
+                        {{ project.due_date ? project.due_date : '--' }}
                     </dd>
                 </dl>
             </div>

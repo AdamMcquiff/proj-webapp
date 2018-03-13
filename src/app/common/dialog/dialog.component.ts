@@ -7,10 +7,10 @@ import { Component, Input } from "@angular/core";
 
 export class DialogComponent {
   @Input() isOpen;
-
-  constructor() {}
-
-  ngOnInit(): void {
-
+  @Input() title;
+  @Input() context;
+  
+  closeDialog() {
+    this.isOpen = false;
   }
 }

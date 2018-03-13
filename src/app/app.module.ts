@@ -31,8 +31,9 @@ import { TasksDashboardWidgetComponent } from './modules/dashboard/tasks-widget/
 import { ProjectsDashboardWidgetComponent } from './modules/dashboard/projects-widget/projects.widget.component';
 
 import { ProjectsComponent } from './modules/projects/projects.component';
-import { ProjectNavComponent } from './modules/projects/nav/project-nav.component';
 import { ProjectsDetailComponent } from './modules/projects/projects-detail.component';
+import { ProjectDialogComponent } from './modules/projects/project-dialog/project-dialog.component';
+import { ProjectNavComponent } from './modules/projects/nav/project-nav.component';
 import { IterationsComponent } from './modules/projects/iterations/iterations.component';
 import { TasksComponent } from './modules/projects/tasks/tasks.component';
 import { IterationsDetailComponent } from './modules/projects/iterations/iterations-detail.component';
@@ -74,8 +75,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TasksDashboardWidgetComponent,
     ProjectsDashboardWidgetComponent,
     ProjectsComponent,
-    ProjectNavComponent,
     ProjectsDetailComponent,
+    ProjectDialogComponent,
+    ProjectNavComponent,
     IterationsComponent,
     IterationsDetailComponent,
     TasksComponent,

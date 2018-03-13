@@ -25,11 +25,17 @@ export class ProjectsDetailComponent {
 
       this.httpService.get('projects/' + projectId)
         .subscribe((data: APIResponse) => {
-          this.project = data.data[0];
-
-          this.project.start_date = moment(this.project.start_date).format("DD/MM/YYYY");
-          this.project.due_date = moment(this.project.due_date).format("DD/MM/YYYY");
+          this.project = this.format(<Project>data.data);
         })  
     });
+  }
+
+  private format(project: Project): Project {      
+    if (project.start_date) 
+      project.start_date = moment(project.start_date).format("DD/MM/YYYY");
+    if (project.due_date) 
+      project.due_date = moment(project.due_date).format("DD/MM/YYYY");
+
+    return project;
   }
 }

@@ -131,4 +131,11 @@
             }
         }
     }
+
+    &-no-content {
+        color: $darkest-gray;
+        font-family: $libre-franklin;
+        margin: 2em 0;
+        text-align: center;
+    }
 } 

@@ -60,9 +60,15 @@
             color: black;
         }
     }
-
+ 
     &-textarea {
         height: 7em;
         padding: 1.125em .75em .75em .75em;
+    }
+
+    &-btn {
+        float: right;
+        font-size: 1em;
+        margin: 0;
     }
 }

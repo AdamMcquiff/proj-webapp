@@ -1,0 +1,33 @@
+<base-dialog [isOpen]="isOpen"
+             [title]="title" 
+             [context]="context">
+
+    <form [formGroup]="projectForm" (ngSubmit)="onFormSubmit()">
+        <label class="form-label">
+            <span class="form-label-title">Project Title</span>
+            <span class="form-label-subtext">You can call your new project anything.</span>
+
+            <div *ngIf="title.invalid && title.touched" class="form-label-error" role="alert">
+                <div *ngIf="title.errors?.required">
+                    Email field can't be blank
+                </div>
+            </div>
+
+            <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
+                <div *ngIf="serverErrors.error.error">
+                    Something has went wrong. Please try again later.
+                </div>
+            </div>
+
+            <input type="text" class="form-input" formControlName="title">
+        </label>
+
+        <!-- TODO: add loading spinner -->
+        <input type="submit" 
+               class="btn form-btn" 
+               value="Create" 
+               [ngClass]="{ 'btn--disabled': isPerformingAPICall }"
+               [disabled]="isPerformingAPICall">
+    </form>
+
+</base-dialog>

@@ -1,33 +1,26 @@
 <dialog class="dialog" [attr.open]="isOpen ? true : null">
     <div class="dialog-header">
-        <h3 class="dialog-header-title">Welcome to ...</h3>
+        <h3 class="dialog-header-title">{{ title }}</h3>
 
-        <button class="dialog-dismiss-btn" aria-label="Dismiss" title="Dismiss"></button>
+        <button class="dialog-dismiss-btn" 
+                aria-label="Dismiss" 
+                title="Dismiss"
+                (click)="closeDialog()">
+        </button>
     </div>
 
     <div class="dialog-body">
-        <!-- <form class="dialog-form"> -->
-            <label class="form-label">
-                <span class="form-label-title">Project Title</span>
-                <span class="form-label-subtext">You can call your new project anything.</span>
-                <input type="text" class="form-input">
-            </label>
-        <!-- </form> -->
+        <div class="dialog-form">
+            <ng-content></ng-content>
+        </div>
         
         <div class="dialog-context">
-            <h4>New Project</h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. Maecenas sollicitudin elit turpis, at condimentum felis varius malesuada.
+            <h4 class="dialog-context-title">{{ context.title }}</h4>
+            <p class="dialog-context-body"> 
+                {{ context.body }}    
             </p>
         </div>
     </div>
-
-    <script>
-        // let dialog = document.getElementsByClassName('dialog');
-        // let cancelButton = document.getElementsByClassName('dialog-dismiss-btn')
-
-        // cancelButton.addEventListener('click', () => {
-        //     dialog.close()
-        // })
-    </script>
 </dialog>
+
+<div class="overlay" [ngClass]="{ 'visible': isOpen }"></div>

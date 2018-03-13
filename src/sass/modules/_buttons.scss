@@ -69,4 +69,9 @@
             color: $light-red;
         }
     }
+
+    &--disabled {
+        opacity: .7;
+        pointer-events: none;
+    }
 }

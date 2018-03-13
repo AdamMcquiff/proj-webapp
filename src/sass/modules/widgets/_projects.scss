@@ -3,8 +3,6 @@
  *
  */
 
-// TODO: add hover states, etc.
-
 .project-widget {
     &-row {
         border-bottom: 1px solid $lightest-gray;
@@ -13,9 +11,9 @@
 
     &-link {
         background-image: url('../assets/img/icons/arrow-point-to-right.svg');
-        background-size: 1em;
         background-position: 95%;
         background-repeat: no-repeat;
+        background-size: 1em;
 
         color: $purple;
         display: block;

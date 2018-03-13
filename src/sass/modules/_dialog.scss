@@ -12,7 +12,7 @@
     
     margin: 6em auto 0;
     padding: 0;
-    width: 31.25em;
+    width: 40em;
     
     z-index: 10;
 
@@ -36,9 +36,34 @@
     }
     
     &-body {
+        @include clearfix;
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
         padding: 2em 1.5em;
+    }
+
+    &-form {
+        border: { right: 1px solid $lightest-gray; }
+        float: left;
+        padding-right: 1.5em;
+        width: susy-span(7 of 12);
+    }
+
+    &-context {
+        float: left;
+        padding-left: 1.5em;
+        width: susy-span(5 of 12);
+
+        &-title {
+            font-size: 1.125em;
+            margin: { bottom: .5em }
+        }
+
+        &-body {
+            @include type-setting(0);
+            color: $darkest-gray;
+            font-weight: 200;
+        }
     }
 
     &-dismiss-btn {
