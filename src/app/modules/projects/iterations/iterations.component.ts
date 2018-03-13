@@ -14,6 +14,8 @@ import { APIResponse } from "../../../common/interfaces/api-response.interface";
 export class IterationsComponent {
   project: Project;
 
+  isIterationDialogOpen: boolean = false;
+
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -21,9 +23,11 @@ export class IterationsComponent {
       const projectId = params['id'];
 
       this.httpService.get('projects/' + projectId)
-        .subscribe((data: APIResponse) => {
-          this.project = data.data[0];
-        })  
-    });
+        .subscribe((data: APIResponse) => this.project = <Project>data.data)  
+    })
+  }
+
+  toggleCreateIterationDialog() {
+    this.isIterationDialogOpen = !this.isIterationDialogOpen;
   }
 }

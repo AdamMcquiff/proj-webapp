@@ -35,8 +35,9 @@ import { ProjectsDetailComponent } from './modules/projects/projects-detail.comp
 import { ProjectDialogComponent } from './modules/projects/project-dialog/project-dialog.component';
 import { ProjectNavComponent } from './modules/projects/nav/project-nav.component';
 import { IterationsComponent } from './modules/projects/iterations/iterations.component';
-import { TasksComponent } from './modules/projects/tasks/tasks.component';
 import { IterationsDetailComponent } from './modules/projects/iterations/iterations-detail.component';
+import { IterationDialogComponent } from './modules/projects/iteration-dialog/iteration-dialog.component';
+import { TasksComponent } from './modules/projects/tasks/tasks.component';
 import { TasksDetailComponent } from './modules/projects/tasks/tasks-detail.component';
 import { KanbanComponent } from './modules/projects/kanban/kanban.component';
 
@@ -80,6 +81,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ProjectNavComponent,
     IterationsComponent,
     IterationsDetailComponent,
+    IterationDialogComponent,
     TasksComponent,
     TasksDetailComponent,
     KanbanComponent,

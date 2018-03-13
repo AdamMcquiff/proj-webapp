@@ -10,12 +10,13 @@ import * as moment from 'moment';
 
 @Component({
   selector: "projects",
-  templateUrl: "./projects-detail.component.html",
-  providers: []
+  templateUrl: "./projects-detail.component.html"
 })
 
 export class ProjectsDetailComponent {
   project: Project;
+
+  isIterationDialogOpen: boolean = false;
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
 
@@ -24,10 +25,12 @@ export class ProjectsDetailComponent {
       const projectId = params['id'];
 
       this.httpService.get('projects/' + projectId)
-        .subscribe((data: APIResponse) => {
-          this.project = this.format(<Project>data.data);
-        })  
-    });
+        .subscribe((data: APIResponse) => this.project = this.format(<Project>data.data))  
+    })
+  }
+  
+  toggleCreateIterationDialog() {
+    this.isIterationDialogOpen = !this.isIterationDialogOpen;
   }
 
   private format(project: Project): Project {      

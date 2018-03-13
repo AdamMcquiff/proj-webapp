@@ -17,7 +17,7 @@
 
             <div class="main-body-header-btns">
                 <a class="btn btn--secondary" href="">Import iteration</a>
-                <a class="btn" href="">Create iteration</a>    
+                <button class="btn" (click)="toggleCreateIterationDialog()">Create iteration</button>
             </div>
         </header>
 
@@ -36,15 +36,26 @@
 
             <tbody class="table-body">
                 <tr class="table-body-row" *ngFor="let iteration of project.iterations"> 
-                    <td class="table-body-cell">{{ iteration.title }}</td>
-                    <td class="table-body-cell">{{ iteration.summary.substring(0, 25) + '...' }}</td>
-                    <td class="table-body-cell">{{ iteration.start_date }}</td>
-                    <td class="table-body-cell">{{ iteration.end_date }}</td>
+                    <td class="table-body-cell">
+                        <a [routerLink]="['/projects', project.id, 'iterations', iteration.id]" 
+                           routerLinkActive="active">
+                            {{ iteration.title }}
+                        </a>
+                    </td>
+                    <td class="table-body-cell">
+                        {{ iteration.summary ? iteration.summary.substring(0, 25) + '...' : '--' }}
+                    </td>
+                    <td class="table-body-cell">
+                        {{ iteration.start_date ? iteration.start_date : '--' }}
+                    </td>
+                    <td class="table-body-cell">
+                        {{ iteration.end_date ? iteration.end_date : '--' }}
+                    </td>
                     <td class="table-body-cell table-body-cell--view">
                         <a class="table-body-view" 
+                           aria-label="iteration.title"
                            [routerLink]="['/projects', project.id, 'iterations', iteration.id]" 
-                           routerLinkActive="active" 
-                           aria-label="iteration.title">
+                           routerLinkActive="active">
                             View
                         </a>
                     </td>
@@ -52,4 +63,6 @@
             </tbody>
         </table>
     </section>
+
+    <iteration-dialog *ngIf="project" [isOpen]="isIterationDialogOpen" [projectId]="project.id"></iteration-dialog>
 </main>

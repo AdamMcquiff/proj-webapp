@@ -18,7 +18,7 @@
 
         <div class="main-body-content">
             <div class="main-body-summary">
-                {{ iteration.summary }}
+                {{ iteration.summary ? iteration.summary : '--' }}
             </div>
         </div>
 
@@ -63,6 +63,10 @@
                     </tr>
                 </tbody>
             </table>
+
+            <div *ngIf="!iteration.tasks.length" class="table-no-content">
+                This iteration has no tasks yet.
+            </div>
         </div>
     </section>
 </main>

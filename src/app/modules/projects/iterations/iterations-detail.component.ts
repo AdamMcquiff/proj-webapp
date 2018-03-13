@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 
 import { Project } from "../project.model";
+import { Iteration } from "./iteration.model";
 
 import { HttpService } from "../../../common/services/http.service";
 import { APIResponse } from "../../../common/interfaces/api-response.interface";
@@ -15,7 +16,7 @@ import * as moment from 'moment';
 
 export class IterationsDetailComponent {
   project: Project;
-  iteration: Object;
+  iteration: Iteration;
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
 
@@ -25,14 +26,10 @@ export class IterationsDetailComponent {
       const iterationId = params['iterationId'];
 
       this.httpService.get('projects/' + projectId)
-        .subscribe((data: APIResponse) => {
-          this.project = data.data[0];
-        })  
+        .subscribe((data: APIResponse) => this.project = <Project>data.data)  
 
       this.httpService.get('iterations/' + iterationId)
-        .subscribe((data: APIResponse) => {
-          this.iteration = data.data[0];
-        })  
-    });
+        .subscribe((data: APIResponse) => this.iteration = <Iteration>data.data)  
+    })
   }
 }

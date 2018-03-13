@@ -2,10 +2,10 @@
              [title]="title" 
              [context]="context">
 
-    <form [formGroup]="projectForm" (ngSubmit)="onFormSubmit()">
+    <form [formGroup]="iterationForm" (ngSubmit)="onFormSubmit()">
         <label class="form-label">
-            <span class="form-label-title">Project Title</span>
-            <span class="form-label-subtext">You can call your new project anything.</span>
+            <span class="form-label-title">Iteration Title</span>
+            <span class="form-label-subtext">You can call your new iteration anything.</span>
 
             <div *ngIf="title.invalid && title.touched" class="form-label-error" role="alert">
                 <div *ngIf="title.errors?.required">
@@ -21,6 +21,20 @@
 
             <input type="text" class="form-input" formControlName="title">
         </label>
+
+        <!-- <label class="form-label">
+            <span class="form-label-title">Start Date</span>
+            <span class="form-label-subtext">The date the iteration is set to begin.</span>
+            
+            <input type="date" class="form-input" formControlName="start_date">
+        </label>
+        
+        <label class="form-label">
+            <span class="form-label-title">Due Date</span>
+            <span class="form-label-subtext">The date the iteration is set to conclude.</span>
+            
+            <input type="date" class="form-input" formControlName="due_date">
+        </label> -->
 
         <!-- TODO: add loading spinner -->
         <input type="submit" 

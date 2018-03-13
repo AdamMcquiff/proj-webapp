@@ -29,7 +29,7 @@
 
             <div class="main-body-header-btns">
                 <a class="btn btn--secondary" href="">Import iteration</a>
-                <a class="btn" href="">Create iteration</a>    
+                <button class="btn" (click)="toggleCreateIterationDialog()">Create iteration</button>
             </div>
         </header>
 
@@ -157,4 +157,6 @@
             </div>
         </section>
     </aside>
+
+    <iteration-dialog *ngIf="project" [isOpen]="isIterationDialogOpen" [projectId]="project.id"></iteration-dialog>
 </main>
