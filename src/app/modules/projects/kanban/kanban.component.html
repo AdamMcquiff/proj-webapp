@@ -32,10 +32,13 @@
                 <a [routerLink]="['/projects', project.id, 'tasks', task.id]" 
                    routerLinkActive="active" 
                    class="kanban-card-task" 
-                   *ngFor="let task of project.tasks">
+                   *ngFor="let task of iteration.tasks">
                     Task {{ task.title }}
-                    <!-- TODO: add an arrow icon -->
                 </a>
+
+                <div class="kanban-card-no-content" *ngIf="!iteration.tasks.length"> 
+                    This iteration has no tasks.
+                </div>
             </div>
         </article>
     </section>

@@ -21,9 +21,7 @@ export class KanbanComponent {
       const projectId = params['id'];
 
       this.httpService.get('projects/' + projectId)
-        .subscribe((data: APIResponse) => {
-          this.project = data.data[0];
-        })  
-    });
+        .subscribe((data: APIResponse) => this.project = <Project>data.data)  
+    })
   }
 }

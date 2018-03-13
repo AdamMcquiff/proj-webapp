@@ -88,8 +88,10 @@
 
     &-body {
         background-color: white;
-
+        
         flex-grow: 1;
+        
+        max-width: calc(100% - 13.5em);
         
         // Window height minus the height of 'Header', page header and page padding
         min-height: calc(100vh - #{$header-height} - 2.0625em - 1.5em);
