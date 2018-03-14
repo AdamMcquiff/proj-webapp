@@ -18,6 +18,8 @@ export class IterationsDetailComponent {
   project: Project;
   iteration: Iteration;
 
+  isTaskDialogOpen: boolean = false;
+
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -31,5 +33,9 @@ export class IterationsDetailComponent {
       this.httpService.get('iterations/' + iterationId)
         .subscribe((data: APIResponse) => this.iteration = <Iteration>data.data)  
     })
+  }
+
+  toggleCreateTaskDialog() {
+    this.isTaskDialogOpen = !this.isTaskDialogOpen;
   }
 }

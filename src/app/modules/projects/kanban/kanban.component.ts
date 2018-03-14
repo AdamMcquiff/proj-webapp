@@ -14,6 +14,8 @@ import { APIResponse } from "../../../common/interfaces/api-response.interface";
 export class KanbanComponent {
   project: Project;
 
+  isTaskDialogOpen: boolean = false;
+
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -23,5 +25,9 @@ export class KanbanComponent {
       this.httpService.get('projects/' + projectId)
         .subscribe((data: APIResponse) => this.project = <Project>data.data)  
     })
+  }
+
+  toggleCreateTaskDialog() {
+    this.isTaskDialogOpen = !this.isTaskDialogOpen;
   }
 }

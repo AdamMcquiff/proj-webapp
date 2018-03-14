@@ -29,7 +29,7 @@
 
             <div class="main-body-header-btns">
                 <a class="btn btn--secondary" href="">Import task</a>
-                <a class="btn" href="">Create task</a>    
+                <button class="btn" (click)="toggleCreateTaskDialog()">Create task</button>   
             </div>
         </header>
 
@@ -49,7 +49,12 @@
     
                 <tbody class="table-body">
                     <tr class="table-body-row" *ngFor="let task of iteration.tasks"> 
-                        <td class="table-body-cell">{{ task.title }}</td>
+                        <td class="table-body-cell">
+                            <a [routerLink]="['/projects', project.id, 'tasks', task.id]" 
+                               routerLinkActive="active">
+                                {{ task.title }}
+                            </a>
+                        </td>
                         <td class="table-body-cell">{{ task.summary }}</td>
                         <td class="table-body-cell">{{ task.assignee }}</td>
                         <td class="table-body-cell">{{ task.due_date }}</td>
@@ -69,4 +74,6 @@
             </div>
         </div>
     </section>
+
+    <task-dialog *ngIf="project" [isOpen]="isTaskDialogOpen" [iterations]="project.iterations"></task-dialog>
 </main>

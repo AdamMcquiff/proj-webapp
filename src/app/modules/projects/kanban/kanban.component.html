@@ -17,7 +17,7 @@
 
             <div class="main-body-header-btns">
                 <a class="btn btn--secondary" href="">Import task</a>
-                <a class="btn" href="">Create task</a>    
+                <button class="btn" (click)="toggleCreateTaskDialog()">Create task</button>  
             </div>
         </header>
 
@@ -42,4 +42,6 @@
             </div>
         </article>
     </section>
+
+    <task-dialog *ngIf="project" [isOpen]="isTaskDialogOpen" [iterations]="project.iterations"></task-dialog>
 </main>

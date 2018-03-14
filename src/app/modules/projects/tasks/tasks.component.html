@@ -17,7 +17,7 @@
 
             <div class="main-body-header-btns">
                 <a class="btn btn--secondary" href="">Import task</a>
-                <a class="btn" href="">Create task</a>    
+                <button class="btn" (click)="toggleCreateTaskDialog()">Create task</button>   
             </div>
         </header>
 
@@ -35,11 +35,11 @@
             </thead>
 
             <tbody class="table-body">
-                <tr class="table-body-row" *ngFor="let task of project.tasks"> 
-                    <td class="table-body-cell">{{ task.title }}</td>
-                    <td class="table-body-cell">{{ task.summary.substring(0, 25) + '...' }}</td>
-                    <td class="table-body-cell">{{ task.assignee }}</td>
-                    <td class="table-body-cell">{{ task.due_date }}</td>
+                <tr class="table-body-row" *ngFor="let task of tasks"> 
+                    <td class="table-body-cell">{{ task.title ? task.title : '--' }}</td>
+                    <td class="table-body-cell">{{ task.summary ? task.summary.substring(0, 25) + '...' : '--' }}</td>
+                    <td class="table-body-cell">{{ task.assignee ? task.assignee.name : '--' }}</td>
+                    <td class="table-body-cell">{{ task.due_date ? task.due_date : '--' }}</td>
                     <td class="table-body-cell table-body-cell--view">
                         <a class="table-body-view" 
                             [routerLink]="['/projects', project.id, 'tasks', task.id]" 
@@ -51,5 +51,11 @@
                 </tr>
             </tbody>
         </table>
+
+        <div *ngIf="project.tasks && !project.tasks.length" class="table-no-content">
+            This project has no tasks yet.
+        </div>
     </section>
+
+    <task-dialog *ngIf="project" [isOpen]="isTaskDialogOpen" [iterations]="project.iterations"></task-dialog>
 </main>

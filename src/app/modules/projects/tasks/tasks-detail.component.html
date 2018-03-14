@@ -1,7 +1,7 @@
 <main class="main">
     <header class="main-header">
-        <h1 class="main-header-title" *ngIf="task">
-            {{ project.title }} - {{ task.title }}
+        <h1 class="main-header-title" *ngIf="task && project">
+            {{ project.title ? project.title : '--' }} - {{ task.title ? task.title : '--' }}
         </h1>
     </header>
     
@@ -22,7 +22,7 @@
 
         <div class="main-body-content">
             <div class="main-body-summary">
-                {{ task.summary }}
+                {{ task.summary ? task.summary : '--' }}
             </div>
         </div>
     </section>
@@ -44,7 +44,7 @@
                         Iteration
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ task.iteration.title }}
+                        {{ task.iteration ? task.iteration.title : '--' }}
                     </dd>
                 </dl>
             </div>
@@ -60,7 +60,7 @@
                         Due Date
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ task.due_date }}
+                        {{ task.due_date ? task.due_date : '--' }}
                     </dd>
                 </dl>
             </div>

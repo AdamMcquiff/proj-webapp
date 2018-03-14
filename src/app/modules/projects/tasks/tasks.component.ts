@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 
 import { Project } from "../project.model";
+import { Iteration } from "../iterations/iteration.model";
+import { Task } from "./task.model";
 
 import { HttpService } from "../../../common/services/http.service";
 import { APIResponse } from "../../../common/interfaces/api-response.interface";
@@ -13,6 +15,9 @@ import { APIResponse } from "../../../common/interfaces/api-response.interface";
 
 export class TasksComponent {
   project: Project;
+  tasks: Array<Task> = [];
+
+  isTaskDialogOpen: boolean = false;
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
 
@@ -21,9 +26,17 @@ export class TasksComponent {
       const projectId = params['id'];
 
       this.httpService.get('projects/' + projectId)
-        .subscribe((data: APIResponse) => {
-          this.project = data.data[0];
-        })  
-    });
+        .subscribe((data: APIResponse) => { 
+          this.project = <Project>data.data;
+         
+          this.project.iterations.forEach((iteration: Iteration) => {
+            iteration.tasks.forEach((task: Task) => this.tasks.push(task))
+          })
+        }) 
+    })
+  }
+
+  toggleCreateTaskDialog() {
+    this.isTaskDialogOpen = !this.isTaskDialogOpen;
   }
 }

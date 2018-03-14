@@ -25,16 +25,11 @@ export class TasksDetailComponent {
       const projectId = params['id'];
       const taskId = params['taskId'];
 
-      // TODO: SORT OUT
       this.httpService.get('projects/' + projectId)
-        .subscribe((data: APIResponse) => {
-          this.project = data.data[0];
-        })  
+        .subscribe((data: APIResponse) => this.project = <Project>data.data)  
 
       this.httpService.get('tasks/' + taskId)
-        .subscribe((data: APIResponse) => {
-          this.task = data.data[0];
-        })  
-    });
+        .subscribe((data: APIResponse) => this.task = <Task>data.data)  
+    })
   }
 }

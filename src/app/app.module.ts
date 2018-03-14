@@ -39,6 +39,7 @@ import { IterationsDetailComponent } from './modules/projects/iterations/iterati
 import { IterationDialogComponent } from './modules/projects/iteration-dialog/iteration-dialog.component';
 import { TasksComponent } from './modules/projects/tasks/tasks.component';
 import { TasksDetailComponent } from './modules/projects/tasks/tasks-detail.component';
+import { TaskDialogComponent } from './modules/projects/task-dialog/task-dialog.component';
 import { KanbanComponent } from './modules/projects/kanban/kanban.component';
 
 import { TeamsComponent } from './modules/teams/teams.component';
@@ -84,6 +85,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     IterationDialogComponent,
     TasksComponent,
     TasksDetailComponent,
+    TaskDialogComponent,
     KanbanComponent,
     TeamsComponent,
     ClientsComponent,
