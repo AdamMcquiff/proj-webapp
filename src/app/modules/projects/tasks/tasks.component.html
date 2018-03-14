@@ -36,7 +36,12 @@
 
             <tbody class="table-body">
                 <tr class="table-body-row" *ngFor="let task of tasks"> 
-                    <td class="table-body-cell">{{ task.title ? task.title : '--' }}</td>
+                    <td class="table-body-cell">
+                        <a [routerLink]="['/projects', project.id, 'tasks', task.id]" 
+                           routerLinkActive="active">
+                           {{ task.title ? task.title : '--' }}
+                        </a>
+                    </td>
                     <td class="table-body-cell">{{ task.summary ? task.summary.substring(0, 25) + '...' : '--' }}</td>
                     <td class="table-body-cell">{{ task.assignee ? task.assignee.name : '--' }}</td>
                     <td class="table-body-cell">{{ task.due_date ? task.due_date : '--' }}</td>

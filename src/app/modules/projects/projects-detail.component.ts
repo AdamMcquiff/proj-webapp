@@ -22,13 +22,13 @@ export class ProjectsDetailComponent {
   serverErrors = {};
 
   isToggled = {
-    summary: false,
-    status: false,
-    client: false,
-    methodology: false,
-    budget: false,
-    start_date: false,
-    due_date: false,
+    'summary': false,
+    'status': false,
+    'client': false,
+    'methodology': false,
+    'budget': false,
+    'start_date': false,
+    'due_date': false,
   }
 
   isIterationDialogOpen: boolean = false;
@@ -61,23 +61,16 @@ export class ProjectsDetailComponent {
     this.isIterationDialogOpen = !this.isIterationDialogOpen;
   }
 
-  // TODO: refactor
   toggleField(field: string, isToggled: boolean) {
-    if (field == 'summary') this.isToggled.summary = isToggled;
-    if (field == 'client') this.isToggled.client = isToggled;
-    if (field == 'status') this.isToggled.status = isToggled;
-    if (field == 'methodology') this.isToggled.methodology = isToggled;
-    if (field == 'budget') this.isToggled.budget = isToggled;
-    if (field == 'start_date') this.isToggled.start_date = isToggled;
-    if (field == 'due_date') this.isToggled.due_date = isToggled;
+    this.isToggled[field] = isToggled;
+    
+    if (isToggled) return;
 
-    if (!isToggled) {
-      this.httpService.put('projects/' + this.project.id, this.parse(this.project))
-        .subscribe(
-          (data: APIResponse) => this.project = this.format(<Project> data.data),
-          (error: Object) => this.serverErrors = error
-        );  
-    }
+    this.httpService.put('projects/' + this.project.id, this.parse(this.project))
+      .subscribe(
+        (data: APIResponse) => this.project = this.format(<Project> data.data),
+        (error: Object) => this.serverErrors = error
+      );  
   }
 
   private format(project: Project): Project {       
