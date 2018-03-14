@@ -1,7 +1,19 @@
-<main class="main">
+<main class="main" [formGroup]="iterationForm">
     <header class="main-header">
         <h1 class="main-header-title" *ngIf="iteration">
-            {{ iteration.title }}
+            <label class="main-field-editable" 
+                   title="Click to edit"
+                   *ngIf="!isToggled.title" 
+                   (click)="toggleField('title', true)">
+                {{ iteration.title }}
+            </label>
+            <input (keydown.enter)="toggleField('title', false)" 
+                    class="main-field-form" 
+                    type="text" 
+                    *ngIf="isToggled.title" 
+                    formControlName="title"
+                    [value]="iteration.title" 
+                    [(ngModel)]="iteration.title">
         </h1>
     </header>
     
@@ -18,7 +30,21 @@
 
         <div class="main-body-content">
             <div class="main-body-summary">
-                {{ iteration.summary ? iteration.summary : '--' }}
+                <label class="main-field-editable" 
+                       title="Click to edit"
+                       *ngIf="!isToggled.summary" 
+                       (click)="toggleField('summary', true)">
+                    {{ iteration.summary ? iteration.summary : '--' }}
+                </label>
+                <textarea (keydown.enter)="toggleField('summary', false)" 
+                        rows="5"
+                        class="main-field-form" 
+                        type="text" 
+                        *ngIf="isToggled.summary" 
+                        formControlName="summary"
+                        [(ngModel)]="iteration.summary">
+                    {{ iteration.summary }}
+                </textarea>
             </div>
         </div>
 
@@ -47,7 +73,7 @@
                     </tr>
                 </thead>
     
-                <tbody class="table-body">
+                <tbody class="table-body" *ngIf="project && iteration.tasks">
                     <tr class="table-body-row" *ngFor="let task of iteration.tasks"> 
                         <td class="table-body-cell">
                             <a [routerLink]="['/projects', project.id, 'tasks', task.id]" 
@@ -74,6 +100,81 @@
             </div>
         </div>
     </section>
+
+    <aside class="main-aside main-aside--wider" *ngIf="iteration">
+        <section class="main-aside-section">
+            <h2 class="main-aside-section-header">Context</h2>
+
+            <div class="main-aside-section-body">
+                <dl class="main-detail-list">
+                    <dt class="main-detail-list-term">
+                        Status
+                    </dt>
+                    <dd class="main-detail-list-data">
+                        <label class="main-field-editable" 
+                                title="Click to edit"
+                                *ngIf="!isToggled.status"
+                                (click)="toggleField('status', true)">
+                                {{ iteration.status ? iteration.status : '--' }}
+                        </label>
+                        <input (keydown.enter)="toggleField('status', false)" 
+                                class="main-field-form" 
+                                type="text" 
+                                *ngIf="isToggled.status" 
+                                formControlName="status"
+                                [value]="iteration.status" 
+                                [(ngModel)]="iteration.status">
+                    </dd>
+                </dl>
+            </div>
+        </section>
+
+        <section class="main-aside-section">
+            <h2 class="main-aside-section-header">Dates</h2>
+
+            <div class="main-aside-section-body">
+                <dl class="main-detail-list">
+                    <dt class="main-detail-list-term">
+                        Start Date
+                    </dt>
+                    <dd class="main-detail-list-data">
+                        <label class="main-field-editable" 
+                                title="Click to edit"
+                                *ngIf="!isToggled.start_date" 
+                                (click)="toggleField('start_date', true)">
+                            {{ iteration.start_date ? iteration.start_date : '--' }}
+                        </label>
+                        <input (keydown.enter)="toggleField('start_date', false)" 
+                                class="main-field-form" 
+                                type="date" 
+                                *ngIf="isToggled.start_date" 
+                                formControlName="start_date"
+                                [value]="iteration.start_date" 
+                                [(ngModel)]="iteration.start_date">
+                    </dd>
+                    
+                    <dt class="main-detail-list-term">
+                        Due Date
+                    </dt>
+                    <dd class="main-detail-list-data">
+                        <label class="main-field-editable" 
+                                title="Click to edit"
+                                *ngIf="!isToggled.due_date" 
+                                (click)="toggleField('due_date', true)">
+                            {{ iteration.due_date ? iteration.due_date : '--' }}
+                        </label>
+                        <input (keydown.enter)="toggleField('due_date', false)" 
+                                class="main-field-form" 
+                                type="date" 
+                                *ngIf="isToggled.due_date" 
+                                formControlName="due_date"
+                                [value]="iteration.due_date" 
+                                [(ngModel)]="iteration.due_date">
+                    </dd>
+                </dl>
+            </div>
+        </section>
+    </aside>
 
     <task-dialog *ngIf="project" [isOpen]="isTaskDialogOpen" [iterations]="project.iterations"></task-dialog>
 </main>
