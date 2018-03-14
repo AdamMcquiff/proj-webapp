@@ -1,7 +1,19 @@
-<main class="main">
+<main class="main" [formGroup]="taskForm">
     <header class="main-header">
         <h1 class="main-header-title" *ngIf="task && project">
-            {{ project.title ? project.title : '--' }} - {{ task.title ? task.title : '--' }}
+            <label class="main-field-editable" 
+                   title="Click to edit"
+                   *ngIf="!isToggled.title" 
+                   (click)="toggleField('title', true)">
+                {{ task.title }}
+            </label>
+            <input (keydown.enter)="toggleField('title', false)" 
+                   class="main-field-form" 
+                   type="text" 
+                   *ngIf="isToggled.title" 
+                   formControlName="title"
+                   [value]="task.title" 
+                   [(ngModel)]="task.title">
         </h1>
     </header>
     
@@ -18,7 +30,21 @@
 
         <div class="main-body-content">
             <div class="main-body-summary">
-                {{ task.summary ? task.summary : '--' }}
+                <label class="main-field-editable" 
+                       title="Click to edit"
+                       *ngIf="!isToggled.summary" 
+                       (click)="toggleField('summary', true)">
+                    {{ task.summary ? task.summary : '--' }}
+                </label>
+                <textarea (keydown.enter)="toggleField('summary', false)" 
+                          rows="5"
+                          class="main-field-form" 
+                          type="text" 
+                          *ngIf="isToggled.summary" 
+                          formControlName="summary"
+                          [(ngModel)]="task.summary">
+                    {{ task.summary }}
+                </textarea>
             </div>
         </div>
     </section>
@@ -33,14 +59,50 @@
                         Status
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ task.status ? 'Complete' : 'In progress' }}
+                        <label class="main-field-editable" 
+                               title="Click to edit"
+                               *ngIf="!isToggled.status"
+                               (click)="toggleField('status', true)">
+                                {{ task.status ? 'Complete' : 'In progress' }}
+                        </label>
+
+                        <select formControlName="status" 
+                                *ngIf="isToggled.status" 
+                                class="main-field-form" 
+                                (keydown.enter)="toggleField('status', false)" 
+                                [(ngModel)]="task.status"> 
+                            <option value="0">In Progress</option>
+                            <option value="1">Complete</option>
+                        </select>
                     </dd>
                     
                     <dt class="main-detail-list-term" *ngIf="task.iteration">
                         Iteration
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ task.iteration ? task.iteration.title : '--' }}
+                        <label class="main-field-editable" 
+                               title="Click to edit"
+                               *ngIf="!isToggled.iteration"
+                               (click)="toggleField('iteration', true)">
+                                {{ task.iteration ? task.iteration.title : '--' }}
+                        </label>
+
+                        <select formControlName="iteration" 
+                                *ngIf="isToggled.iteration" 
+                                class="main-field-form" 
+                                (keydown.enter)="toggleField('iteration', false)" 
+                                [(ngModel)]="task.iteration.id"> 
+                            <option value="">
+                                - Select an iteration -
+                            </option>
+                            <option *ngFor="let iteration of project.iterations" 
+                                    [ngValue]="iteration.id" 
+                                    [attr.selected]="task.iteration && task.iteration.id == iteration.id ? true : null">
+                                {{ iteration.title }}
+                            </option>
+                        </select>
+
+                       
                     </dd>
                 </dl>
             </div>
@@ -56,7 +118,19 @@
                         Due Date
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ task.due_date ? task.due_date : '--' }}
+                        <label class="main-field-editable" 
+                               title="Click to edit"
+                               *ngIf="!isToggled.due_date" 
+                               (click)="toggleField('due_date', true)">
+                            {{ task.due_date ? task.due_date : '--' }}
+                        </label>
+                        <input (keydown.enter)="toggleField('due_date', false)" 
+                               class="main-field-form" 
+                               type="date" 
+                               *ngIf="isToggled.due_date" 
+                               formControlName="due_date"
+                               [value]="task.due_date" 
+                               [(ngModel)]="task.due_date">
                     </dd>
                 </dl>
             </div>

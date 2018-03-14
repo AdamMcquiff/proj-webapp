@@ -206,18 +206,18 @@
                     </dt>
                     <dd class="main-detail-list-data">
                         <label class="main-field-editable" 
-                                title="Click to edit"
-                                *ngIf="!isToggled.start_date" 
-                                (click)="toggleField('start_date', true)">
+                               title="Click to edit"
+                               *ngIf="!isToggled.start_date" 
+                               (click)="toggleField('start_date', true)">
                             {{ project.start_date ? project.start_date : '--' }}
                         </label>
                         <input (keydown.enter)="toggleField('start_date', false)" 
-                                class="main-field-form" 
-                                type="date" 
-                                *ngIf="isToggled.start_date" 
-                                formControlName="start_date"
-                                [value]="project.start_date" 
-                                [(ngModel)]="project.start_date">
+                               class="main-field-form" 
+                               type="date" 
+                               *ngIf="isToggled.start_date" 
+                               formControlName="start_date"
+                               [value]="project.start_date" 
+                               [(ngModel)]="project.start_date">
                     </dd>
                     
                     <dt class="main-detail-list-term">
@@ -225,18 +225,18 @@
                     </dt>
                     <dd class="main-detail-list-data">
                         <label class="main-field-editable" 
-                                title="Click to edit"
-                                *ngIf="!isToggled.due_date" 
-                                (click)="toggleField('due_date', true)">
+                               title="Click to edit"
+                               *ngIf="!isToggled.due_date" 
+                               (click)="toggleField('due_date', true)">
                             {{ project.due_date ? project.due_date : '--' }}
                         </label>
                         <input (keydown.enter)="toggleField('due_date', false)" 
-                                class="main-field-form" 
-                                type="date" 
-                                *ngIf="isToggled.due_date" 
-                                formControlName="due_date"
-                                [value]="project.due_date" 
-                                [(ngModel)]="project.due_date">
+                               class="main-field-form" 
+                               type="date" 
+                               *ngIf="isToggled.due_date" 
+                               formControlName="due_date"
+                               [value]="project.due_date" 
+                               [(ngModel)]="project.due_date">
                     </dd>
                 </dl>
             </div>
