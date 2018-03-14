@@ -22,6 +22,7 @@ export class ProjectsDetailComponent {
   serverErrors = {};
 
   isToggled = {
+    'title': false,
     'summary': false,
     'status': false,
     'client': false,
@@ -37,6 +38,7 @@ export class ProjectsDetailComponent {
 
   ngOnInit(): void {
     this.projectForm = this.formBuilder.group({
+      title:       ["", [ Validators.required ]],
       summary:     ["", [ Validators.required ]],
       client:      ["", [ Validators.required ]],
       status:      ["", [ Validators.required ]],

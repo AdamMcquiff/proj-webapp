@@ -1,7 +1,19 @@
 <main class="main" [formGroup]="projectForm">
     <header class="main-header">
         <h1 class="main-header-title" *ngIf="project">
-            {{ project.title }}
+            <label class="main-field-editable" 
+                    title="Click to edit"
+                    *ngIf="!isToggled.title" 
+                    (click)="toggleField('title', true)">
+                {{ project.title }}
+            </label>
+            <input (keydown.enter)="toggleField('title', false)" 
+                    class="main-field-form" 
+                    type="text" 
+                    *ngIf="isToggled.title" 
+                    formControlName="title"
+                    [value]="project.title" 
+                    [(ngModel)]="project.title">
         </h1>
     </header>
     
