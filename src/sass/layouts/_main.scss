@@ -156,4 +156,32 @@
             width: susy-span(6 of 12);
         }
     }
+    
+    &-field {
+        &-editable {
+            cursor: pointer;
+            transition: all .3s ease;
+            
+            &:hover,
+            &:focus,
+            &:active {
+                color: $dark-gray;
+            }
+        }
+
+        &-form {
+            @include type-setting(0);
+            background-color: $lighter-gray;
+
+            border: 0;
+            border-radius: 3px;
+            
+            color: $darkest-gray;
+            font-size: 1em;
+            
+            padding: .25em .5em;
+            resize: none;
+            width: 100%;
+        }
+    }
 }

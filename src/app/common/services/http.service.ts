@@ -20,6 +20,10 @@ export class HttpService {
     return this.http.post(this.baseUrl + endpoint, data, this.httpOptions);
   }
 
+  put(endpoint, data) {
+    return this.http.put(this.baseUrl + endpoint, data, this.httpOptions);
+  }
+
   refreshToken() {
     this.httpOptions = {
       headers: new HttpHeaders({

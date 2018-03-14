@@ -1,4 +1,4 @@
-<main class="main">
+<main class="main" [formGroup]="projectForm">
     <header class="main-header">
         <h1 class="main-header-title" *ngIf="project">
             {{ project.title }}
@@ -9,7 +9,7 @@
         <project-nav [project]="project"></project-nav>
     </aside>
     
-    <section class="main-body" *ngIf="project">
+    <section class="main-body" *ngIf="project" (ngSubmit)="onFormSubmit()"> 
         <header class="main-body-header">
             <div class="main-body-header-title">
                 <h2 class="main-body-title">Summary</h2>
@@ -18,7 +18,21 @@
 
         <div class="main-body-content">
             <div class="main-body-summary">
-                {{ project.summary ? project.summary : '--' }}
+                <label class="main-field-editable" 
+                       title="Click to edit"
+                       *ngIf="!isToggled.summary" 
+                       (click)="toggleField('summary', true)">
+                    {{ project.summary ? project.summary : '--' }}
+                </label>
+                <textarea (keydown.enter)="toggleField('summary', false)" 
+                       rows="5"
+                       class="main-field-form" 
+                       type="text" 
+                       *ngIf="isToggled.summary" 
+                       formControlName="summary"
+                       [(ngModel)]="project.summary">
+                    {{ project.summary }}
+                </textarea>
             </div>
         </div>
 
@@ -85,28 +99,86 @@
                         Client
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ project.client ? project.client.name : '--' }}
+                        <label class="main-field-editable" 
+                               title="Click to edit"
+                               *ngIf="!isToggled.client"
+                               (click)="toggleField('client', true)">
+                                {{ project.client ? project.client.name : '--' }}
+                        </label>
+
+                        <select formControlName="client" 
+                                *ngIf="isToggled.client" 
+                                class="main-field-form" 
+                                (keydown.enter)="toggleField('client', false)" 
+                                [(ngModel)]="project.client.id"> 
+                            <option value="">
+                                - Select a client -
+                            </option>
+                            <option *ngFor="let client of clients" 
+                                    [ngValue]="client.id" 
+                                    [attr.selected]="project.client && project.client.id == client.id ? true : null">
+                                {{ client.name }}
+                            </option>
+                        </select>
                     </dd>
                     
                     <dt class="main-detail-list-term">
                         Status
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ project.status ? 'Complete' : 'In progress' }}
+                        <label class="main-field-editable" 
+                               title="Click to edit"
+                               *ngIf="!isToggled.status"
+                               (click)="toggleField('status', true)">
+                               {{ project.status ? 'Complete' : 'In progress' }}
+                        </label>
+
+                        <select formControlName="status" 
+                                *ngIf="isToggled.status" 
+                                class="main-field-form" 
+                                (keydown.enter)="toggleField('status', false)" 
+                                [(ngModel)]="project.status"> 
+                            <option value="0">In Progress</option>
+                            <option value="1">Complete</option>
+                        </select>
                     </dd>
                     
                     <dt class="main-detail-list-term">
                         Methodology
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ project.methodology ? project.methodology : '--' }}
+                        <label class="main-field-editable" 
+                                title="Click to edit"
+                                *ngIf="!isToggled.methodology" 
+                                (click)="toggleField('methodology', true)">
+                            {{ project.methodology ? project.methodology : '--' }}
+                        </label>
+                        <input (keydown.enter)="toggleField('methodology', false)" 
+                                class="main-field-form" 
+                                type="text" 
+                                *ngIf="isToggled.methodology" 
+                                formControlName="methodology"
+                                [value]="project.methodology" 
+                                [(ngModel)]="project.methodology">
                     </dd>
                     
                     <dt class="main-detail-list-term">
-                        Budget
+                        Budget (&pound;)
                     </dt>
                     <dd class="main-detail-list-data">
-                        £ {{ project.budget ? project.budget.toFixed(2) : '--' }}
+                        <label class="main-field-editable" 
+                                title="Click to edit"
+                                *ngIf="!isToggled.budget" 
+                                (click)="toggleField('budget', true)">
+                            {{ project.budget ? project.budget : '--' }}
+                        </label>
+                        <input (keydown.enter)="toggleField('budget', false)" 
+                                class="main-field-form" 
+                                type="text" 
+                                *ngIf="isToggled.budget" 
+                                formControlName="budget"
+                                [value]="project.budget" 
+                                [(ngModel)]="project.budget">
                     </dd>
                 </dl>
             </div>
@@ -121,14 +193,38 @@
                         Start Date
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ project.start_date ? project.start_date : '--' }}
+                        <label class="main-field-editable" 
+                                title="Click to edit"
+                                *ngIf="!isToggled.start_date" 
+                                (click)="toggleField('start_date', true)">
+                            {{ project.start_date ? project.start_date : '--' }}
+                        </label>
+                        <input (keydown.enter)="toggleField('start_date', false)" 
+                                class="main-field-form" 
+                                type="date" 
+                                *ngIf="isToggled.start_date" 
+                                formControlName="start_date"
+                                [value]="project.start_date" 
+                                [(ngModel)]="project.start_date">
                     </dd>
                     
                     <dt class="main-detail-list-term">
-                        End Date
+                        Due Date
                     </dt>
                     <dd class="main-detail-list-data">
-                        {{ project.due_date ? project.due_date : '--' }}
+                        <label class="main-field-editable" 
+                                title="Click to edit"
+                                *ngIf="!isToggled.due_date" 
+                                (click)="toggleField('due_date', true)">
+                            {{ project.due_date ? project.due_date : '--' }}
+                        </label>
+                        <input (keydown.enter)="toggleField('due_date', false)" 
+                                class="main-field-form" 
+                                type="date" 
+                                *ngIf="isToggled.due_date" 
+                                formControlName="due_date"
+                                [value]="project.due_date" 
+                                [(ngModel)]="project.due_date">
                     </dd>
                 </dl>
             </div>
@@ -138,6 +234,7 @@
             <h2 class="main-aside-section-header">People</h2>
 
             <div class="main-aside-section-body">
+                <!-- TODO: make editable -->
                 <!-- TODO: sort in order: project manager -> team member -> client -->
                 <div class="user-card" *ngFor="let user of project.users">
                     <div class="user-card-avatar"></div>
