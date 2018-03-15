@@ -51,7 +51,8 @@
                 <tr class="table-body-row" *ngFor="let project of projects"> 
                     <td class="table-body-cell">
                         <a [routerLink]="['/projects', project.id]" 
-                           routerLinkActive="active">
+                           routerLinkActive="active"
+                           class="table-body-link">
                             {{ project.title }}
                         </a>
                     </td>

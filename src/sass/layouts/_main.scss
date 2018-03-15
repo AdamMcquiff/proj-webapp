@@ -82,7 +82,7 @@
         }
 
         &--wider {
-            width: 18.5em;
+            flex: 1;
         }
     }
 
@@ -143,17 +143,25 @@
         font-family: $libre-franklin;
 
         &-term {
-            float: left;
             margin: .5em 0;
-            width: susy-span(6 of 12);
+            width: 100%;
         }
 
         &-data {
             color: $darkest-gray;
-            float: left;
             font-weight: 200;
             margin: .5em 0;
-            width: susy-span(6 of 12);
+            width: 100%;
+        }
+
+        @media screen and (min-width: 1440px) {
+            
+            &-data,
+            &-term {
+                float: left;
+                width: susy-span(6 of 12);
+            }
+    
         }
     }
     

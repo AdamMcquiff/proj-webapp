@@ -61,6 +61,7 @@ export class ProjectsDetailComponent {
   
   toggleCreateIterationDialog() {
     this.isIterationDialogOpen = !this.isIterationDialogOpen;
+    console.log(this.isIterationDialogOpen)
   }
 
   toggleField(field: string, isToggled: boolean) {

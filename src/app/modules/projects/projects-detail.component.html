@@ -77,13 +77,14 @@
                     <tr class="table-body-row" *ngFor="let iteration of project.iterations"> 
                         <td class="table-body-cell">
                             <a [routerLink]="['/projects', project.id, 'iterations', iteration.id]" 
-                               routerLinkActive="active">
+                               routerLinkActive="active"
+                               class="table-body-link">
                                 {{ iteration.title }}
                             </a>
                         </td>
-                        <td class="table-body-cell">{{ iteration.status }}</td>
-                        <td class="table-body-cell">{{ iteration.start_date }}</td>
-                        <td class="table-body-cell">{{ iteration.end_date }}</td>
+                        <td class="table-body-cell">{{ iteration.status ? iteration.status : '--' }}</td>
+                        <td class="table-body-cell">{{ iteration.start_date ? iteration.start_date : '--' }}</td>
+                        <td class="table-body-cell">{{ iteration.end_date ? iteration.end_date : '--' }}</td>
                         <td class="table-body-cell table-body-cell--view">
                             <a class="table-body-view" 
                                [routerLink]="['/projects', project.id, 'iterations', iteration.id]" 

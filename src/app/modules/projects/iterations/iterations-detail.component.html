@@ -77,7 +77,8 @@
                     <tr class="table-body-row" *ngFor="let task of iteration.tasks"> 
                         <td class="table-body-cell">
                             <a [routerLink]="['/projects', project.id, 'tasks', task.id]" 
-                               routerLinkActive="active">
+                               routerLinkActive="active"
+                               class="table-body-link">
                                 {{ task.title }}
                             </a>
                         </td>
