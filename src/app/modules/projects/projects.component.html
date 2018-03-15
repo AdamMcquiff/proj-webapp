@@ -55,8 +55,8 @@
                             {{ project.title }}
                         </a>
                     </td>
-                    <td class="table-body-cell">{{ project.summary.substring(0, 25) + '...' }}</td>
-                    <td class="table-body-cell">{{ project.methodology }}</td>
+                    <td class="table-body-cell">{{ project.summary ? project.summary.substring(0, 25) + '...' : '--' }}</td>
+                    <td class="table-body-cell">{{ project.methodology ? project.methodology : '--' }}</td>
                     <td class="table-body-cell table-body-cell--view">
                         <a class="table-body-view" 
                            [routerLink]="['/projects', project.id]" 

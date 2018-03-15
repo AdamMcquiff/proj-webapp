@@ -22,11 +22,26 @@
             <input type="text" class="form-input" formControlName="title">
         </label>
 
-        <label class="form-label">
+        <label class="form-label" *ngIf="projects">
+            <span class="form-label-title">Project</span>
+            <span class="form-label-subtext">Select a project that the task belongs to.</span>
+
+            <select class="form-input" formControlName="selectedProject" (ngModelChange)="changeProject($event)">
+                <option value="" selected>- Select a project -</option>
+                <option [ngValue]="project" *ngFor="let project of projects">{{ project.title }}</option>
+            </select>
+        </label>
+
+        <label class="form-label" *ngIf="!projects || (projects && selectedProject)">
             <span class="form-label-title">Iteration</span>
             <span class="form-label-subtext">Select an iteration that the task belongs to.</span>
 
-            <select formControlName="iteration_id" class="form-input">
+            <select formControlName="iteration_id" class="form-input" *ngIf="projects && selectedProject">
+                <option value="" selected>- Select an iteration -</option>
+                <option [ngValue]="iteration.id" *ngFor="let iteration of selectedProject.iterations">{{ iteration.title }}</option>
+            </select>
+
+            <select formControlName="iteration_id" class="form-input" *ngIf="!projects">
                 <option value="" selected>- Select an iteration -</option>
                 <option [ngValue]="iteration.id" *ngFor="let iteration of iterations">{{ iteration.title }}</option>
             </select>

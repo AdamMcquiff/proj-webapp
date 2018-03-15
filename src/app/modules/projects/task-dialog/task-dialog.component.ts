@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 import { Task } from "../tasks/task.model";
+import { Project } from "../project.model";
 
 import { HttpService } from "../../../common/services/http.service";
 import { APIResponse } from "../../../common/interfaces/api-response.interface";
@@ -14,7 +15,10 @@ import { APIResponse } from "../../../common/interfaces/api-response.interface";
 
 export class TaskDialogComponent {
   @Input() isOpen;
+  @Input() projects;
   @Input() iterations;
+
+  selectedProject: Project;
 
   taskForm: FormGroup;
   serverErrors = {};
@@ -35,6 +39,7 @@ export class TaskDialogComponent {
   ngOnInit(): void {
     this.taskForm = this.formBuilder.group({
       title: ["", [ Validators.required ]],
+      selectedProject: ["", []],
       iteration_id: ["", [ Validators.required ]] 
     });
   }
@@ -46,15 +51,21 @@ export class TaskDialogComponent {
 
     this.isPerformingAPICall = true;
 
+    let iteration_id = this.iterations ? this.iterations[0].project_id : this.selectedProject.id;
+
     this.httpService.post('tasks', Object.assign({ iteration_id: this.task.iteration_id }, this.task))
       .subscribe(
         (data: APIResponse) => {
           this.task = <Task> data.data;
-          this.router.navigate(['/projects', this.iterations[0].project_id, 'tasks', this.task.id]);
+          this.router.navigate(['/projects', iteration_id, 'tasks', this.task.id]);
         },
         error => this.serverErrors = error,
         () => this.isPerformingAPICall = false
       );  
+  }
+
+  changeProject(project) {
+    this.selectedProject = project;
   }
 }
  

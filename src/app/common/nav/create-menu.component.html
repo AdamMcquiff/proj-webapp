@@ -1,0 +1,32 @@
+<div class="create-menu" [ngClass]="{ 'visible': isOpen }" [attr.aria-expanded]="isOpen ? true : false">
+    
+    <button class="create-menu-dismiss-btn" 
+            aria-label="Dismiss" 
+            title="Dismiss" 
+            (click)="toggleDialog()">
+    </button>
+    
+    <h2 class="create-menu-title">
+        Create...
+    </h2>
+
+    <ul class="create-menu-list">
+        <li class="create-menu-list-item" (click)="toggleTaskDialog()">
+            Task
+        </li>
+        <!-- <li class="create-menu-list-item">
+            Iteration
+        </li> -->
+        <li class="create-menu-list-item" (click)="toggleProjectDialog()">
+            Project
+        </li>
+        <!-- <li class="create-menu-list-item">
+            Team
+        </li> -->
+    </ul>
+</div>
+
+<div class="overlay" [ngClass]="{ 'visible': isOpen }"></div>
+
+<task-dialog [isOpen]="isTaskDialogOpen" [projects]="projects"></task-dialog>
+<project-dialog [isOpen]="isProjectDialogOpen"></project-dialog>

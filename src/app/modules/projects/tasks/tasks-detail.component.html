@@ -63,7 +63,7 @@
                                title="Click to edit"
                                *ngIf="!isToggled.status"
                                (click)="toggleField('status', true)">
-                                {{ task.status ? 'Complete' : 'In progress' }}
+                            {{ task.status ? 'Complete' : 'In progress' }}
                         </label>
 
                         <select formControlName="status" 
@@ -84,7 +84,7 @@
                                title="Click to edit"
                                *ngIf="!isToggled.iteration"
                                (click)="toggleField('iteration', true)">
-                                {{ task.iteration ? task.iteration.title : '--' }}
+                            {{ task.iteration ? task.iteration.title : '--' }}
                         </label>
 
                         <select formControlName="iteration" 
@@ -100,9 +100,7 @@
                                     [attr.selected]="task.iteration && task.iteration.id == iteration.id ? true : null">
                                 {{ iteration.title }}
                             </option>
-                        </select>
-
-                       
+                        </select>                       
                     </dd>
                 </dl>
             </div>
