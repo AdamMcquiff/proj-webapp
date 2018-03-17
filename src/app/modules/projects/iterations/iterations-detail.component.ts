@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { Project } from "../project.model";
@@ -32,7 +32,7 @@ export class IterationsDetailComponent {
 
   isTaskDialogOpen: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
+  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.iterationForm = this.formBuilder.group({
@@ -69,6 +69,14 @@ export class IterationsDetailComponent {
 
   toggleCreateTaskDialog() {
     this.isTaskDialogOpen = !this.isTaskDialogOpen;
+  }
+
+  deleteIteration() {
+    this.httpService.delete('iterations/' + this.iteration.id)
+      .subscribe(
+        (data: APIResponse) => this.router.navigate(['/iterations']),
+        (error: Object) => this.serverErrors = error
+      );  
   }
 
   private format (iteration: Iteration): Iteration {

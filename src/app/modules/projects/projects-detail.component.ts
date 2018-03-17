@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { Project } from "./project.model";
@@ -33,8 +33,9 @@ export class ProjectsDetailComponent {
   }
 
   isIterationDialogOpen: boolean = false;
+  isProjectPeopleDialogOpen: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
+  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.projectForm = this.formBuilder.group({
@@ -61,7 +62,10 @@ export class ProjectsDetailComponent {
   
   toggleCreateIterationDialog() {
     this.isIterationDialogOpen = !this.isIterationDialogOpen;
-    console.log(this.isIterationDialogOpen)
+  }
+
+  toggleProjectPeopleDialog() {
+    this.isProjectPeopleDialogOpen = !this.isProjectPeopleDialogOpen;
   }
 
   toggleField(field: string, isToggled: boolean) {
@@ -72,6 +76,22 @@ export class ProjectsDetailComponent {
     this.httpService.put('projects/' + this.project.id, this.parse(this.project))
       .subscribe(
         (data: APIResponse) => this.project = this.format(<Project> data.data),
+        (error: Object) => this.serverErrors = error
+      );  
+  }
+
+  archiveProject() {
+    this.httpService.post('projects/' + this.project.id + '/archive', {})
+      .subscribe(
+        (data: APIResponse) => this.router.navigate(['/projects']),
+        (error: Object) => this.serverErrors = error
+      );  
+  }
+
+  deleteProject() {
+    this.httpService.delete('projects/' + this.project.id)
+      .subscribe(
+        (data: APIResponse) => this.router.navigate(['/projects']),
         (error: Object) => this.serverErrors = error
       );  
   }

@@ -102,9 +102,11 @@
         </div>
     </section>
 
-    <aside class="main-aside main-aside--wider" *ngIf="iteration">
+    <aside class="main-aside" *ngIf="iteration">
         <section class="main-aside-section">
-            <h2 class="main-aside-section-header">Context</h2>
+            <div class="main-aside-section-header">
+                <h2 class="main-aside-section-title">Context</h2>
+            </div>
 
             <div class="main-aside-section-body">
                 <dl class="main-detail-list">
@@ -131,7 +133,9 @@
         </section>
 
         <section class="main-aside-section">
-            <h2 class="main-aside-section-header">Dates</h2>
+            <div class="main-aside-section-header">
+                <h2 class="main-aside-section-title">Dates</h2>
+            </div>
 
             <div class="main-aside-section-body">
                 <dl class="main-detail-list">
@@ -173,6 +177,12 @@
                                 [(ngModel)]="iteration.due_date">
                     </dd>
                 </dl>
+            </div>
+        </section>
+
+        <section class="main-aside-section align-right">
+            <div class="main-aside-section-body">
+                <button class="btn btn--warning" (click)="deleteTask()">Delete</button>
             </div>
         </section>
     </aside>

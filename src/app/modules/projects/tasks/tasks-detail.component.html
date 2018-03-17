@@ -49,9 +49,11 @@
         </div>
     </section>
 
-    <aside class="main-aside main-aside--wider" *ngIf="task">
+    <aside class="main-aside" *ngIf="task">
         <section class="main-aside-section">
-            <h2 class="main-aside-section-header">Status</h2>
+            <div class="main-aside-section-header">
+                <h2 class="main-aside-section-title">Status</h2>
+            </div>
 
             <div class="main-aside-section-body">
                 <dl class="main-detail-list">
@@ -108,7 +110,9 @@
 
 
         <section class="main-aside-section">
-            <h2 class="main-aside-section-header">Dates</h2>
+            <div class="main-aside-section-header">
+                <h2 class="main-aside-section-title">Dates</h2>
+            </div>
 
             <div class="main-aside-section-body">
                 <dl class="main-detail-list">
@@ -135,7 +139,9 @@
         </section>
 
         <section class="main-aside-section">
-            <h2 class="main-aside-section-header">People</h2>
+            <div class="main-aside-section-header">
+                <h2 class="main-aside-section-title">People</h2>
+            </div>
 
             <div class="main-aside-section-body">
                 <div class="user-card">
@@ -169,6 +175,12 @@
                         Reporter
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="main-aside-section align-right">
+            <div class="main-aside-section-body">
+                <button class="btn btn--warning" (click)="deleteTask()">Delete</button>
             </div>
         </section>
     </aside>

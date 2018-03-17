@@ -102,9 +102,11 @@
         </div>
     </section>
 
-    <aside class="main-aside main-aside--wider" *ngIf="project">
+    <aside class="main-aside" *ngIf="project">
         <section class="main-aside-section">
-            <h2 class="main-aside-section-header">Context</h2>
+            <div class="main-aside-section-header">
+                <h2 class="main-aside-section-title">Context</h2>
+            </div>
 
             <div class="main-aside-section-body">
                 <dl class="main-detail-list">
@@ -198,7 +200,9 @@
         </section>
 
         <section class="main-aside-section">
-            <h2 class="main-aside-section-header">Dates</h2>
+            <div class="main-aside-section-header">
+                <h2 class="main-aside-section-title">Dates</h2>
+            </div>
 
             <div class="main-aside-section-body">
                 <dl class="main-detail-list">
@@ -244,7 +248,10 @@
         </section>
 
         <section class="main-aside-section">
-            <h2 class="main-aside-section-header">People</h2>
+            <div class="main-aside-section-header">
+                <h2 class="main-aside-section-title">People</h2>
+                <button class="btn" (click)="toggleProjectPeopleDialog()">Edit People</button>
+            </div>
 
             <div class="main-aside-section-body">
                 <!-- TODO: make editable -->
@@ -266,7 +273,19 @@
                 </div>
             </div>
         </section>
+
+        <section class="main-aside-section align-right">
+            <div class="main-aside-section-header">
+                <h2 class="hidden">Delete or Archive</h2>
+            </div>
+            
+            <div class="main-aside-section-body">
+                <button class="btn btn--secondary" (click)="archiveProject()">Archive</button>
+                <button class="btn btn--warning" (click)="deleteProject()">Delete</button>
+            </div>
+        </section>
     </aside>
 
     <iteration-dialog *ngIf="project" [isOpen]="isIterationDialogOpen" [projectId]="project.id"></iteration-dialog>
+    <project-people-dialog *ngIf="project" [isOpen]="isProjectPeopleDialogOpen" [project]="project"></project-people-dialog>
 </main>

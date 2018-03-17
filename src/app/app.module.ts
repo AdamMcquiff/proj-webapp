@@ -25,6 +25,7 @@ import { CreateMenuComponent } from './common/nav/create-menu.component';
 import { AvatarMenuComponent } from './common/nav/avatar-menu.component';
 import { HeaderComponent } from './common/header/header.component';
 import { DialogComponent } from './common/dialog/dialog.component';
+import { ToastComponent } from './common/toast/toast.component';
 
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { TasksDashboardWidgetComponent } from './modules/dashboard/tasks-widget/tasks.widget.component';
@@ -33,6 +34,7 @@ import { ProjectsDashboardWidgetComponent } from './modules/dashboard/projects-w
 import { ProjectsComponent } from './modules/projects/projects.component';
 import { ProjectsDetailComponent } from './modules/projects/projects-detail.component';
 import { ProjectDialogComponent } from './modules/projects/project-dialog/project-dialog.component';
+import { ProjectPeopleDialogComponent } from './modules/projects/project-dialog/project-people-dialog.component';
 import { ProjectNavComponent } from './modules/projects/nav/project-nav.component';
 import { IterationsComponent } from './modules/projects/iterations/iterations.component';
 import { IterationsDetailComponent } from './modules/projects/iterations/iterations-detail.component';
@@ -70,6 +72,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AvatarMenuComponent,
     HeaderComponent,
     DialogComponent,
+    ToastComponent,
     LoginComponent, 
     RegisterComponent,
     ForgottenPasswordComponent,
@@ -79,6 +82,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ProjectsComponent,
     ProjectsDetailComponent,
     ProjectDialogComponent,
+    ProjectPeopleDialogComponent,
     ProjectNavComponent,
     IterationsComponent,
     IterationsDetailComponent,

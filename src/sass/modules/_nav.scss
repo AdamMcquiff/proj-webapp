@@ -14,7 +14,7 @@
     
         font-family: $libre-franklin;
         
-        height: 100vh;
+        height: calc(100vh - 3.125em);
         position: fixed;
         top: $header-height; 
         width: 7em;

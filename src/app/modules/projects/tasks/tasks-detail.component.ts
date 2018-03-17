@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { Project } from "../project.model";
@@ -30,7 +30,7 @@ export class TasksDetailComponent {
     'iteration': false,
   }
 
-  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
+  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.taskForm = this.formBuilder.group({
@@ -61,6 +61,14 @@ export class TasksDetailComponent {
     this.httpService.put('tasks/' + this.task.id, this.parse(this.task))
       .subscribe(
         (data: APIResponse) => this.task = this.format(<Task> data.data),
+        (error: Object) => this.serverErrors = error
+      );  
+  }
+
+  deleteTask() {
+    this.httpService.delete('tasks/' + this.task.id)
+      .subscribe(
+        (data: APIResponse) => this.router.navigate(['/tasks']),
         (error: Object) => this.serverErrors = error
       );  
   }

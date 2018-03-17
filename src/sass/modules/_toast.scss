@@ -11,7 +11,13 @@
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
     font-family: $libre-franklin;
+    font-size: .9em;
     font-weight: 200;
+    
+    left: auto;
+    right: .5em;
+    top: .325em;
+    z-index: 1;
 
     &-featured {
         font-weight: 500;

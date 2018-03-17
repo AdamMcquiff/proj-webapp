@@ -24,6 +24,10 @@ export class HttpService {
     return this.http.put(this.baseUrl + endpoint, data, this.httpOptions);
   }
 
+  delete(endpoint) {
+    return this.http.delete(this.baseUrl + endpoint, this.httpOptions);
+  }
+
   refreshToken() {
     this.httpOptions = {
       headers: new HttpHeaders({
