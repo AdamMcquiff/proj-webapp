@@ -32,8 +32,9 @@ export class ProjectsDetailComponent {
     'due_date': false,
   }
 
-  isIterationDialogOpen: boolean = false;
-  isProjectPeopleDialogOpen: boolean = false;
+  isIterationDialogOpen: boolean;
+  isProjectPeopleDialogOpen: boolean;
+  isDeleteConfirmationDialogOpen: boolean;
 
   constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
@@ -86,6 +87,14 @@ export class ProjectsDetailComponent {
         (data: APIResponse) => this.router.navigate(['/projects']),
         (error: Object) => this.serverErrors = error
       );  
+  }
+
+  toggleDeleteConfirmationDialog() {
+    this.isDeleteConfirmationDialogOpen = !this.isDeleteConfirmationDialogOpen;
+  }
+
+  onDeleteConfirmation(isPositiveConfirmation: boolean) {
+    if (isPositiveConfirmation) this.deleteProject();
   }
 
   deleteProject() {

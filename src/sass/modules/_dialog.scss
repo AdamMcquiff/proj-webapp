@@ -19,6 +19,10 @@
     &--hidden {
         animation: hide-dialog 5s 1;
     }
+
+    &--small {
+        width: 20em;
+    }
     
     &-header {
         background: $dark-blue;
@@ -40,6 +44,11 @@
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
         padding: 2em 1.5em;
+
+        &-subtext {
+            color: $dark-gray;
+            margin: { top: .5em; }
+        }
     }
 
     &-form {
@@ -64,6 +73,12 @@
             color: $darkest-gray;
             font-weight: 200;
         }
+    }
+
+    &-btns {
+        border-top: 1px solid $light-gray;    
+        padding: 1em;
+        text-align: right;
     }
 
     &-dismiss-btn {

@@ -1,0 +1,38 @@
+<dialog class="dialog dialog--small" [attr.open]="isOpen ? true : null">
+    <div class="dialog-header">
+        <h3 class="dialog-header-title">{{ title }}</h3>
+
+        <button class="dialog-dismiss-btn" 
+                aria-label="Dismiss" 
+                title="Dismiss"
+                (click)="closeDialog(false)">
+        </button>
+    </div>
+
+    <div class="dialog-body align-center">
+        <p>
+            {{ body.first_line }}
+        </p>
+        <p class="dialog-body-subtext">
+            {{ body.second_line }}  
+        </p>
+    </div>
+
+    <div class="dialog-btns">
+        <button class="btn btn--secondary" 
+            aria-label="Cancel" 
+            title="Cancel"
+            (click)="closeDialog(false)">
+            No, don’t delete
+        </button>
+        
+        <button class="btn btn--danger" 
+            aria-label="Delete" 
+            title="Delete"
+            (click)="closeDialog(true)">
+            Delete
+        </button>
+    </div>
+</dialog>
+
+<div class="overlay" [ngClass]="{ 'visible': isOpen }"></div>

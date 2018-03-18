@@ -1,4 +1,6 @@
 <main class="main" [formGroup]="projectForm">
+    <confirmation-dialog (notify)="onDeleteConfirmation($event)" [isOpen]="isDeleteConfirmationDialogOpen"></confirmation-dialog>
+
     <header class="main-header">
         <h1 class="main-header-title" *ngIf="project">
             <label class="main-field-editable" 
@@ -281,7 +283,7 @@
             
             <div class="main-aside-section-body">
                 <button class="btn btn--secondary" (click)="archiveProject()">Archive</button>
-                <button class="btn btn--warning" (click)="deleteProject()">Delete</button>
+                <button class="btn btn--warning" (click)="toggleDeleteConfirmationDialog()">Delete</button>
             </div>
         </section>
     </aside>

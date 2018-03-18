@@ -25,6 +25,7 @@ import { CreateMenuComponent } from './common/nav/create-menu.component';
 import { AvatarMenuComponent } from './common/nav/avatar-menu.component';
 import { HeaderComponent } from './common/header/header.component';
 import { DialogComponent } from './common/dialog/dialog.component';
+import { ConfirmationDialogComponent } from './common/confirmation-dialog/confirmation-dialog.component';
 import { ToastComponent } from './common/toast/toast.component';
 
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
@@ -72,6 +73,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AvatarMenuComponent,
     HeaderComponent,
     DialogComponent,
+    ConfirmationDialogComponent,
     ToastComponent,
     LoginComponent, 
     RegisterComponent,
