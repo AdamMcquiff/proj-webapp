@@ -54,20 +54,14 @@ export class RegisterComponent {
     });
   }
 
-  // TODO: sort
   public onFormSubmit() {
     if (!this.registerForm.valid) return;
   
     this.user = this.registerForm.value;
-    console.log(this.user)
+
     this.httpService.post('register', this.user)
       .subscribe(
-        (data) => {
-          console.log('hit')
-          // localStorage.setItem('token', data.meta.token);
-          this.registered = true;
-          // this.router.navigate(['/dashboard']);
-        },
+        data => this.registered = true,
         error => console.log(error)
       );  
   }
