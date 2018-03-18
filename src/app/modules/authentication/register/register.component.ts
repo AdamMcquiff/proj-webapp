@@ -18,7 +18,7 @@ import { AuthService } from "../services/auth.service";
 })
 
 export class RegisterComponent {
-  registered = false;
+  isRegistered: boolean;
 
   registerForm: FormGroup;
   
@@ -61,8 +61,8 @@ export class RegisterComponent {
 
     this.httpService.post('register', this.user)
       .subscribe(
-        data => this.registered = true,
-        error => console.log(error)
+        data => this.isRegistered = true,
+        error => {this.serverErrors = error; console.log(error)}
       );  
   }
 

@@ -22,14 +22,19 @@
                     </div>
                 </div>
 
-                <input type="email" class="form-input" placeholder="Enter your email address..." formControlName="email">
+                <input type="email" 
+                       class="form-input" 
+                       placeholder="Enter your email address..." 
+                       formControlName="email">
             </label>
     
             <label class="form-label">
                 <span class="form-label-title">
                     Password
                     <span class="sign-in-forgot-password">
-                        <a routerLink="/forgotten-password" routerLinkActive="active">
+                        <a class="sign-in-link" 
+                           routerLink="/forgotten-password" 
+                           routerLinkActive="active">
                             Forgot password?
                         </a>
                     </span>
@@ -39,7 +44,10 @@
                     Your password must be at least 8 characters
                 </div>
                 
-                <input type="password" class="form-input" placeholder="Enter your password..." formControlName="password">
+                <input type="password"    
+                       class="form-input" 
+                       placeholder="Enter your password..." 
+                       formControlName="password">
             </label>
     
             <input type="submit" class="btn sign-in-btn" value="Sign in">
@@ -49,7 +57,11 @@
     <aside class="sign-in-aside">
         <p>
             New user? 
-            <a routerLink="/register" routerLinkActive="active">Create an account</a>.
+            <a class="sign-in-link" 
+               routerLink="/register" 
+               routerLinkActive="active">
+               Create an account
+            </a>.
         </p>
     </aside>
 </main>

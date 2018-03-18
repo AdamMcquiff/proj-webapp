@@ -2,7 +2,7 @@
     <h1 class="sign-in-title">Register your account</h1>
 
     <section class="sign-in-form">
-        <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" *ngIf="!registered">
+        <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" *ngIf="!isRegistered">
             <label class="form-label">
                 <span class="form-label-title">Name</span>
 
@@ -12,11 +12,22 @@
                     </div>
                 </div>
 
-                <input type="text" class="form-input" placeholder="Enter your full name..." formControlName="name">
+                <input type="text" 
+                       class="form-input" 
+                       placeholder="Enter your full name..." 
+                       formControlName="name">
             </label>
 
             <label class="form-label">
                 <span class="form-label-title">Username</span>
+
+                <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
+                    <div *ngIf="serverErrors.error.errors.username">
+                        <div *ngFor="let error of serverErrors.error.errors.username">
+                            {{ error }}
+                        </div>
+                    </div>
+                </div>
 
                 <div *ngIf="username.invalid && username.touched" class="form-label-error" role="alert">
                     <div *ngIf="username.errors?.required">
@@ -24,11 +35,22 @@
                     </div>
                 </div>
 
-                <input type="text" class="form-input" placeholder="Enter a username..." formControlName="username">
+                <input type="text" 
+                       class="form-input" 
+                       placeholder="Enter a username..." 
+                       formControlName="username">
             </label>
             
             <label class="form-label">
                 <span class="form-label-title">Email address</span>
+
+                <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
+                    <div *ngIf="serverErrors.error.errors.email">
+                        <div *ngFor="let error of serverErrors.error.errors.email">
+                            {{ error }}
+                        </div>
+                    </div>
+                </div>
 
                 <div *ngIf="email.invalid && email.touched" class="form-label-error" role="alert">
                     <div *ngIf="email.errors?.required">
@@ -40,7 +62,10 @@
                     </div>
                 </div>
 
-                <input type="email" class="form-input" placeholder="Enter your email address..." formControlName="email">
+                <input type="email" 
+                       class="form-input" 
+                       placeholder="Enter your email address..." 
+                       formControlName="email">
             </label>
     
             <label class="form-label">
@@ -51,8 +76,19 @@
                 <div *ngIf="(password.invalid && password.touched)" class="form-label-error" role="alert">
                     Your password must be at least 8 characters
                 </div>
+
+                <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
+                    <div *ngIf="serverErrors.error.errors.password">
+                        <div *ngFor="let error of serverErrors.error.errors.password">
+                            {{ error }}
+                        </div>
+                    </div>
+                </div>
                 
-                <input type="password" class="form-input" placeholder="Enter your password..." formControlName="password">
+                <input type="password" 
+                       class="form-input" 
+                       placeholder="Enter your password..." 
+                       formControlName="password">
             </label>
     
             <label class="form-label">
@@ -60,25 +96,36 @@
                     Confirm Password
                 </span>
                 
-                <input type="password" class="form-input" placeholder="Enter your password again..." formControlName="password_confirmation">
+                <input type="password" 
+                       class="form-input" 
+                       placeholder="Enter your password again..." 
+                       formControlName="password_confirmation">
             </label>
 
             <input type="submit" class="btn sign-in-btn" value="Sign up">
 
             <p class="sign-in-footer-notice">
                 Already have an account?
-                <a routerLink="/login" routerLinkActive="active">Sign in</a>.
+                <a class="sign-in-link" 
+                   routerLink="/login" 
+                   routerLinkActive="active">
+                   Sign in
+                </a>.
             </p>
         </form>
 
-        <div class="sign-in-success" *ngIf="registered">
+        <div class="sign-in-success" *ngIf="isRegistered">
             <h2 class="sign-in-success-title">Congratulations :emoji:</h2>
 
             <p class="sign-in-success-text">
                 Your account has been registered successfully.
             </p>
 
-            <a class="btn sign-in-btn" routerLink="/dashboard" routerLinkActive="active">Let's go!</a>
+            <a class="btn sign-in-btn" 
+               routerLink="/dashboard" 
+               routerLinkActive="active">
+               Let's go!
+            </a>
         </div>
     </section>
 </main>

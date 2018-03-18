@@ -4,7 +4,7 @@
            routerLinkActive="active" 
            class="header-organisation-link"
            *ngIf="user">
-            {{ this.user.organisation.name }}
+            {{ this.user.organisation ? this.user.organisation.name : 'Dashboard' }}
         </a>
     </div>
 

@@ -58,6 +58,18 @@
         text-align: center;
     }
 
+    &-link {
+        color: $purple;
+        cursor: pointer;
+        transition: all .3s ease;
+
+        &:active,
+        &:hover,
+        &:focus {
+            color: $dark-purple;
+        }
+    }
+
     &-success {
         text-align: center;
         

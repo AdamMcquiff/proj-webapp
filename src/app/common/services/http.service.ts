@@ -9,7 +9,7 @@ export class HttpService {
   httpOptions = {};
 
   constructor(private http: HttpClient) {
-    this.refreshToken();
+    this.refreshToken(localStorage.getItem('token'));
   }
 
   get(endpoint) {
@@ -28,11 +28,11 @@ export class HttpService {
     return this.http.delete(this.baseUrl + endpoint, this.httpOptions);
   }
 
-  refreshToken() {
+  refreshToken(token) {
     this.httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json; charset=utf-8",
-        "Authorization": "Bearer " + localStorage.getItem('token')
+        "Authorization": "Bearer " + token
       })
     };
   }

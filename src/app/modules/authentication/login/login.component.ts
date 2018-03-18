@@ -51,8 +51,9 @@ export class LoginComponent {
     this.httpService.post('authenticate', this.user)
       .subscribe(
         (data: APIResponse) => {
-          localStorage.setItem('token', data.meta.token);
-          this.httpService.refreshToken();
+          let token = data.meta.token;
+          localStorage.setItem('token', token);
+          this.httpService.refreshToken(token);
           this.router.navigate(['/dashboard']);
         },
         error => this.serverErrors = error
