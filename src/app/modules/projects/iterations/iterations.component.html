@@ -63,6 +63,10 @@
                 </tr>
             </tbody>
         </table>
+
+        <div *ngIf="project && !project.iterations.length" class="table-no-content">
+            This project has no iterations yet.
+        </div>
     </section>
 
     <iteration-dialog *ngIf="project" [isOpen]="isIterationDialogOpen" [projectId]="project.id"></iteration-dialog>

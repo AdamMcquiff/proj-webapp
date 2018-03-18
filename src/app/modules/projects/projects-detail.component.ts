@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
@@ -21,6 +21,12 @@ export class ProjectsDetailComponent {
   projectForm: FormGroup;
   serverErrors = {};
 
+  deleteDialogTitle = 'Are you sure?';
+  deleteDialogBody = {
+    first_line: 'Are you sure you want to delete?',
+    second_line: 'This action is permenant and cannot be undone.'
+  };
+
   isToggled = {
     'title': false,
     'summary': false,
@@ -30,10 +36,11 @@ export class ProjectsDetailComponent {
     'budget': false,
     'start_date': false,
     'due_date': false,
-  }
+  };
 
   isIterationDialogOpen: boolean;
   isProjectPeopleDialogOpen: boolean;
+  isDeleting: boolean;
   isDeleteConfirmationDialogOpen: boolean;
 
   constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute, private router: Router) {}
@@ -78,7 +85,7 @@ export class ProjectsDetailComponent {
       .subscribe(
         (data: APIResponse) => this.project = this.format(<Project> data.data),
         (error: Object) => this.serverErrors = error
-      );  
+      )
   }
 
   archiveProject() {
@@ -86,7 +93,7 @@ export class ProjectsDetailComponent {
       .subscribe(
         (data: APIResponse) => this.router.navigate(['/projects']),
         (error: Object) => this.serverErrors = error
-      );  
+      )
   }
 
   toggleDeleteConfirmationDialog() {
@@ -98,11 +105,13 @@ export class ProjectsDetailComponent {
   }
 
   deleteProject() {
+    this.isDeleting = true;
+    
     this.httpService.delete('projects/' + this.project.id)
       .subscribe(
         (data: APIResponse) => this.router.navigate(['/projects']),
         (error: Object) => this.serverErrors = error
-      );  
+      )
   }
 
   private format(project: Project): Project {       

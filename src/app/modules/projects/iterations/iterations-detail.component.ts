@@ -22,6 +22,12 @@ export class IterationsDetailComponent {
   iterationForm: FormGroup;
   serverErrors = {};
 
+  deleteDialogTitle = 'Are you sure?';
+  deleteDialogBody = {
+    first_line: 'Are you sure you want to delete?',
+    second_line: 'This action is permenant and cannot be undone.'
+  };
+
   isToggled = {
     'title': false,
     'summary': false,
@@ -30,7 +36,9 @@ export class IterationsDetailComponent {
     'due_date': false,
   }
 
-  isTaskDialogOpen: boolean = false;
+  isTaskDialogOpen: boolean;
+  isDeleting: boolean;
+  isDeleteConfirmationDialogOpen: boolean;
 
   constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
@@ -71,10 +79,20 @@ export class IterationsDetailComponent {
     this.isTaskDialogOpen = !this.isTaskDialogOpen;
   }
 
+  toggleDeleteConfirmationDialog() {
+    this.isDeleteConfirmationDialogOpen = !this.isDeleteConfirmationDialogOpen;
+  }
+
+  onDeleteConfirmation(isPositiveConfirmation: boolean) {
+    if (isPositiveConfirmation) this.deleteIteration();
+  }
+
   deleteIteration() {
+    this.isDeleting = true;
+    
     this.httpService.delete('iterations/' + this.iteration.id)
       .subscribe(
-        (data: APIResponse) => this.router.navigate(['/projects', this.project.id, 'iterations', this.iteration.id]),
+        (data: APIResponse) => this.router.navigate(['/projects', this.project.id, 'iterations']),
         (error: Object) => this.serverErrors = error
       );  
   }

@@ -19,10 +19,17 @@ export class TasksDetailComponent {
   project: Project;
   task: Task;
 
+  deleteDialogTitle = 'Are you sure?';
+  deleteDialogBody = {
+    first_line: 'Are you sure you want to delete?',
+    second_line: 'This action is permenant and cannot be undone.'
+  };
+
   taskForm: FormGroup;
   serverErrors = {};
 
   isDeleting: boolean;
+  isDeleteConfirmationDialogOpen: boolean;
 
   isToggled = {
     'title': false,
@@ -66,15 +73,21 @@ export class TasksDetailComponent {
         (error: Object) => this.serverErrors = error
       );  
   }
+  
+  toggleDeleteConfirmationDialog() {
+    this.isDeleteConfirmationDialogOpen = !this.isDeleteConfirmationDialogOpen;
+  }
+
+  onDeleteConfirmation(isPositiveConfirmation: boolean) {
+    if (isPositiveConfirmation) this.deleteTask();
+  }
 
   deleteTask() {
     this.isDeleting = true;
 
     this.httpService.delete('tasks/' + this.task.id)
       .subscribe(
-        (data: APIResponse) => {
-          this.router.navigate(['/projects', this.project.id, 'tasks'])
-        },
+        (data: APIResponse) => this.router.navigate(['/projects', this.project.id, 'tasks']),
         (error: Object) => this.serverErrors = error
       );  
   }

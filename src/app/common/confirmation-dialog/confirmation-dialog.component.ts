@@ -9,13 +9,9 @@ import { Router } from "@angular/router";
 
 export class ConfirmationDialogComponent {
   @Input() isOpen;
+  @Input() title;
+  @Input() body;
   @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  title = 'Are you sure?';
-  body = {
-    first_line: 'Are you sure you want to delete?',
-    second_line: 'This action is permenant and cannot be undone.'
-  }
 
   constructor() {}
   

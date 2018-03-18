@@ -69,6 +69,10 @@
                 </tr>
             </tbody>
         </table>
+
+        <div *ngIf="projects && !projects.length" class="table-no-content">
+            There are no active projects available.
+        </div>
     </section>
 
     <project-dialog [isOpen]="isProjectDialogOpen"></project-dialog>
