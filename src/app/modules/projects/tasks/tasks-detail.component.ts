@@ -22,6 +22,8 @@ export class TasksDetailComponent {
   taskForm: FormGroup;
   serverErrors = {};
 
+  isDeleting: boolean;
+
   isToggled = {
     'title': false,
     'summary': false,
@@ -66,9 +68,13 @@ export class TasksDetailComponent {
   }
 
   deleteTask() {
+    this.isDeleting = true;
+
     this.httpService.delete('tasks/' + this.task.id)
       .subscribe(
-        (data: APIResponse) => this.router.navigate(['/tasks']),
+        (data: APIResponse) => {
+          this.router.navigate(['/projects', this.project.id, 'tasks'])
+        },
         (error: Object) => this.serverErrors = error
       );  
   }

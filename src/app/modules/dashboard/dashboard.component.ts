@@ -10,6 +10,7 @@ import { APIResponse } from "../../common/interfaces/api-response.interface";
 
 export class DashboardComponent {
   user: Object = {};
+  isToastOpen: boolean = false;
 
   constructor(private httpService: HttpService) {}
 

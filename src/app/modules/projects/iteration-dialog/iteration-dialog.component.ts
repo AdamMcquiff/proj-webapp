@@ -50,6 +50,7 @@ export class IterationDialogComponent {
         (data: APIResponse) => {
           this.iteration = <Iteration> data.data;
           this.router.navigate(['/projects', this.projectId, 'iterations', this.iteration.id]);
+          this.isOpen = false;
         },
         error => this.serverErrors = error,
         () => this.isPerformingAPICall = false

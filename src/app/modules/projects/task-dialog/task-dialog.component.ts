@@ -58,6 +58,7 @@ export class TaskDialogComponent {
         (data: APIResponse) => {
           this.task = <Task> data.data;
           this.router.navigate(['/projects', iteration_id, 'tasks', this.task.id]);
+          this.isOpen = false;
         },
         error => this.serverErrors = error,
         () => this.isPerformingAPICall = false

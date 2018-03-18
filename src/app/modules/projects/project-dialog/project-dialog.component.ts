@@ -51,6 +51,7 @@ export class ProjectDialogComponent {
         (data: APIResponse) => {
           this.project = <Project> data.data;
           this.router.navigate(['/projects', this.project.id]);
+          this.isOpen = false;
         },
         error => this.serverErrors = error,
         () => this.isPerformingAPICall = false

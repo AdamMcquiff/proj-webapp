@@ -74,7 +74,7 @@ export class IterationsDetailComponent {
   deleteIteration() {
     this.httpService.delete('iterations/' + this.iteration.id)
       .subscribe(
-        (data: APIResponse) => this.router.navigate(['/iterations']),
+        (data: APIResponse) => this.router.navigate(['/projects', this.project.id, 'iterations', this.iteration.id]),
         (error: Object) => this.serverErrors = error
       );  
   }

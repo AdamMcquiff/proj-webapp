@@ -1,4 +1,7 @@
 <main class="main" [formGroup]="taskForm">
+    <div class="loading" *ngIf="isDeleting"></div>
+    <div class="overlay" *ngIf="isDeleting"></div>
+
     <header class="main-header">
         <h1 class="main-header-title" *ngIf="task && project">
             <label class="main-field-editable" 
@@ -180,7 +183,12 @@
 
         <section class="main-aside-section align-right">
             <div class="main-aside-section-body">
-                <button class="btn btn--warning" (click)="deleteTask()">Delete</button>
+                <button class="btn btn--warning" 
+                        [ngClass]="{ 'btn--disabled': isDeleting }"
+                        [disabled]="isDeleting"
+                        (click)="deleteTask()">
+                    Delete
+                </button>
             </div>
         </section>
     </aside>
