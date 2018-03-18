@@ -1,0 +1,56 @@
+<dialog class="dialog welcome-dialog" [attr.open]="isOpen ? true : null">
+    <div class="dialog-header">
+        <h3 class="dialog-header-title">Welcome</h3>
+
+        <button class="dialog-dismiss-btn" 
+                aria-label="Dismiss" 
+                title="Dismiss"
+                (click)="closeDialog(false)">
+        </button>
+    </div>
+
+    <div class="dialog-body">
+        <div class="welcome-dialog-image"></div>
+
+        <div class="welcome-dialog-content">
+            <h2 class="welcome-dialog-title">Hello!</h2>
+
+            <hr class="welcome-dialog-hr">
+
+            <p class="welcome-dialog-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. Maecenas sollicitudin elit turpis, at condimentum.
+            </p>
+
+            <hr class="welcome-dialog-hr">
+
+            <form [formGroup]="welcomeForm" (ngSubmit)="onFormSubmit()" class="welcome-dialog-form">
+
+                <label class="form-label">
+                    <span class="form-label-title">Organisation Name</span>
+                    <span class="form-label-subtext">You can call the organisation anything!</span>
+        
+                    <div *ngIf="name.invalid && name.touched" class="form-label-error" role="alert">
+                        <div *ngIf="name.errors?.required">
+                            Name field can't be blank
+                        </div>
+                    </div>
+
+                    <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
+                        <div *ngIf="serverErrors.error.error">
+                            Something has went wrong. Please try again later.
+                        </div>
+                    </div>
+        
+                    <input type="text" class="form-input" formControlName="name">
+                </label> 
+
+                <input type="submit" class="btn welcome-dialog-form-btn" value="Create">
+
+            </form>
+
+            <hr class="welcome-dialog-hr">
+        </div>
+    </div>
+</dialog>
+
+<div class="overlay" [ngClass]="{ 'visible': isOpen }"></div>

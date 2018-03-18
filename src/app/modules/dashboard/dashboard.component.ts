@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 
+import { User } from "../authentication/user.model";
+
 import { HttpService } from "../../common/services/http.service";
 import { APIResponse } from "../../common/interfaces/api-response.interface";
 
@@ -9,15 +11,30 @@ import { APIResponse } from "../../common/interfaces/api-response.interface";
 })
 
 export class DashboardComponent {
-  user: Object = {};
-  isToastOpen: boolean = false;
+  user: User;
 
+  isWelcomeDialogOpen: boolean;
+  
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
     this.httpService.get('profile')
       .subscribe((data: APIResponse) => {
-        this.user = data.data
-      });  
+        this.user = <User>data.data;
+        
+        if (this.user.first_login) 
+          this.toggleWelcomeDialog();
+      })
+  }
+
+  toggleWelcomeDialog() {
+    this.isWelcomeDialogOpen = !this.isWelcomeDialogOpen;
+  }
+
+  onWelcomeDialogComplete(isOrganisationSetup: boolean) {
+    if (!isOrganisationSetup) return;
+
+    this.httpService.post('profile', { 'first_login': 0 })
+      .subscribe((data: APIResponse) => this.user = <User>data.data)
   }
 }

@@ -3,6 +3,7 @@ export class User {
   email: string;
   username: string;
   name: string;
+  first_login: boolean;
   password: {
     password: string;
     confirmPassword: string;

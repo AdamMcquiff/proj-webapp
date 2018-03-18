@@ -29,6 +29,7 @@ import { ConfirmationDialogComponent } from './common/confirmation-dialog/confir
 import { ToastComponent } from './common/toast/toast.component';
 
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { WelcomeDialogComponent } from './modules/dashboard/welcome-dialog/welcome-dialog.component';
 import { TasksDashboardWidgetComponent } from './modules/dashboard/tasks-widget/tasks.widget.component';
 import { ProjectsDashboardWidgetComponent } from './modules/dashboard/projects-widget/projects.widget.component';
 
@@ -79,6 +80,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     RegisterComponent,
     ForgottenPasswordComponent,
     DashboardComponent,
+    WelcomeDialogComponent,
     TasksDashboardWidgetComponent,
     ProjectsDashboardWidgetComponent,
     ProjectsComponent,

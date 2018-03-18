@@ -1,4 +1,8 @@
 <main class="main">
+    <welcome-dialog [isOpen]="isWelcomeDialogOpen"
+                    (notify)="onWelcomeDialogComplete($event)">
+    </welcome-dialog>
+    
     <header class="main-header">
         <h1 class="main-header-title">
             Dashboard
