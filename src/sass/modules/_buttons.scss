@@ -85,4 +85,9 @@
         opacity: .7;
         pointer-events: none;
     }
+
+    &--right {
+        float: right;
+        margin: { right: 0; }
+    }
 }

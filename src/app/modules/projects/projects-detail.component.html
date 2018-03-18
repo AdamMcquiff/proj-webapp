@@ -43,7 +43,7 @@
                        title="Click to edit"
                        *ngIf="!isToggled.summary" 
                        (click)="toggleField('summary', true)">
-                    {{ project.summary ? project.summary : '--' }}
+                    {{ project.summary ? project.summary : 'Click here to add a summary.' }}
                 </label>
                 <textarea (keydown.enter)="toggleField('summary', false)" 
                        rows="5"
@@ -259,7 +259,7 @@
         <section class="main-aside-section">
             <div class="main-aside-section-header">
                 <h2 class="main-aside-section-title">People</h2>
-                <button class="btn" (click)="toggleProjectPeopleDialog()">Edit People</button>
+                <button class="btn btn--right" (click)="toggleProjectPeopleDialog()">Edit People</button>
             </div>
 
             <div class="main-aside-section-body">

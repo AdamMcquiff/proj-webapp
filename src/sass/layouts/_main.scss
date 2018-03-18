@@ -66,6 +66,7 @@
 
         &-section {
             &-header {
+                @include clearfix;
                 padding: 1em 0;
             }
 
