@@ -17,9 +17,9 @@ export class ProjectDialogComponent {
 
   projectForm: FormGroup;
   
-  project: Project = null;
+  project: Project;
 
-  isPerformingAPICall: boolean = false;
+  isPerformingAPICall: boolean;
 
   serverErrors = {};
 
@@ -31,7 +31,11 @@ export class ProjectDialogComponent {
            Maecenas sollicitudin elit turpis, at condimentum felis varius malesuada.`
   };
 
-  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private httpService: HttpService, 
+    private router: Router
+  ) {}
   
   ngOnInit(): void {
     this.projectForm = this.formBuilder.group({

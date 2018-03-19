@@ -27,7 +27,7 @@
             </div>  
 
             <div class="main-body-header-btns">
-                <a class="btn" href="">Invite member</a>    
+                <button class="btn" (click)="toggleTeamInvitationDialog()">Invite member</button>    
             </div>
         </header>
 
@@ -61,3 +61,8 @@
         </div>
     </section>
 </main>
+
+<team-invitation-dialog *ngIf="selectedTeam" 
+                        [isOpen]="isTeamInvitationDialogOpen" 
+                        [team]="selectedTeam">
+</team-invitation-dialog>

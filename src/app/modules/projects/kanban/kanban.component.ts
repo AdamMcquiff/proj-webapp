@@ -14,7 +14,7 @@ import { APIResponse } from "../../../common/interfaces/api-response.interface";
 export class KanbanComponent {
   project: Project;
 
-  isTaskDialogOpen: boolean = false;
+  isTaskDialogOpen: boolean;
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
 

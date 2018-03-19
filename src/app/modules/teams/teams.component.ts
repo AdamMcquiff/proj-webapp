@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 
+import { Team } from "./team.model";
+
 import { HttpService } from "../../common/services/http.service";
 import { APIResponse } from "../../common/interfaces/api-response.interface";
 
@@ -9,17 +11,23 @@ import { APIResponse } from "../../common/interfaces/api-response.interface";
 })
 
 export class TeamsComponent {
-  teams: Object;
-  selectedTeam: Object;
+  teams: Array<Team>;
+  selectedTeam: Team;
+
+  isTeamInvitationDialogOpen: boolean;
 
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
     this.httpService.get('teams')
       .subscribe((data: APIResponse) => {
-        this.teams = data.data;
-        if (this.teams) this.selectedTeam = this.teams[0];
+        this.teams = <Array<Team>>data.data;
+        if (this.teams.length) this.selectedTeam = this.teams[0];
       });  
+  }
+
+  toggleTeamInvitationDialog() {
+    this.isTeamInvitationDialogOpen = !this.isTeamInvitationDialogOpen;
   }
 
   changeTeam(team): void {

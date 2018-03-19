@@ -308,7 +308,14 @@
             </div>
         </section>
     </aside>
-
-    <iteration-dialog *ngIf="project" [isOpen]="isIterationDialogOpen" [projectId]="project.id"></iteration-dialog>
-    <project-people-dialog *ngIf="project" [isOpen]="isProjectPeopleDialogOpen" [project]="project"></project-people-dialog>
 </main>
+
+<iteration-dialog *ngIf="project" 
+                  [isOpen]="isIterationDialogOpen" 
+                  [projectId]="project.id">
+</iteration-dialog>
+
+<project-people-dialog *ngIf="project" 
+                       [isOpen]="isProjectPeopleDialogOpen" 
+                       [project]="project">
+</project-people-dialog>

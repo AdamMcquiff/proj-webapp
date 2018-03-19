@@ -49,6 +49,7 @@ import { KanbanComponent } from './modules/projects/kanban/kanban.component';
 import { SearchComponent } from './modules/projects/search/search.component';
 
 import { TeamsComponent } from './modules/teams/teams.component';
+import { TeamInvitationDialogComponent } from './modules/teams/team-invitation-dialog/team-invitation-dialog.component';
 
 import { ClientsComponent } from './modules/clients/clients.component';
 import { ClientsDetailComponent } from './modules/clients/clients-detail.component';
@@ -101,6 +102,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     KanbanComponent,
     SearchComponent,
     TeamsComponent,
+    TeamInvitationDialogComponent,
     ClientsComponent,
     ClientsDetailComponent,
     ClientDialogComponent,

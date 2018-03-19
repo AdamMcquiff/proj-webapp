@@ -2,31 +2,31 @@ import { Component, Input } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
-import { Project } from "../project.model";
+import { Team } from "../team.model";
 
 import { HttpService } from "../../../common/services/http.service";
 import { APIResponse } from "../../../common/interfaces/api-response.interface";
 
 @Component({
-  selector: "project-people-dialog",
-  templateUrl: "./project-people-dialog.component.html"
+  selector: "team-invitation-dialog",
+  templateUrl: "./team-invitation-dialog.component.html"
 })
 
-export class ProjectPeopleDialogComponent {
+export class TeamInvitationDialogComponent {
   @Input() isOpen;
-  @Input() project: Project;
+  @Input() team: Team;
 
   invite: Object;
 
-  projectPeopleForm: FormGroup;
+  teamInvitationForm: FormGroup;
 
   isPerformingAPICall: boolean;
 
   serverErrors = {};
 
-  title = "";
+  title = '';
   context: Object = {
-    title: "Invitation",
+    title: 'Invitation',
     body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
            Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. 
            Maecenas sollicitudin elit turpis, at condimentum felis varius malesuada.`
@@ -39,7 +39,7 @@ export class ProjectPeopleDialogComponent {
   ) {}
   
   ngOnInit(): void {
-    this.projectPeopleForm = this.formBuilder.group({
+    this.teamInvitationForm = this.formBuilder.group({
       email: ["", [ 
         Validators.required,
         Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$")
@@ -47,33 +47,30 @@ export class ProjectPeopleDialogComponent {
       role:  ["", [ Validators.required ]]
     });
 
-    this.title = "Invite people to " + this.project.title;
+    this.title = 'Invite a user to ' + this.team.name;
   }
 
   public onFormSubmit() {
-    if (!this.projectPeopleForm.valid) return;
+    if (!this.teamInvitationForm.valid) return;
 
-    this.invite = this.projectPeopleForm.value;
+    this.invite = this.teamInvitationForm.value;
 
     this.isPerformingAPICall = true;
 
-    this.httpService.post('projects/' + this.project.id + '/invite', this.invite)
+    this.httpService.post('teams/' + this.team.id + '/invite', this.invite)
       .subscribe(
-        (data: APIResponse) => {
-          this.project = <Project> data.data;
-          this.router.navigate(['/projects', this.project.id]);
-        },
+        (data: APIResponse) => this.isOpen = false,
         error => this.serverErrors = error,
         () => this.isPerformingAPICall = false
       );  
   }
 
   get email() { 
-    return this.projectPeopleForm.get('email'); 
+    return this.teamInvitationForm.get('email'); 
   }
 
   get role() { 
-    return this.projectPeopleForm.get('role'); 
+    return this.teamInvitationForm.get('role'); 
   }
 }
  

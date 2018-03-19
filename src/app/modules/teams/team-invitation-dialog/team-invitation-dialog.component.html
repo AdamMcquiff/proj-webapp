@@ -2,7 +2,7 @@
              [title]="title" 
              [context]="context">
 
-    <form [formGroup]="projectPeopleForm" (ngSubmit)="onFormSubmit()">
+    <form [formGroup]="teamInvitationForm" (ngSubmit)="onFormSubmit()">
 
         <label class="form-label">
             <span class="form-label-title">Email address</span>
@@ -19,8 +19,8 @@
             </div>
 
             <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
-                <div *ngIf="serverErrors.error.error">
-                    Something has went wrong. Please try again later.
+                <div *ngIf="serverErrors.error.status_code == 404">
+                    No user exists with this email address. 
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
 
         <label class="form-label">
             <span class="form-label-title">Role</span>
-            <span class="form-label-subtext">The person’s role in the project.</span>
+            <span class="form-label-subtext">The person’s role in the team.</span>
 
             <div *ngIf="role.invalid && role.touched" class="form-label-error" role="alert">
                 <div *ngIf="role.errors?.required">
