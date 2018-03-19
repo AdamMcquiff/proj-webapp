@@ -14,9 +14,13 @@ export class TeamsComponent {
   teams: Array<Team>;
   selectedTeam: Team;
 
+  serverErrors = {};
+
   isTeamInvitationDialogOpen: boolean;
 
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService
+  ) {}
 
   ngOnInit(): void {
     this.httpService.get('teams')
@@ -32,5 +36,13 @@ export class TeamsComponent {
 
   changeTeam(team): void {
     this.selectedTeam = team;
+  }
+
+  deleteTeam(): void {
+    this.httpService.delete('teams/' + this.selectedTeam.id)
+      .subscribe(
+        (data: APIResponse) => location.reload(),
+        (error: Object) => this.serverErrors = error
+      );
   }
 }

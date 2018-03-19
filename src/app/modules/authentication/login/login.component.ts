@@ -1,16 +1,14 @@
 import { Component } from "@angular/core";
-import { EmailValidator } from "@angular/forms";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, EmailValidator } from "@angular/forms";
 import { Router } from "@angular/router";
+import { Location } from "@angular/common";
 
 import { Observable } from "rxjs/Observable";
 
 import { User } from "../user.model";
 
 import { APIResponse } from "../../../common/interfaces/api-response.interface";
-
 import { HttpService } from "../../../common/services/http.service";
-
 import { AuthService } from "../services/auth.service";
 
 @Component({
@@ -26,7 +24,13 @@ export class LoginComponent {
 
   private user: User;
 
-  constructor(private httpService: HttpService, private formBuilder: FormBuilder, private router: Router, public auth: AuthService) {}
+  constructor(
+    private httpService: HttpService, 
+    private formBuilder: FormBuilder, 
+    private router: Router, 
+    public auth: AuthService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
     if (this.auth.isAuthenticated()) this.router.navigate(['dashboard'])
@@ -51,9 +55,17 @@ export class LoginComponent {
     this.httpService.post('authenticate', this.user)
       .subscribe(
         (data: APIResponse) => {
+          let doesSessionStillExist = localStorage.getItem("prev_session") != null;
           let token = data.meta.token;
           localStorage.setItem('token', token);
           this.httpService.refreshToken(token);
+          
+          // If token exists, do hard reload to clear and user
+          // relating to previously logged in user, if not 
+          // redirect as normal
+          if (doesSessionStillExist) {
+            location.reload();
+          } 
           this.router.navigate(['/dashboard']);
         },
         error => this.serverErrors = error

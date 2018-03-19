@@ -14,6 +14,7 @@ export class AuthService {
 
   public signout() {
     localStorage.removeItem('token');
+    localStorage.setItem('prev_session', 'true');
     this.router.navigate(['/login']);
   }
 } 

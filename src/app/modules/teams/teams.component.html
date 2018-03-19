@@ -60,6 +60,10 @@
             </table>
         </div>
     </section>
+
+    <footer class="main-body-footer" *ngIf="selectedTeam">
+        <button class="btn btn--warning" (click)="deleteTeam()">Delete</button>
+    </footer>
 </main>
 
 <team-invitation-dialog *ngIf="selectedTeam" 
