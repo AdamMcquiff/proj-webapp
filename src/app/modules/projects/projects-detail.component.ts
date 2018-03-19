@@ -43,7 +43,12 @@ export class ProjectsDetailComponent {
   isDeleting: boolean;
   isDeleteConfirmationDialogOpen: boolean;
 
-  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private httpService: HttpService, 
+    private activatedRoute: ActivatedRoute, 
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.projectForm = this.formBuilder.group({

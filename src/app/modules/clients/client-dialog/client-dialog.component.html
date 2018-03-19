@@ -1,0 +1,32 @@
+<base-dialog [isOpen]="isOpen"
+             [title]="dialogTitle" 
+             [context]="dialogContext">
+
+    <form [formGroup]="clientForm" (ngSubmit)="onFormSubmit()">
+        <label class="form-label">
+            <span class="form-label-title">Client Name</span>
+            <span class="form-label-subtext">You can call your client anything.</span>
+
+            <div *ngIf="name.invalid && name.touched" class="form-label-error" role="alert">
+                <div *ngIf="name.errors?.required">
+                    name field can't be blank
+                </div>
+            </div>
+
+            <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
+                <div *ngIf="serverErrors.error.error">
+                    Something has went wrong. Please try again later.
+                </div>
+            </div>
+
+            <input type="text" class="form-input" formControlName="name">
+        </label>
+
+        <input type="submit" 
+               class="btn form-btn" 
+               value="Create" 
+               [ngClass]="{ 'btn--disabled': isPerformingAPICall }"
+               [disabled]="isPerformingAPICall">
+    </form>
+
+</base-dialog>

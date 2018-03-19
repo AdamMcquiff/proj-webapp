@@ -1,7 +1,19 @@
-<main class="main">
+<main class="main" [formGroup]="clientForm">
     <header class="main-header">
-        <h1 class="main-header-title">
-            Clients
+        <h1 class="main-header-title" *ngIf="client">
+            <label class="main-field-editable" 
+                   title="Click to edit"
+                   *ngIf="!isToggled.name" 
+                   (click)="toggleField('name', true)">
+                {{ client.name }}
+            </label>
+            <input (keydown.enter)="toggleField('name', false)" 
+                    class="main-field-form" 
+                    type="text" 
+                    *ngIf="isToggled.name" 
+                    formControlName="name"
+                    [value]="client.name" 
+                    [(ngModel)]="client.name">
         </h1>
     </header>
 
@@ -12,10 +24,30 @@
     <section class="main-body">
         <div class="loading" *ngIf="!client"></div>
 
-        <header class="main-body-header" *ngIf="client">
+        <header class="main-body-header" *ngIf="client"> 
             <div class="main-body-header-title">
-                <h2 class="main-body-title">{{ client.name }}</h2>
+                <h2 class="main-body-title">Summary</h2>
             </div>  
         </header>
+
+        <div class="main-body-content" *ngIf="client">
+            <div class="main-body-summary">
+                <label class="main-field-editable" 
+                       title="Click to edit"
+                       *ngIf="!isToggled.summary" 
+                       (click)="toggleField('summary', true)">
+                    {{ client.summary ? client.summary : 'Click here to add a summary.' }}
+                </label>
+                <textarea (keydown.enter)="toggleField('summary', false)" 
+                          rows="5"
+                          class="main-field-form" 
+                          type="text" 
+                          *ngIf="isToggled.summary" 
+                          formControlName="summary"
+                          [(ngModel)]="client.summary">
+                    {{ client.summary }}
+                </textarea>
+            </div>
+        </div>
     </section>
 </main>

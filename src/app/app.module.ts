@@ -52,6 +52,7 @@ import { TeamsComponent } from './modules/teams/teams.component';
 
 import { ClientsComponent } from './modules/clients/clients.component';
 import { ClientsDetailComponent } from './modules/clients/clients-detail.component';
+import { ClientDialogComponent } from './modules/clients/client-dialog/client-dialog.component';
 
 import { SinkComponent } from './modules/sink/sink.component';
 
@@ -102,6 +103,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TeamsComponent,
     ClientsComponent,
     ClientsDetailComponent,
+    ClientDialogComponent,
     SinkComponent,
     PageNotFoundComponent,
   ],
