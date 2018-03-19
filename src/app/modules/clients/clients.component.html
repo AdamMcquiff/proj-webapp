@@ -9,7 +9,6 @@
         <!-- -->
     </aside>
     
-    
     <section class="main-body">
         <div class="loading" *ngIf="!clients"></div>
 
@@ -44,8 +43,8 @@
                     </td>
                     <td class="table-body-cell table-body-cell--view">
                         <a class="table-body-view" 
-                            [routerLink]="['/clients', client.id]" 
-                            routerLinkActive="active">
+                           [routerLink]="['/clients', client.id]" 
+                           routerLinkActive="active">
                             View
                         </a>
                     </td>

@@ -9,7 +9,7 @@
         <ul class="main-aside-links" *ngIf="teams">
             <li *ngFor="let team of teams">
                 <a (click)="changeTeam(team)"
-                     class="main-aside-link">
+                   class="main-aside-link">
                    {{ team.name }}
                 </a>
             </li>
@@ -51,8 +51,8 @@
                         <td class="table-body-cell">{{ user.day_rate }}</td>
                         <td class="table-body-cell">
                             <button class="table-body-delete" 
-                                    aria-label="Delete user.name" 
-                                    title="Delete user.name">
+                                    attr.aria-label="Delete {{ user.name }}" 
+                                    attr.title="Delete {{ user.name }}">
                             </button>
                         </td>
                     </tr>

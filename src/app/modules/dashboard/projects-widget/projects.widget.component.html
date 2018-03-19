@@ -11,7 +11,9 @@
         <div class="dashboard-widget-row">
             <ul *ngIf="projects">
                 <li *ngFor="let project of projects" class="project-widget-row">
-                    <a [routerLink]="['/projects', project.id]" routerLinkActive="active" class="project-widget-link">
+                    <a class="project-widget-link"
+                       [routerLink]="['/projects', project.id]" 
+                       routerLinkActive="active">
                         {{ project.title }}
                     </a>
                 </li>
