@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { Client } from "./client.model";
@@ -26,7 +26,8 @@ export class ClientsDetailComponent {
   constructor(
     private formBuilder: FormBuilder, 
     private httpService: HttpService, 
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -53,6 +54,14 @@ export class ClientsDetailComponent {
     this.httpService.put('clients/' + this.client.id, this.client)
       .subscribe(
         (data: APIResponse) => this.client = <Client>data.data,
+        (error: Object) => this.serverErrors = error
+      )
+  }
+
+  deleteClient() {
+    this.httpService.delete('clients/' + this.client.id)
+      .subscribe(
+        (data: APIResponse) => this.router.navigate(['/clients']),
         (error: Object) => this.serverErrors = error
       )
   }

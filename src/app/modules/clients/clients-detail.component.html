@@ -49,5 +49,9 @@
                 </textarea>
             </div>
         </div>
+
+        <footer class="main-body-footer" *ngIf="client">
+            <button class="btn btn--warning" (click)="deleteClient()">Delete</button>
+        </footer>
     </section>
 </main>

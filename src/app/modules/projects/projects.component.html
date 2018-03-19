@@ -62,8 +62,8 @@
                     <tr class="table-body-row" *ngIf="!isFiltered(project)"> 
                         <td class="table-body-cell">
                             <a [routerLink]="['/projects', project.id]" 
-                            routerLinkActive="active"
-                            class="table-body-link">
+                               routerLinkActive="active"
+                               class="table-body-link">
                                 {{ project.title }}
                             </a>
                         </td>
@@ -71,9 +71,9 @@
                         <td class="table-body-cell">{{ project.methodology ? project.methodology : '--' }}</td>
                         <td class="table-body-cell table-body-cell--view">
                             <a class="table-body-view" 
-                            [routerLink]="['/projects', project.id]" 
-                            routerLinkActive="active" 
-                            aria-label="project.title">
+                               [routerLink]="['/projects', project.id]" 
+                               routerLinkActive="active" 
+                               attr.aria-label="{{ project.title }}">
                                 View
                             </a>
                         </td>

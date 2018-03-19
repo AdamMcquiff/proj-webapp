@@ -37,7 +37,8 @@
                 <tr class="table-body-row" *ngFor="let client of clients"> 
                     <td class="table-body-cell">
                         <a [routerLink]="['/clients', client.id]" 
-                           routerLinkActive="active">
+                           routerLinkActive="active"
+                           class="table-body-link">
                             {{ client.name }}
                         </a>
                     </td>

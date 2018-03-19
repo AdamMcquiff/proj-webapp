@@ -145,6 +145,13 @@
             font-weight: 200;
             max-width: 27.5em;
         }
+        
+        &-footer {
+            bottom: 0;
+            padding: 1em;
+            position: absolute;
+            right: 0;
+        }
 
         &--gray {
             background-color: $lightest-gray;
