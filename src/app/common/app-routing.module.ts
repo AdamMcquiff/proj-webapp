@@ -20,7 +20,9 @@ import { IterationsDetailComponent } from '../modules/projects/iterations/iterat
 import { TasksComponent } from '../modules/projects/tasks/tasks.component';
 import { TasksDetailComponent } from '../modules/projects/tasks/tasks-detail.component';
 import { KanbanComponent } from '../modules/projects/kanban/kanban.component';
- 
+
+import { SearchComponent } from '../modules/projects/search/search.component';
+
 import { ClientsComponent } from '../modules/clients/clients.component';
 import { ClientsDetailComponent } from '../modules/clients/clients-detail.component';
 
@@ -37,7 +39,7 @@ const routes: Routes = [
     { path: 'forgotten-password', component: ForgottenPasswordComponent },
     
     { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard ] },
-
+    
     { path: 'projects', component: ProjectsComponent, canActivate: [ AuthGuard ] },
     { path: 'projects/:id', component: ProjectsDetailComponent, canActivate: [ AuthGuard ] },
     { path: 'projects/:id/iterations', component: IterationsComponent, canActivate: [ AuthGuard ] },
@@ -46,6 +48,8 @@ const routes: Routes = [
     { path: 'projects/:id/tasks/:taskId', component: TasksDetailComponent, canActivate: [ AuthGuard ] },
     { path: 'projects/:id/kanban', component: KanbanComponent, canActivate: [ AuthGuard ] },
     
+    { path: 'search/:terms', component: SearchComponent, canActivate: [ AuthGuard ] },
+
     { path: 'teams', component: TeamsComponent, canActivate: [ AuthGuard ] },
     
     { path: 'clients', component: ClientsComponent, canActivate: [ AuthGuard ] },

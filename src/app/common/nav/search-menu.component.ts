@@ -9,6 +9,13 @@ import { Router } from "@angular/router";
 export class SearchMenuComponent {
   @Input() isOpen;
 
+  constructor(private router: Router) {}
+
+  submitSearch(input) {
+    this.router.navigate(['/search', input.target.value.trim()]);
+    this.toggleDialog();
+  }
+
   toggleDialog() {
     this.isOpen = !this.isOpen;
   }

@@ -46,6 +46,7 @@ import { TasksComponent } from './modules/projects/tasks/tasks.component';
 import { TasksDetailComponent } from './modules/projects/tasks/tasks-detail.component';
 import { TaskDialogComponent } from './modules/projects/task-dialog/task-dialog.component';
 import { KanbanComponent } from './modules/projects/kanban/kanban.component';
+import { SearchComponent } from './modules/projects/search/search.component';
 
 import { TeamsComponent } from './modules/teams/teams.component';
 
@@ -97,6 +98,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TasksDetailComponent,
     TaskDialogComponent,
     KanbanComponent,
+    SearchComponent,
     TeamsComponent,
     ClientsComponent,
     ClientsDetailComponent,

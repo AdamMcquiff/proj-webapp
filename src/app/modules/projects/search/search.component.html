@@ -1,0 +1,68 @@
+<main class="main">
+    <header class="main-header">
+        <h1 class="main-header-title">
+            Search
+        </h1>
+    </header>
+    
+    <aside class="main-aside">
+        <ul class="main-aside-links">
+            <li>
+                <a [routerLink]="['/projects']" 
+                    routerLinkActive="active" 
+                    class="main-aside-link">
+                    All Projects
+                </a>
+            </li>
+        </ul>
+    </aside>
+    
+    <section class="main-body">
+        <div class="loading" *ngIf="!results"></div>
+
+        <header class="main-body-header">
+            <div class="main-body-header-title">
+                <h2 class="main-body-title">{{ getTitle() }}</h2>
+            </div>  
+        </header>
+
+        <table class="table" *ngIf="results">
+            <thead class="table-head">
+                <tr>
+                    <th class="table-head-cell">Project</th>
+                    <th class="table-head-cell">Status</th>
+                    <th class="table-head-cell">Methodology</th>
+                    <th class="table-head-cell">
+                        <span class="hidden">View</span>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody class="table-body">
+                <tr class="table-body-row" *ngFor="let project of results"> 
+                    <td class="table-body-cell">
+                        <a [routerLink]="['/projects', project.id]" 
+                           routerLinkActive="active"
+                           class="table-body-link">
+                            {{ project.title }}
+                        </a>
+                    </td>
+                    <td class="table-body-cell">{{ project.summary ? project.summary.substring(0, 25) + '...' : '--' }}</td>
+                    <td class="table-body-cell">{{ project.methodology ? project.methodology : '--' }}</td>
+                    <td class="table-body-cell table-body-cell--view">
+                        <a class="table-body-view" 
+                        [routerLink]="['/projects', project.id]" 
+                        routerLinkActive="active" 
+                        aria-label="project.title">
+                            View
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="results && !results.length" class="table-no-content">
+            No results.
+        </div>
+    </section>
+</main>

@@ -11,7 +11,8 @@
 
         <input type="text" 
                class="search-menu-input" 
-               placeholder="Search projects, iterations and tasks&hellip;">
+               placeholder="Search projects, iterations and tasks&hellip;"
+               (keyup.enter)="submitSearch($event)">
     </label>
     
 </div>
