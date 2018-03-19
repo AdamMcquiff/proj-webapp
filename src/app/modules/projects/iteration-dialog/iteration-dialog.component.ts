@@ -18,12 +18,13 @@ export class IterationDialogComponent {
 
   iterationForm: FormGroup;
   serverErrors = {};
+
   isPerformingAPICall: boolean = false;
   
   iteration: Iteration;
   
-  title = "Create a new iteration";
-  context: Object = {
+  dialogTitle = "Create a new iteration";
+  dialogContext: Object = {
     title: "New Iteration",
     body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
            Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. 
@@ -54,7 +55,11 @@ export class IterationDialogComponent {
         },
         error => this.serverErrors = error,
         () => this.isPerformingAPICall = false
-      );  
+      )
+  }
+
+  get title() { 
+    return this.iterationForm.get('title'); 
   }
 }
  

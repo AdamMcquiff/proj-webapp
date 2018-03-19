@@ -26,8 +26,8 @@ export class TaskDialogComponent {
   
   task: Task;
   
-  title = "Create a new task";
-  context: Object = {
+  dialogTitle = "Create a new task";
+  dialogContext: Object = {
     title: "New Task",
     body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
            Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. 
@@ -67,6 +67,10 @@ export class TaskDialogComponent {
 
   changeProject(project) {
     this.selectedProject = project;
+  }
+
+  get title() { 
+    return this.taskForm.get('title'); 
   }
 }
  

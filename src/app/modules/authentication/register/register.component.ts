@@ -31,7 +31,6 @@ export class RegisterComponent {
   ngOnInit(): void {
     if (this.auth.isAuthenticated()) this.router.navigate(['dashboard'])
     
-    // TODO: validate password against confirm password
     this.registerForm = this.formBuilder.group({
       name: ["", [
         Validators.required,

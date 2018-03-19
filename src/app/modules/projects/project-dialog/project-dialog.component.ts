@@ -23,8 +23,8 @@ export class ProjectDialogComponent {
 
   serverErrors = {};
 
-  title = "Create a new project";
-  context: Object = {
+  dialogTitle = "Create a new project";
+  dialogContext: Object = {
     title: "New Project",
     body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
            Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. 
@@ -55,7 +55,11 @@ export class ProjectDialogComponent {
         },
         error => this.serverErrors = error,
         () => this.isPerformingAPICall = false
-      );  
+      )
+  }
+
+  get title() { 
+    return this.projectForm.get('title'); 
   }
 }
  

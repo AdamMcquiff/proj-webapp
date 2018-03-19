@@ -1,6 +1,6 @@
 <base-dialog [isOpen]="isOpen"
-             [title]="title" 
-             [context]="context">
+             [title]="dialogTitle" 
+             [context]="dialogContext">
 
     <form [formGroup]="projectForm" (ngSubmit)="onFormSubmit()">
         <label class="form-label">
@@ -22,7 +22,6 @@
             <input type="text" class="form-input" formControlName="title">
         </label>
 
-        <!-- TODO: add loading spinner -->
         <input type="submit" 
                class="btn form-btn" 
                value="Create" 
