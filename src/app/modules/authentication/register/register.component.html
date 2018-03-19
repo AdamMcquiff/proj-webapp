@@ -21,9 +21,9 @@
             <label class="form-label">
                 <span class="form-label-title">Username</span>
 
-                <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
-                    <div *ngIf="serverErrors.error.errors.username">
-                        <div *ngFor="let error of serverErrors.error.errors.username">
+                <div *ngIf="serverErrors && serverErrors.error" class="form-label-error" role="alert">
+                    <div *ngIf="serverErrors && serverErrors.error.errors.username">
+                        <div *ngFor="let error of serverErrors && serverErrors.error.errors.username">
                             {{ error }}
                         </div>
                     </div>
@@ -44,9 +44,9 @@
             <label class="form-label">
                 <span class="form-label-title">Email address</span>
 
-                <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
-                    <div *ngIf="serverErrors.error.errors.email">
-                        <div *ngFor="let error of serverErrors.error.errors.email">
+                <div *ngIf="serverErrors && serverErrors.error" class="form-label-error" role="alert">
+                    <div *ngIf="serverErrors && serverErrors.error.errors.email">
+                        <div *ngFor="let error of serverErrors && serverErrors.error.errors.email">
                             {{ error }}
                         </div>
                     </div>
@@ -77,9 +77,9 @@
                     Your password must be at least 8 characters
                 </div>
 
-                <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
-                    <div *ngIf="serverErrors.error.errors.password">
-                        <div *ngFor="let error of serverErrors.error.errors.password">
+                <div *ngIf="serverErrors && serverErrors.error" class="form-label-error" role="alert">
+                    <div *ngIf="serverErrors && serverErrors.error.errors.password">
+                        <div *ngFor="let error of serverErrors && serverErrors.error.errors.password">
                             {{ error }}
                         </div>
                     </div>

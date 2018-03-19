@@ -20,7 +20,7 @@ import { AuthService } from "../services/auth.service";
 export class LoginComponent {
   loginForm: FormGroup;
   
-  serverErrors = {};
+  serverErrors;
 
   private user: User;
 

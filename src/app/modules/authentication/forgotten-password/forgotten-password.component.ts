@@ -20,7 +20,7 @@ import { AuthService } from "../services/auth.service";
 export class ForgottenPasswordComponent {
   emailForm: FormGroup;
   
-  serverErrors = {};
+  serverErrors;
 
   emailSent = false;
 

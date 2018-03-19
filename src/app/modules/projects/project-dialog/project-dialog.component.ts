@@ -21,7 +21,7 @@ export class ProjectDialogComponent {
 
   isPerformingAPICall: boolean;
 
-  serverErrors = {};
+  serverErrors;
 
   dialogTitle = "Create a new project";
   dialogContext: Object = {

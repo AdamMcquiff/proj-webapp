@@ -22,7 +22,7 @@ export class RegisterComponent {
 
   registerForm: FormGroup;
   
-  serverErrors = {};
+  serverErrors;
 
   private user: User;
 

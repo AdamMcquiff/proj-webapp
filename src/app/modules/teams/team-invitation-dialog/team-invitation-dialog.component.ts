@@ -22,7 +22,7 @@ export class TeamInvitationDialogComponent {
 
   isPerformingAPICall: boolean;
 
-  serverErrors = {};
+  serverErrors;
 
   title = '';
   context: Object = {

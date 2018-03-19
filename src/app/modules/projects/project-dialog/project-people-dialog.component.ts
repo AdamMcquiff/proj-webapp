@@ -22,7 +22,7 @@ export class ProjectPeopleDialogComponent {
 
   isPerformingAPICall: boolean;
 
-  serverErrors = {};
+  serverErrors;
 
   title = "";
   context: Object = {

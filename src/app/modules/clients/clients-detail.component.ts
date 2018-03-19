@@ -16,7 +16,8 @@ export class ClientsDetailComponent {
   client: Client;
 
   clientForm: FormGroup;
-  serverErrors = {};
+  
+  serverErrors;
 
   isToggled = {
     'name': false,

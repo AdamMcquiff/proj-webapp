@@ -9,7 +9,7 @@ import { APIResponse } from "../../common/interfaces/api-response.interface";
 })
 
 export class ClientsComponent {
-  clients: Object;
+  clients: Array<Object>;
   
   isClientDialogOpen: boolean;
 
@@ -25,6 +25,6 @@ export class ClientsComponent {
 
   refreshData() {
     this.httpService.get('clients')
-      .subscribe((data: APIResponse) => this.clients = data.data);  
+      .subscribe((data: APIResponse) => this.clients = <Array<Object>>data.data);  
   }
 }

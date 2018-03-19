@@ -68,7 +68,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     BrowserModule, 
     HttpClientModule,
     AppRoutingModule,                        
-    ReactiveFormsModule                
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,

@@ -18,8 +18,8 @@
                 </div>
             </div>
 
-            <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
-                <div *ngIf="serverErrors.error.status_code == 404">
+            <div *ngIf="serverErrors && serverErrors.error" class="form-label-error" role="alert">
+                <div *ngIf="serverErrors && serverErrors.error.status_code == 404">
                     No user exists with this email address. 
                 </div>
             </div>

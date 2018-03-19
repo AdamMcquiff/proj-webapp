@@ -16,8 +16,8 @@
                     </div>
                 </div>
 
-                <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
-                    <div *ngIf="serverErrors.error.error">
+                <div *ngIf="serverErrors && serverErrors.error" class="form-label-error" role="alert">
+                    <div *ngIf="serverErrors && serverErrors.error.error">
                         Unable to login, please check you entered your email and password correctly
                     </div>
                 </div>

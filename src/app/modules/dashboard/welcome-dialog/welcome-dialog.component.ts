@@ -15,7 +15,7 @@ export class WelcomeDialogComponent {
   
   organisation: Object;
 
-  serverErrors: Object = {};
+  serverErrors;
 
   welcomeForm: FormGroup;
 

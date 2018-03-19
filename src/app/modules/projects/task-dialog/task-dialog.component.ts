@@ -21,8 +21,10 @@ export class TaskDialogComponent {
   selectedProject: Project;
 
   taskForm: FormGroup;
-  serverErrors = {};
-  isPerformingAPICall: boolean = false;
+  
+  serverErrors;
+
+  isPerformingAPICall: boolean;
   
   task: Task;
   
@@ -65,8 +67,8 @@ export class TaskDialogComponent {
       );  
   }
 
-  changeProject(project) {
-    this.selectedProject = project;
+  changeProject(project: Project) {
+    this.selectedProject = <Project>project;
   }
 
   get title() { 

@@ -20,7 +20,7 @@ export class ClientDialogComponent {
 
   isPerformingAPICall: boolean;
 
-  serverErrors = {};
+  serverErrors;
 
   dialogTitle = 'Create a new client';
   dialogContext: Object = {

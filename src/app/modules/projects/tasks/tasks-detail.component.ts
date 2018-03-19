@@ -19,14 +19,15 @@ export class TasksDetailComponent {
   project: Project;
   task: Task;
 
+  taskForm: FormGroup;
+  
+  serverErrors;
+  
   deleteDialogTitle = 'Are you sure?';
   deleteDialogBody = {
     first_line: 'Are you sure you want to delete?',
     second_line: 'This action is permenant and cannot be undone.'
   };
-
-  taskForm: FormGroup;
-  serverErrors = {};
 
   isDeleting: boolean;
   isDeleteConfirmationDialogOpen: boolean;

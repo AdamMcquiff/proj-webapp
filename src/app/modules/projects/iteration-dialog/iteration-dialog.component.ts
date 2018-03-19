@@ -17,7 +17,8 @@ export class IterationDialogComponent {
   @Input() projectId;
 
   iterationForm: FormGroup;
-  serverErrors = {};
+  
+  serverErrors;
 
   isPerformingAPICall: boolean = false;
   

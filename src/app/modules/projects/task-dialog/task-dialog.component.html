@@ -13,8 +13,8 @@
                 </div>
             </div>
 
-            <div *ngIf="serverErrors.error" class="form-label-error" role="alert">
-                <div *ngIf="serverErrors.error.error">
+            <div *ngIf="serverErrors && serverErrors.error" class="form-label-error" role="alert">
+                <div *ngIf="serverErrors && serverErrors.error.error">
                     Something has went wrong. Please try again later.
                 </div>
             </div>
@@ -32,7 +32,7 @@
             </select>
         </label>
 
-        <label class="form-label" *ngIf="!projects || (projects && selectedProject)">
+        <label class="form-label" *ngIf="!projects || selectedProject !== null">
             <span class="form-label-title">Iteration</span>
             <span class="form-label-subtext">Select an iteration that the task belongs to.</span>
 

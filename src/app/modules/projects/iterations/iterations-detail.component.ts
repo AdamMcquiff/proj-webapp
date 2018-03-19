@@ -20,7 +20,8 @@ export class IterationsDetailComponent {
   iteration: Iteration;
 
   iterationForm: FormGroup;
-  serverErrors = {};
+  
+  serverErrors;
 
   deleteDialogTitle = 'Are you sure?';
   deleteDialogBody = {

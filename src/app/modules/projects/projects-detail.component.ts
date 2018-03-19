@@ -19,7 +19,8 @@ export class ProjectsDetailComponent {
   clients;
 
   projectForm: FormGroup;
-  serverErrors = {};
+ 
+  serverErrors;
 
   deleteDialogTitle = 'Are you sure?';
   deleteDialogBody = {

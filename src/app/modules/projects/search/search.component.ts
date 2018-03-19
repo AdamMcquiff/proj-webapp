@@ -12,7 +12,7 @@ import { HttpService } from "../../../common/services/http.service";
 export class SearchComponent {
   searchTerms: string;
 
-  results: Object;
+  results: Array<Object>;
 
   constructor(private activatedRoute: ActivatedRoute, private httpService: HttpService) {}
 
@@ -21,7 +21,7 @@ export class SearchComponent {
       this.searchTerms = params['terms'];
 
       this.httpService.get('search/' + this.searchTerms)
-        .subscribe((data: APIResponse) => this.results = data.data)  
+        .subscribe((data: APIResponse) => this.results = <Array<Object>>data.data)  
     });
   }
 

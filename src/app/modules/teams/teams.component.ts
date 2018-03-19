@@ -14,7 +14,7 @@ export class TeamsComponent {
   teams: Array<Team>;
   selectedTeam: Team;
 
-  serverErrors = {};
+  serverErrors;
 
   isTeamInvitationDialogOpen: boolean;
 
