@@ -16,6 +16,8 @@ export class ProjectPeopleDialogComponent {
   @Input() isOpen;
   @Input() project: Project;
 
+  invite: Object;
+
   projectPeopleForm: FormGroup;
 
   isPerformingAPICall: boolean = false;
@@ -47,11 +49,11 @@ export class ProjectPeopleDialogComponent {
   public onFormSubmit() {
     if (!this.projectPeopleForm.valid) return;
 
-    this.project = this.projectPeopleForm.value;
+    this.invite = this.projectPeopleForm.value;
 
     this.isPerformingAPICall = true;
 
-    this.httpService.post('projects', this.project)
+    this.httpService.post('projects/' + this.project.id + '/invite', this.invite)
       .subscribe(
         (data: APIResponse) => {
           this.project = <Project> data.data;

@@ -3,6 +3,7 @@
              [context]="context">
 
     <form [formGroup]="projectPeopleForm" (ngSubmit)="onFormSubmit()">
+
         <label class="form-label">
             <span class="form-label-title">Email address</span>
             <span class="form-label-subtext">The person’s username or email address.</span>
@@ -41,6 +42,7 @@
                value="Create" 
                [ngClass]="{ 'btn--disabled': isPerformingAPICall }"
                [disabled]="isPerformingAPICall">
+               
     </form>
 
 </base-dialog>
