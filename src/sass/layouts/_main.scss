@@ -23,6 +23,10 @@
         padding: .75em 1em;
         position: relative;
         width: 100%;
+
+        &--dark {
+            background-color: $darkest-gray;
+        }
         
         &-title {
             @include type-setting(1);
@@ -43,12 +47,19 @@
         padding: 0 1em;
 
         &-link {
+            background: no-repeat;
+            border: 0;
+            
             color: $purple;
+            
             cursor: pointer;
             display: block;
+            
             font-family: $libre-franklin;
             font-size: 1.125em;
+            
             margin: 1.25em 0;
+            padding: 0;
             text-decoration: none;
             transition: all .3s ease;
 

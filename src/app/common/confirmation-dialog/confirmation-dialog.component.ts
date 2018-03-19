@@ -8,20 +8,14 @@ import { Router } from "@angular/router";
 })
 
 export class ConfirmationDialogComponent {
+  @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>();
+  
   @Input() isOpen;
   @Input() title;
   @Input() body;
-  @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  constructor() {}
-  
-  ngOnInit(): void {
-
-  }
 
   closeDialog(confirmation: boolean) {
     this.notify.emit(confirmation);
-
     this.isOpen = false;
   }
 }

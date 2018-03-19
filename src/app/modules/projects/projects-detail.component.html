@@ -8,13 +8,13 @@
     <div class="loading" *ngIf="isDeleting"></div>
     <div class="overlay" [ngClass]="{ 'visible': isDeleting }"></div>
 
-    <header class="main-header">
+    <header class="main-header" [ngClass]="{ 'main-header--dark': (project && project.archived) }">
         <h1 class="main-header-title" *ngIf="project">
             <label class="main-field-editable" 
-                    title="Click to edit"
-                    *ngIf="!isToggled.title" 
-                    (click)="toggleField('title', true)">
-                {{ project.title }}
+                   title="Click to edit"
+                   *ngIf="!isToggled.title" 
+                   (click)="toggleField('title', true)">
+                {{ project.title }} <span *ngIf="project.archived">[Archived]</span>
             </label>
             <input (keydown.enter)="toggleField('title', false)" 
                     class="main-field-form" 
@@ -287,7 +287,18 @@
             </div>
             
             <div class="main-aside-section-body">
-                <button class="btn btn--secondary" (click)="archiveProject()">Archive</button>
+                <button class="btn btn--secondary" 
+                        (click)="setProjectArchiveState(true)"
+                        *ngIf="!project.archived">
+                    Archive
+                </button>
+
+                <button class="btn btn--secondary" 
+                        (click)="setProjectArchiveState(false)"
+                        *ngIf="project.archived">
+                    Unarchive
+                </button>
+
                 <button class="btn btn--warning" 
                         [ngClass]="{ 'btn--disabled': isDeleting }"
                         [disabled]="isDeleting"

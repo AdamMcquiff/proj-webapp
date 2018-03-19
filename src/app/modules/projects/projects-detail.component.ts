@@ -88,8 +88,8 @@ export class ProjectsDetailComponent {
       )
   }
 
-  archiveProject() {
-    this.httpService.post('projects/' + this.project.id + '/archive', {})
+  setProjectArchiveState(isArchived: boolean) {
+    this.httpService.post('projects/' + this.project.id + '/archive', { 'archive': isArchived })
       .subscribe(
         (data: APIResponse) => this.router.navigate(['/projects']),
         (error: Object) => this.serverErrors = error

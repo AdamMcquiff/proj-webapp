@@ -6,17 +6,27 @@
     </header>
     
     <aside class="main-aside">
+        
         <ul class="main-aside-links">
             <li>
-                <a href="#" class="main-aside-link">All Projects</a>
+                <button class="main-aside-link"
+                        (click)="setFilter('active')">
+                    Active Projects
+                </button>
             </li>
-
+            
             <li>
-                <a href="#" class="main-aside-link">Active Projects</a>
+                <button class="main-aside-link"
+                        (click)="setFilter('archived')">
+                    Archived Projects
+                </button>
             </li>
-
+            
             <li>
-                <a href="#" class="main-aside-link">Archived Projects</a>
+                <button class="main-aside-link"
+                        (click)="setFilter('all')">
+                    All Projects
+                </button>
             </li>
         </ul>
     </aside>
@@ -26,7 +36,7 @@
 
         <header class="main-body-header">
             <div class="main-body-header-title">
-                <h2 class="main-body-title">All Projects</h2>
+                <h2 class="main-body-title">{{ getTitle() }}</h2>
             </div>  
 
             <div class="main-body-header-btns">
@@ -48,25 +58,27 @@
             </thead>
 
             <tbody class="table-body">
-                <tr class="table-body-row" *ngFor="let project of projects"> 
-                    <td class="table-body-cell">
-                        <a [routerLink]="['/projects', project.id]" 
-                           routerLinkActive="active"
-                           class="table-body-link">
-                            {{ project.title }}
-                        </a>
-                    </td>
-                    <td class="table-body-cell">{{ project.summary ? project.summary.substring(0, 25) + '...' : '--' }}</td>
-                    <td class="table-body-cell">{{ project.methodology ? project.methodology : '--' }}</td>
-                    <td class="table-body-cell table-body-cell--view">
-                        <a class="table-body-view" 
-                           [routerLink]="['/projects', project.id]" 
-                           routerLinkActive="active" 
-                           aria-label="project.title">
-                            View
-                        </a>
-                    </td>
-                </tr>
+                <ng-container *ngFor="let project of projects">
+                    <tr class="table-body-row" *ngIf="!isFiltered(project)"> 
+                        <td class="table-body-cell">
+                            <a [routerLink]="['/projects', project.id]" 
+                            routerLinkActive="active"
+                            class="table-body-link">
+                                {{ project.title }}
+                            </a>
+                        </td>
+                        <td class="table-body-cell">{{ project.summary ? project.summary.substring(0, 25) + '...' : '--' }}</td>
+                        <td class="table-body-cell">{{ project.methodology ? project.methodology : '--' }}</td>
+                        <td class="table-body-cell table-body-cell--view">
+                            <a class="table-body-view" 
+                            [routerLink]="['/projects', project.id]" 
+                            routerLinkActive="active" 
+                            aria-label="project.title">
+                                View
+                            </a>
+                        </td>
+                    </tr>
+                </ng-container>
             </tbody>
         </table>
 

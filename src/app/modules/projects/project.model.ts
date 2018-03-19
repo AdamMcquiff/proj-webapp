@@ -9,6 +9,7 @@ export class Project {
   budget: number;
   start_date: string;
   due_date: string;
+  archived: boolean; 
   client: object;
   client_id: number;
   iterations: Array<object>;
