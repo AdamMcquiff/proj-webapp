@@ -13,6 +13,10 @@ import { APIResponse } from "../interfaces/api-response.interface";
 export class HeaderComponent {
   user: Object;
 
+  isMenuOpen = {
+    notifications: false
+  }
+
   constructor(public auth: AuthService, private httpService: HttpService) {}
 
   ngOnInit(): void {
@@ -20,6 +24,16 @@ export class HeaderComponent {
       .subscribe((data: APIResponse) => {
         this.user = data.data;
       });  
+  } 
+  
+  toggleMenu(menu: string) {
+    let isMenuOpen = Object.assign({}, this.isMenuOpen);
+
+    switch (menu) {
+      case "notifications":
+        this.isMenuOpen.notifications = true;
+        break;
+    }
   }
 
   public signout() {

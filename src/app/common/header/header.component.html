@@ -1,4 +1,5 @@
 <header class="header">
+    
     <div class="header-organisation">
         <a routerLink="/dashboard" 
            routerLinkActive="active" 
@@ -9,8 +10,20 @@
     </div>
 
     <div class="header-icons">
-        <button class="header-icon header-notifications"></button>
+        <button class="header-icon header-notifications" 
+                (click)="toggleMenu('notifications')"
+                aria-label="Notifications">
+        </button>
+
         <div class="header-hr"></div>
-        <button class="header-icon header-signout" (click)="signout()"></button>
+
+        <button class="header-icon header-signout" 
+                (click)="signout()"
+                aria-label="Signout">
+        </button>
     </div>
+    
+    <notifications-menu [isOpen]="isMenuOpen.notifications"></notifications-menu>
+
 </header>
+

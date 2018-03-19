@@ -24,6 +24,7 @@ import { SearchMenuComponent } from './common/nav/search-menu.component';
 import { CreateMenuComponent } from './common/nav/create-menu.component';
 import { AvatarMenuComponent } from './common/nav/avatar-menu.component';
 import { HeaderComponent } from './common/header/header.component';
+import { NotificationsMenuComponent } from './common/header/notifications-menu.component';
 import { DialogComponent } from './common/dialog/dialog.component';
 import { ConfirmationDialogComponent } from './common/confirmation-dialog/confirmation-dialog.component';
 import { ToastComponent } from './common/toast/toast.component';
@@ -73,6 +74,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CreateMenuComponent,
     AvatarMenuComponent,
     HeaderComponent,
+    NotificationsMenuComponent,
     DialogComponent,
     ConfirmationDialogComponent,
     ToastComponent,

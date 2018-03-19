@@ -1,0 +1,27 @@
+<div class="notifications-menu" [ngClass]="{ 'visible': isOpen }" [attr.aria-expanded]="isOpen ? true : false">
+
+    <header class="notifications-menu-header">
+
+        <h2 class="notifications-menu-title">
+            Notifications
+        </h2>
+
+        <button class="notifications-menu-dismiss-btn" 
+                aria-label="Dismiss" 
+                title="Dismiss" 
+                (click)="toggleDialog()">
+        </button>
+
+    </header>
+    
+    <div class="notifications-menu-body">
+        <!-- -->
+
+        <div *ngIf="!notifications" class="notifications-menu-no-content">
+            You currently have no notifications.
+        </div>
+    </div>
+
+</div>
+
+<div class="overlay" [ngClass]="{ 'visible': isOpen }"></div>
