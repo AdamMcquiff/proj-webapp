@@ -4,6 +4,7 @@ import { HttpService } from "../services/http.service";
 import { AuthService } from "../../modules/authentication/services/auth.service";
 
 import { APIResponse } from "../interfaces/api-response.interface";
+import { User } from "../../modules/authentication/user.model";
 
 @Component({
   selector: "primary-header",
@@ -11,7 +12,7 @@ import { APIResponse } from "../interfaces/api-response.interface";
 })
 
 export class HeaderComponent {
-  user: Object;
+  user: User;
 
   isMenuOpen = {
     notifications: false
@@ -22,7 +23,7 @@ export class HeaderComponent {
   ngOnInit(): void {
     this.httpService.get('profile')
       .subscribe((data: APIResponse) => {
-        this.user = data.data;
+        this.user = <User>data.data;
       });  
   } 
   

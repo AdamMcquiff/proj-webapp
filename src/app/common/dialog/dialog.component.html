@@ -1,4 +1,4 @@
-<dialog class="dialog" [attr.open]="isOpen ? true : null">
+<dialog class="dialog" [attr.open]="isOpen ? true : null" (keydown.esc)="closeDialog()">
     <div class="dialog-header">
         <h3 class="dialog-header-title">{{ title }}</h3>
 

@@ -1,6 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
 
+import { Project } from "../../modules/projects/project.model";
+
 import { APIResponse } from "../interfaces/api-response.interface";
 import { HttpService } from "../services/http.service";
 
@@ -11,7 +13,8 @@ import { HttpService } from "../services/http.service";
 
 export class CreateMenuComponent {
   @Input() isOpen;
-  projects;
+
+  projects: Array<Project>;
 
   isTaskDialogOpen: boolean;
   isProjectDialogOpen: boolean;
@@ -21,7 +24,7 @@ export class CreateMenuComponent {
   ngOnInit(): void {
     this.httpService.get('projects')
       .subscribe((data: APIResponse) => {
-        this.projects = data.data;
+        this.projects = <Array<Project>>data.data;
       });  
   }
 

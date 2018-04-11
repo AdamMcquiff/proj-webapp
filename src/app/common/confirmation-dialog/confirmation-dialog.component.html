@@ -1,4 +1,4 @@
-<dialog class="dialog dialog--small" [attr.open]="isOpen ? true : null">
+<dialog class="dialog dialog--small" [attr.open]="isOpen ? true : null" (keydown.esc)="closeDialog()">
     <div class="dialog-header">
         <h3 class="dialog-header-title">{{ title }}</h3>
 
@@ -20,16 +20,16 @@
 
     <div class="dialog-btns">
         <button class="btn btn--secondary" 
-            aria-label="Cancel" 
-            title="Cancel"
-            (click)="closeDialog(false)">
+                aria-label="Cancel" 
+                title="Cancel"
+                (click)="closeDialog(false)">
             No, don’t delete
         </button>
         
         <button class="btn btn--danger" 
-            aria-label="Delete" 
-            title="Delete"
-            (click)="closeDialog(true)">
+                aria-label="Delete" 
+                title="Delete"
+                (click)="closeDialog(true)">
             Delete
         </button>
     </div>
