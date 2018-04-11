@@ -23,6 +23,7 @@ import { NavComponent } from './common/nav/nav.component';
 import { SearchMenuComponent } from './common/nav/search-menu.component';
 import { CreateMenuComponent } from './common/nav/create-menu.component';
 import { AvatarMenuComponent } from './common/nav/avatar-menu.component';
+import { SupportMenuComponent } from './common/nav/support-menu.component';
 import { HeaderComponent } from './common/header/header.component';
 import { NotificationsMenuComponent } from './common/header/notifications-menu.component';
 import { DialogComponent } from './common/dialog/dialog.component';
@@ -76,6 +77,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SearchMenuComponent,
     CreateMenuComponent,
     AvatarMenuComponent,
+    SupportMenuComponent,
     HeaderComponent,
     NotificationsMenuComponent,
     DialogComponent,

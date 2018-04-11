@@ -55,9 +55,14 @@
                     Clients   
                 </a>
             </li>
-            
         </ul>
-        
+    
+        <button class="nav-link nav-link--support"
+                aria-label="Toggle support menu"
+                (click)="toggleMenu('support')">
+            Support   
+        </button>
+    
     </div>
 
     <search-menu [isOpen]="isMenuOpen.search"></search-menu>
@@ -65,4 +70,6 @@
     <create-menu [isOpen]="isMenuOpen.create"></create-menu>
 
     <avatar-menu [isOpen]="isMenuOpen.avatar"></avatar-menu>
+
+    <support-menu [isOpen]="isMenuOpen.support"></support-menu>
 </nav>

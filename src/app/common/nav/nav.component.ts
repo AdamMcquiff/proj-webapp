@@ -10,7 +10,8 @@ export class NavComponent {
   isMenuOpen = {
     search: false,
     create: false,
-    avatar: false
+    avatar: false,
+    support: false
   }
 
   toggleMenu(menu: string) {
@@ -27,6 +28,9 @@ export class NavComponent {
         break;
       case "avatar":
         this.isMenuOpen.avatar = !isMenuOpen.avatar;
+        break;
+      case "support":
+        this.isMenuOpen.support = !isMenuOpen.support;
         break;
     }
   }

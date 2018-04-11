@@ -1,0 +1,101 @@
+/*
+ * Support Menu
+ *
+ */
+
+.support-menu {
+    background-color: $blue;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    color: white;
+
+    height: 100vh;
+    max-width: 368px;;
+    padding: 6.25em 2em 0;
+    position: absolute;
+    top: 0;
+
+    transform: translateX(-25em);
+    transition: transform .3s ease;
+    will-change: transform;
+
+    z-index: 3;
+
+    &.visible {
+        transform: translateX(7em);
+    }
+
+    &-title {
+        font-family: $montserrat;
+        font-size: 1.325em;
+        font-weight: 500;
+    }
+    
+    &-text {
+        @include type-setting(0);
+        font-family: $libre-franklin;
+        font-weight: 200;
+    }
+
+    &-link {
+        color: white;
+        font-weight: 400;
+    }
+
+    &-label {
+        margin-bottom: 1em;
+    }
+
+    &-submit {
+        float: right;
+        font-size: .9em;
+        margin: { right: 0; }
+    }
+
+    &-section {
+        @include clearfix;
+        margin: 1em 0;
+
+        &-title {
+            font-family: $montserrat;
+            font-size: 1.125em;
+            margin: .25em 0;
+        }
+
+        &-subtitle {
+            font-family: $montserrat;
+            margin: .5em 0 .25em;
+        }
+    }
+
+    &-hr {
+        border: 1px solid $dark-blue;
+        margin: .5em 0 .75em;
+        opacity: .25;
+    }
+
+    &-dismiss-btn {
+        background: url('../assets/img/icons/white-cross.svg');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        
+        border: none;
+
+        cursor: pointer;
+        
+        float: right;
+        height: 1.5em;
+        opacity: .8;
+        position: absolute;
+        right: 1.5em;
+        top: 6.5em;
+        transition: all .3s ease;
+        width: 1.5em;
+
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: 1;
+        }
+    }
+}

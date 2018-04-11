@@ -1,0 +1,84 @@
+<div class="support-menu" [ngClass]="{ 'visible': isOpen }" [attr.aria-expanded]="isOpen ? true : false">
+    
+    <button class="support-menu-dismiss-btn" 
+            aria-label="Dismiss" 
+            title="Dismiss" 
+            (click)="toggleDialog()">
+    </button>
+    
+    <h2 class="support-menu-title">
+        Support
+    </h2>
+
+    <section class="support-menu-section">
+
+        <h3 class="support-menu-section-title">
+            Support Request
+        </h3>
+    
+        <hr class="support-menu-hr">    
+    
+        <p class="support-menu-text">
+            Please forward any support requests to
+            <a class="support-menu-link"
+               href="mailto:support@adammckenna.co.uk">
+                support@adammckenna.co.uk
+            </a>
+        </p>
+
+    </section>
+
+    <section class="support-menu-section">
+
+        <h3 class="support-menu-section-title">
+            Bug Report
+        </h3>
+    
+        <hr class="support-menu-hr">
+    
+        <p class="support-menu-text">
+            Please describe the bug with as much detail as
+            you can. You can include details such as the action
+            you were trying to complete, where in the system 
+            the bug happened, etc.
+        </p>
+    
+        <label class="form-label support-menu-label">
+            <textarea class="form-input" placeholder="Tell us about your bug&hellip;" rows="8"></textarea>
+        </label>
+
+        <input type="submit" 
+               class="btn support-menu-submit" 
+               value="Send Report">
+    
+    </section>    
+
+    <section class="support-menu-section">
+
+        <h3 class="support-menu-section-title">
+            Legalities
+        </h3>
+    
+        <hr class="support-menu-hr">
+    
+        <p class="support-menu-text">
+            View our 
+            <a class="support-menu-link"
+               href="#">
+               Terms and Conditions
+            </a>
+        </p>
+
+        <p class="support-menu-text">
+            View our
+            <a class="support-menu-link"
+               href="#">
+               Privacy Policy
+            </a>
+        </p>
+    
+    </section>    
+    
+</div>
+
+<div class="overlay" [ngClass]="{ 'visible': isOpen }"></div>
