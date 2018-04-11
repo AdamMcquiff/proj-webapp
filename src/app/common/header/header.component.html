@@ -5,13 +5,13 @@
            routerLinkActive="active" 
            class="header-organisation-link"
            *ngIf="user">
-            {{ this.user.organisation ? this.user.organisation.name : 'Dashboard' }}
+            {{ this.user.organisation ? this.user.organisation.name : 'Organisation' }}
         </a>
     </div>
 
     <div class="header-icons">
         <button class="header-icon header-notifications" 
-                (click)="toggleMenu('notifications')"
+                (click)="toggleMenu('notifications', true)"
                 aria-label="Notifications">
         </button>
 
@@ -23,7 +23,9 @@
         </button>
     </div>
     
-    <notifications-menu [isOpen]="isMenuOpen.notifications"></notifications-menu>
+    <notifications-menu [isOpen]="isMenuOpen.notifications"
+                        (isOpenEmitter)="toggleMenu('notifications', $event)">
+    </notifications-menu>
 
 </header>
 

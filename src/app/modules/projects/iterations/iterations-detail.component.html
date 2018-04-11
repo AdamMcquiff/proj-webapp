@@ -205,5 +205,9 @@
         </section>
     </aside>
 
-    <task-dialog *ngIf="project" [isOpen]="isTaskDialogOpen" [iterations]="project.iterations"></task-dialog>
+    <task-dialog *ngIf="project" 
+                 [isOpen]="isTaskDialogOpen" 
+                 [iterations]="project.iterations"
+                 [selectedIteration]="iteration">
+    </task-dialog>
 </main>

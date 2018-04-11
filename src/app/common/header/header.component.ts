@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
 
+import { User } from "../../modules/authentication/user.model";
 import { HttpService } from "../services/http.service";
 import { AuthService } from "../../modules/authentication/services/auth.service";
 
 import { APIResponse } from "../interfaces/api-response.interface";
-import { User } from "../../modules/authentication/user.model";
 
 @Component({
   selector: "primary-header",
@@ -27,12 +27,12 @@ export class HeaderComponent {
       });  
   } 
   
-  toggleMenu(menu: string) {
+  toggleMenu(menu: string, isOpen: boolean) {
     let isMenuOpen = Object.assign({}, this.isMenuOpen);
 
     switch (menu) {
       case "notifications":
-        this.isMenuOpen.notifications = true;
+        this.isMenuOpen.notifications = isOpen;
         break;
     }
   }

@@ -35,6 +35,9 @@ export class DashboardComponent {
     if (!isOrganisationSetup) return;
 
     this.httpService.post('profile', { 'first_login': 0 })
-      .subscribe((data: APIResponse) => this.user = <User>data.data)
+      .subscribe((data: APIResponse) => {
+        this.user = <User>data.data;
+        window.location.reload();
+      })
   }
 }

@@ -5,6 +5,7 @@
 
 .notifications-menu {
     background-color: white;
+    border-radius: 3px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     color: white;
 
@@ -24,6 +25,8 @@
 
     &-header {
         background-color: $blue;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
         padding: 1em;
     }
 
@@ -35,6 +38,8 @@
     }
 
     &-body {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
         padding: 1em;
     }
 
@@ -48,7 +53,7 @@
         background: url('../assets/img/icons/white-cross.svg');
         background-position: 50%;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: 1.25em;
         
         border: none;
 

@@ -259,7 +259,10 @@
         <section class="main-aside-section">
             <div class="main-aside-section-header">
                 <h2 class="main-aside-section-title">People</h2>
-                <button class="btn btn--right" (click)="toggleProjectPeopleDialog()">Edit People</button>
+                <button class="btn btn--right" 
+                        (click)="toggleProjectPeopleDialog()">
+                    Edit People
+                </button>
             </div>
 
             <div class="main-aside-section-body">
@@ -286,7 +289,7 @@
                 <h2 class="hidden">Delete or Archive</h2>
             </div>
             
-            <div class="main-aside-section-body">
+            <div class="main-aside-section-body main-aside-section-body--fix-to-bottom">
                 <button class="btn btn--secondary" 
                         (click)="setProjectArchiveState(true)"
                         *ngIf="!project.archived">

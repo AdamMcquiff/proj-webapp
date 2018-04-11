@@ -17,16 +17,16 @@ export class TaskDialogComponent {
   @Input() isOpen;
   @Input() projects;
   @Input() iterations;
+  @Input() selectedIteration;
 
   selectedProject: Project;
+  task: Task;
 
   taskForm: FormGroup;
   
   serverErrors;
 
   isPerformingAPICall: boolean;
-  
-  task: Task;
   
   dialogTitle = "Create a new task";
   dialogContext: Object = {

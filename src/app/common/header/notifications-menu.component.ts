@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, EventEmitter, Output } from "@angular/core";
 import { Router } from "@angular/router";
 
 @Component({
@@ -7,11 +7,14 @@ import { Router } from "@angular/router";
 })
 
 export class NotificationsMenuComponent {
+  @Output() isOpenEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   @Input() isOpen;
   
   notifications: Object;
 
   toggleDialog() {
-    this.isOpen = !this.isOpen;
+    this.isOpen = false;
+    this.isOpenEmitter.emit(this.isOpen);
   }
 }

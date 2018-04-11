@@ -10,6 +10,8 @@
     </aside>
     
     <section class="main-body" *ngIf="project">
+        <div class="loading" *ngIf="!tasks"></div>
+
         <header class="main-body-header">
             <div class="main-body-header-title">
                 <h2 class="main-body-title">All Tasks</h2>
@@ -58,7 +60,7 @@
             </tbody>
         </table>
 
-        <div *ngIf="project.tasks && !project.tasks.length" class="table-no-content">
+        <div *ngIf="tasks && !tasks.length" class="table-no-content">
             This project has no tasks yet.
         </div>
     </section>
