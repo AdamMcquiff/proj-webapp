@@ -23,20 +23,24 @@ export class ProjectsDetailComponent {
  
   serverErrors;
 
-  deleteDialogTitle = 'Are you sure?';
-  deleteDialogBody = {
-    first_line: 'Are you sure you want to delete?',
-    second_line: 'This action is permenant and cannot be undone.',
+  deleteDialog = {
+    title: 'Are you sure?',
+    body: {
+      title: 'Are you sure you want to delete?',
+      text: 'This action is permenant and cannot be undone.'
+    },
     btn: {
       primary: 'Delete',
       secondary: 'No, don’t delete'
     }
   };
 
-  archiveDialogTitle = 'Are you sure?';
-  archiveDialogBody = {
-    first_line: 'Are you sure you want to archive?',
-    second_line: 'This action is reversible if you change your mind.',
+  archiveDialog = {
+    title: 'Are you sure?',
+    body: {
+      title: 'Are you sure you want to archive?',
+      text: 'This action is reversible if you change your mind.' 
+    },
     btn: {
       primary: 'Archive',
       secondary: 'No, don’t archive'
@@ -84,7 +88,16 @@ export class ProjectsDetailComponent {
       const projectId = params['id'];
 
       this.httpService.get('projects/' + projectId)
-        .subscribe((data: APIResponse) => this.project = this.format(<Project>data.data))  
+        .subscribe((data: APIResponse) => {
+          this.project = this.format(<Project>data.data)
+
+          // Change the archive button text if the 
+          // project is archived
+          if (this.project.archived) {
+            this.archiveDialog.btn.primary = "Unarchive";
+            this.archiveDialog.btn.secondary = "No, don't unarchive";
+          }
+        })  
 
       this.httpService.get('clients')
         .subscribe((data: APIResponse) => this.clients = <Array<Client>>data.data)  
@@ -114,6 +127,7 @@ export class ProjectsDetailComponent {
         (error: Object) => this.serverErrors = error
       )
   }
+  
   toggleDeleteConfirmationDialog() {
     this.isDeleteConfirmationDialogOpen = !this.isDeleteConfirmationDialogOpen;
   }
@@ -148,7 +162,6 @@ export class ProjectsDetailComponent {
         (error: Object) => this.serverErrors = error
       )
   }
-
 
   private format(project: Project): Project {       
     project.start_date = project.start_date 

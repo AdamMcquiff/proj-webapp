@@ -1,8 +1,7 @@
 <main class="main" [formGroup]="taskForm">
     <confirmation-dialog (notify)="onDeleteConfirmation($event)" 
                          [isOpen]="isDeleteConfirmationDialogOpen"
-                         [title]="deleteDialogTitle"
-                         [body]="deleteDialogBody">
+                         [context]="deleteDialog">
     </confirmation-dialog>
 
     <div class="loading" *ngIf="isDeleting"></div>

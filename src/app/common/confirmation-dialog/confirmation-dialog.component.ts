@@ -11,8 +11,7 @@ export class ConfirmationDialogComponent {
   @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>();
   
   @Input() isOpen;
-  @Input() title;
-  @Input() body;
+  @Input() context;
 
   closeDialog(confirmation: boolean) {
     this.notify.emit(confirmation);

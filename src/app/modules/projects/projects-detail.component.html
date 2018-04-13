@@ -1,14 +1,12 @@
 <main class="main" [formGroup]="projectForm">
     <confirmation-dialog (notify)="onDeleteConfirmation($event)" 
                          [isOpen]="isDeleteConfirmationDialogOpen"
-                         [title]="deleteDialogTitle"
-                         [body]="deleteDialogBody">
+                         [context]="deleteDialog">
     </confirmation-dialog>
 
     <confirmation-dialog (notify)="onArchiveConfirmation($event)" 
                          [isOpen]="isArchiveConfirmationDialogOpen"
-                         [title]="archiveDialogTitle"
-                         [body]="archiveDialogBody">
+                         [context]="archiveDialog">
     </confirmation-dialog>
 
     <div class="loading" *ngIf="isDeleting"></div>

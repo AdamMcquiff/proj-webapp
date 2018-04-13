@@ -22,7 +22,9 @@ export class ProjectsComponent {
   isProjectDialogOpen: boolean;
   isProjectImportDialogOpen: boolean;
 
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService
+  ) {}
 
   ngOnInit(): void {
     this.httpService.get('projects')
@@ -52,5 +54,13 @@ export class ProjectsComponent {
     if (this.filters['active'].state) return project.archived;
     if (this.filters['archived'].state) return !project.archived;
     if (this.filters['all'].state) return false;
+  }
+
+  isCurrentFilterEmpty(projects: Array<Project>) {
+    let isEmpty = false;
+    projects.forEach((project: Project) => {
+      if (this.isFiltered(project)) isEmpty = true;
+    })
+    return isEmpty;
   }
 }  

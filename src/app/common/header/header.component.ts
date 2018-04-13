@@ -21,9 +21,11 @@ export class HeaderComponent {
 
   isSignoutConfirmationOpen: boolean;
 
-  signoutDialogTitle = 'Signout';
-  signoutDialogBody = {
-    first_line: 'Are you sure you want to signout?',
+  signoutDialog = {
+    title: 'Signout',
+    body: { 
+      title: 'Are you sure you want to signout?' 
+    },
     btn: {
       primary: 'Signout',
       secondary: 'No, don’t signout'

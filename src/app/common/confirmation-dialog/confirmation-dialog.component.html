@@ -1,6 +1,6 @@
 <dialog class="dialog dialog--small" [attr.open]="isOpen ? true : null" (keydown.esc)="closeDialog()">
     <div class="dialog-header">
-        <h3 class="dialog-header-title">{{ title }}</h3>
+        <h3 class="dialog-header-title">{{ context.title }}</h3>
 
         <button class="dialog-dismiss-btn" 
                 aria-label="Dismiss" 
@@ -11,10 +11,10 @@
 
     <div class="dialog-body align-center">
         <p>
-            {{ body.first_line }}
+            {{ context.body.title }}
         </p>
         <p class="dialog-body-subtext">
-            {{ body.second_line }}  
+            {{ context.body.text }}  
         </p>
     </div>
 
@@ -23,14 +23,14 @@
                 aria-label="Cancel" 
                 title="Cancel"
                 (click)="closeDialog(false)">
-            {{ body.btn.secondary }}
+            {{ context.btn.secondary }}
         </button>
         
         <button class="btn btn--danger" 
                 aria-label="Delete" 
                 title="Delete"
                 (click)="closeDialog(true)">
-            {{ body.btn.primary }}
+            {{ context.btn.primary }}
         </button>
     </div>
 </dialog>

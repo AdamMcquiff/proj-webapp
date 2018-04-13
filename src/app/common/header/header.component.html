@@ -2,8 +2,7 @@
 
     <confirmation-dialog (notify)="onSignoutConfirmation($event)" 
                          [isOpen]="isSignoutConfirmationOpen"
-                         [title]="signoutDialogTitle"
-                         [body]="signoutDialogBody">
+                         [context]="signoutDialog">
     </confirmation-dialog>
     
     <div class="header-organisation">

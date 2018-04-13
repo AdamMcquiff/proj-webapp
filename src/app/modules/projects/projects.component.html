@@ -82,8 +82,8 @@
             </tbody>
         </table>
 
-        <div *ngIf="projects && !projects.length" class="table-no-content">
-            There are no active projects available.
+        <div *ngIf="(projects && !projects.length) || (projects && isCurrentFilterEmpty(projects))" class="table-no-content">
+            There are no projects available.
         </div>
     </section>
 </main>

@@ -23,10 +23,12 @@ export class IterationsDetailComponent {
   
   serverErrors;
 
-  deleteDialogTitle = 'Are you sure?';
-  deleteDialogBody = {
-    first_line: 'Are you sure you want to delete?',
-    second_line: 'This action is permenant and cannot be undone.',
+  deleteDialog = {
+    title: 'Are you sure?',
+    body: {
+      title: 'Are you sure you want to delete?',
+      text: 'This action is permenant and cannot be undone.'
+    },
     btn: {
       primary: 'Delete',
       secondary: 'No, don’t delete'
