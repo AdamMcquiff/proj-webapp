@@ -25,9 +25,7 @@ export class ClientDialogComponent {
   dialogTitle = 'Create a new client';
   dialogContext: Object = {
     title: 'New Client',
-    body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-           Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. 
-           Maecenas sollicitudin elit turpis, at condimentum felis varius malesuada.`
+    body: "Clients are the stakeholders of your project. In Proj, a client is simply a representation of the real client; a way to keep your data organised."
   };
 
   constructor(

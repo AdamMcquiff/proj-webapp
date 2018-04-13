@@ -31,9 +31,7 @@ export class TaskDialogComponent {
   dialogTitle = "Create a new task";
   dialogContext: Object = {
     title: "New Task",
-    body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-           Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. 
-           Maecenas sollicitudin elit turpis, at condimentum felis varius malesuada.`
+    body: "Tasks - which are also contextually referred to as issues or stories - are the specific aspects of a project; the literal tasks that need to be complete. Tasks can have dates, statuses and can be associated with anyone on the project. Tasks must be associated with an iteration."
   };
 
   constructor(private formBuilder: FormBuilder, private httpService: HttpService, private router: Router) {}

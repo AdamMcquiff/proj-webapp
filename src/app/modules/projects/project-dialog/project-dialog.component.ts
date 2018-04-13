@@ -26,9 +26,7 @@ export class ProjectDialogComponent {
   dialogTitle = "Create a new project";
   dialogContext: Object = {
     title: "New Project",
-    body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-           Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. 
-           Maecenas sollicitudin elit turpis, at condimentum felis varius malesuada.`
+    body: "Projects have a multitude of capabilities; you can associate financial information, deadlines and start dates, iterations, tasks and you can even invite co-workers and clients to the project too."
   };
 
   constructor(

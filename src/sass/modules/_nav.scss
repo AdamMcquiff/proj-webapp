@@ -22,7 +22,7 @@
     }
 
     &-avatar {
-        background: $blue;
+        background-color: $blue;
 
         border: 2px solid white;
         border-radius: 100%;
@@ -32,7 +32,14 @@
 
         height: 5em;
         margin: 1.5em auto;
+        transition: background-color .3s ease;
         width: 5em;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: darken($blue, 5%);
+        }
     }
 
     &-hr {

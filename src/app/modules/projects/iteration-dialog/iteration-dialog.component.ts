@@ -27,9 +27,7 @@ export class IterationDialogComponent {
   dialogTitle = "Create a new iteration";
   dialogContext: Object = {
     title: "New Iteration",
-    body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-           Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. 
-           Maecenas sollicitudin elit turpis, at condimentum felis varius malesuada.`
+    body: "Iterations - which are also contextually referred to as sprints or phases - are collections of tasks with a specific timeframe. Generally, an iteration will focus on a specific area of the project. An iteration must be associated with a project."
   };
 
   constructor(
@@ -54,7 +52,7 @@ export class IterationDialogComponent {
     this.httpService.post('iterations', Object.assign({ project_id: this.projectId }, this.iteration))
       .subscribe(
         (data: APIResponse) => {
-          this.iteration = <Iteration> data.data;
+          this.iteration = <Iteration>data.data;
           this.router.navigate(['/projects', this.projectId, 'iterations', this.iteration.id]);
           this.isOpen = false;
         },

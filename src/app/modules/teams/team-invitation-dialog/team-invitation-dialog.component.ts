@@ -27,9 +27,7 @@ export class TeamInvitationDialogComponent {
   title = '';
   context: Object = {
     title: 'Invitation',
-    body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-           Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. 
-           Maecenas sollicitudin elit turpis, at condimentum felis varius malesuada.`
+    body: "You can invite anyone who has an account with Proj to your team. If they are a part of your team, they will be able to see all the team’s projects, iterations, tasks, etc. and will also automatically join the organisation, if they are not already a member."
   };
 
   constructor(

@@ -1,14 +1,16 @@
 .sink-title {
     font-size: 3em;
-    margin: .333em .666em;
+    margin: .5em .666em 0;
+    width: 100%;
 }
 
 .sink-section {
-    margin: 2em;
-    max-width: 468px;
+    margin: 1em 2em;
+    position: relative;
+    width: 100%;
 } 
 
 .sink-section-title {
     font-size: 2em;
-    margin: 1em 0 .5em;
+    margin: 0 0 .5em;
 }

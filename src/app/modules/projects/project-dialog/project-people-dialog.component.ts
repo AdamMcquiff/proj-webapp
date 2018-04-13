@@ -27,9 +27,7 @@ export class ProjectPeopleDialogComponent {
   title = "";
   context: Object = {
     title: "Invitation",
-    body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-           Vestibulum vitae sollicitudin sapien. Morbi a nisi vulputate, congue nisl vitae, posuere ex. 
-           Maecenas sollicitudin elit turpis, at condimentum felis varius malesuada.`
+    body: "You can invite anyone who has an account with Proj to a project. They will be able to make changes and view all project data, but they will not join any teams nor the organisation that the project belongs to."
   };
 
   constructor(
