@@ -33,6 +33,16 @@ export class ProjectsDetailComponent {
     }
   };
 
+  archiveDialogTitle = 'Are you sure?';
+  archiveDialogBody = {
+    first_line: 'Are you sure you want to archive?',
+    second_line: 'This action is reversible if you change your mind.',
+    btn: {
+      primary: 'Archive',
+      secondary: 'No, don’t archive'
+    }
+  };
+
   isToggled = {
     'title': false,
     'summary': false,
@@ -49,6 +59,7 @@ export class ProjectsDetailComponent {
   isProjectPeopleDialogOpen: boolean;
   isDeleting: boolean;
   isDeleteConfirmationDialogOpen: boolean;
+  isArchiveConfirmationDialogOpen: boolean;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -103,15 +114,6 @@ export class ProjectsDetailComponent {
         (error: Object) => this.serverErrors = error
       )
   }
-
-  setProjectArchiveState(isArchived: boolean) {
-    this.httpService.post('projects/' + this.project.id + '/archive', { 'archive': isArchived })
-      .subscribe(
-        (data: APIResponse) => this.router.navigate(['/projects']),
-        (error: Object) => this.serverErrors = error
-      )
-  }
-
   toggleDeleteConfirmationDialog() {
     this.isDeleteConfirmationDialogOpen = !this.isDeleteConfirmationDialogOpen;
   }
@@ -129,6 +131,24 @@ export class ProjectsDetailComponent {
         (error: Object) => this.serverErrors = error
       )
   }
+
+  toggleArchiveConfirmationDialog() {
+    this.isArchiveConfirmationDialogOpen = !this.isArchiveConfirmationDialogOpen;
+  }
+
+  onArchiveConfirmation(isPositiveConfirmation: boolean) {
+    if (isPositiveConfirmation) this.setProjectArchiveState();
+  }
+
+  setProjectArchiveState() {
+    let isArchived = !this.project.archived;
+    this.httpService.post('projects/' + this.project.id + '/archive', { 'archive': isArchived })
+      .subscribe(
+        (data: APIResponse) => this.router.navigate(['/projects']),
+        (error: Object) => this.serverErrors = error
+      )
+  }
+
 
   private format(project: Project): Project {       
     project.start_date = project.start_date 

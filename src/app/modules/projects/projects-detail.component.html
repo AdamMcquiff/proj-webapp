@@ -5,6 +5,12 @@
                          [body]="deleteDialogBody">
     </confirmation-dialog>
 
+    <confirmation-dialog (notify)="onArchiveConfirmation($event)" 
+                         [isOpen]="isArchiveConfirmationDialogOpen"
+                         [title]="archiveDialogTitle"
+                         [body]="archiveDialogBody">
+    </confirmation-dialog>
+
     <div class="loading" *ngIf="isDeleting"></div>
     <div class="overlay" [ngClass]="{ 'visible': isDeleting }"></div>
 
@@ -291,13 +297,13 @@
             
             <div class="main-aside-section-body main-aside-section-body--fix-to-bottom">
                 <button class="btn btn--secondary" 
-                        (click)="setProjectArchiveState(true)"
+                        (click)="toggleArchiveConfirmationDialog(true)"
                         *ngIf="!project.archived">
                     Archive
                 </button>
 
                 <button class="btn btn--secondary" 
-                        (click)="setProjectArchiveState(false)"
+                        (click)="toggleArchiveConfirmationDialog(false)"
                         *ngIf="project.archived">
                     Unarchive
                 </button>
