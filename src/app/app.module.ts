@@ -60,6 +60,8 @@ import { ClientsDetailComponent } from './modules/clients/clients-detail.compone
 import { ClientDialogComponent } from './modules/clients/client-dialog/client-dialog.component';
 import { ClientImportDialogComponent } from './modules/clients/client-dialog/client-import-dialog.component';
 
+import { TermsAndConditionsComponent } from './modules/support/terms.component';
+
 import { SinkComponent } from './modules/sink/sink.component';
 
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
@@ -117,6 +119,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ClientsDetailComponent,
     ClientDialogComponent,
     ClientImportDialogComponent,
+    TermsAndConditionsComponent,
     SinkComponent,
     PageNotFoundComponent,
   ],

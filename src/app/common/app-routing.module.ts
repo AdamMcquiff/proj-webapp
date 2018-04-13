@@ -28,6 +28,8 @@ import { ClientsDetailComponent } from '../modules/clients/clients-detail.compon
 
 import { TeamsComponent } from '../modules/teams/teams.component';
 
+import { TermsAndConditionsComponent } from '../modules/support/terms.component';
+
 import { SinkComponent } from '../modules/sink/sink.component';
 import { PageNotFoundComponent } from '../modules/page-not-found/page-not-found.component';
 
@@ -54,6 +56,8 @@ const routes: Routes = [
     
     { path: 'clients', component: ClientsComponent, canActivate: [ AuthGuard ] },
     { path: 'clients/:id', component: ClientsDetailComponent, canActivate: [ AuthGuard ] },
+
+    { path: 'terms-and-conditions', component: TermsAndConditionsComponent, canActivate: [ AuthGuard ] },
     
     { path: 'sink', component: SinkComponent, canActivate: [ AuthGuard ] },
     { path: '**', component: PageNotFoundComponent, canActivate: [ AuthGuard ] }
