@@ -23,14 +23,14 @@
                 aria-label="Cancel" 
                 title="Cancel"
                 (click)="closeDialog(false)">
-            No, don’t delete
+            {{ body.btn.secondary }}
         </button>
         
         <button class="btn btn--danger" 
                 aria-label="Delete" 
                 title="Delete"
                 (click)="closeDialog(true)">
-            Delete
+            {{ body.btn.primary }}
         </button>
     </div>
 </dialog>

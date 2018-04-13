@@ -1,10 +1,11 @@
 import { Component } from "@angular/core";
 
 import { User } from "../../modules/authentication/user.model";
-import { HttpService } from "../services/http.service";
-import { AuthService } from "../../modules/authentication/services/auth.service";
 
 import { APIResponse } from "../interfaces/api-response.interface";
+
+import { HttpService } from "../services/http.service";
+import { AuthService } from "../../modules/authentication/services/auth.service";
 
 @Component({
   selector: "primary-header",
@@ -17,6 +18,17 @@ export class HeaderComponent {
   isMenuOpen = {
     notifications: false
   }
+
+  isSignoutConfirmationOpen: boolean;
+
+  signoutDialogTitle = 'Signout';
+  signoutDialogBody = {
+    first_line: 'Are you sure you want to signout?',
+    btn: {
+      primary: 'Signout',
+      secondary: 'No, don’t signout'
+    }
+  };
 
   constructor(public auth: AuthService, private httpService: HttpService) {}
 
@@ -35,6 +47,14 @@ export class HeaderComponent {
         this.isMenuOpen.notifications = isOpen;
         break;
     }
+  }
+
+  toggleDeleteConfirmationDialog() {
+    this.isSignoutConfirmationOpen = !this.isSignoutConfirmationOpen;
+  }
+
+  onSignoutConfirmation(isPositiveConfirmation: boolean) {
+    if (isPositiveConfirmation) this.signout();
   }
 
   public signout() {

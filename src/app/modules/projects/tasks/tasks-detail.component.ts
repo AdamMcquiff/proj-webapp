@@ -26,7 +26,11 @@ export class TasksDetailComponent {
   deleteDialogTitle = 'Are you sure?';
   deleteDialogBody = {
     first_line: 'Are you sure you want to delete?',
-    second_line: 'This action is permenant and cannot be undone.'
+    second_line: 'This action is permenant and cannot be undone.',
+    btn: {
+      primary: 'Delete',
+      secondary: 'No, don’t delete'
+    }
   };
 
   isDeleting: boolean;

@@ -1,4 +1,10 @@
 <header class="header">
+
+    <confirmation-dialog (notify)="onSignoutConfirmation($event)" 
+                         [isOpen]="isSignoutConfirmationOpen"
+                         [title]="signoutDialogTitle"
+                         [body]="signoutDialogBody">
+    </confirmation-dialog>
     
     <div class="header-organisation">
         <a routerLink="/dashboard" 
@@ -18,7 +24,7 @@
         <div class="header-hr"></div>
 
         <button class="header-icon header-signout" 
-                (click)="signout()"
+                (click)="toggleDeleteConfirmationDialog()"
                 aria-label="Signout">
         </button>
     </div>
