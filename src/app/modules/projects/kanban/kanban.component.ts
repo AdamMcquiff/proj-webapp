@@ -15,8 +15,12 @@ export class KanbanComponent {
   project: Project;
 
   isTaskDialogOpen: boolean;
+  isTaskImportDialogOpen: boolean;
 
-  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private httpService: HttpService, 
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -29,5 +33,9 @@ export class KanbanComponent {
 
   toggleCreateTaskDialog() {
     this.isTaskDialogOpen = !this.isTaskDialogOpen;
+  }
+
+  toggleImportTaskDialog() {
+    this.isTaskImportDialogOpen = !this.isTaskImportDialogOpen;
   }
 }

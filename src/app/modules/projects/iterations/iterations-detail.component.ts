@@ -38,18 +38,24 @@ export class IterationsDetailComponent {
   }
 
   isTaskDialogOpen: boolean;
+  isTaskImportDialogOpen: boolean;
   isDeleting: boolean;
   isDeleteConfirmationDialogOpen: boolean;
 
-  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private httpService: HttpService, 
+    private activatedRoute: ActivatedRoute, 
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.iterationForm = this.formBuilder.group({
-      title: ["", [ Validators.required ]],
-      summary: ["", [ Validators.required ]],
-      status: ["", [ Validators.required ]],
+      title:      ["", [ Validators.required ]],
+      summary:    ["", [ Validators.required ]],
+      status:     ["", [ Validators.required ]],
       start_date: ["", [ Validators.required ]],
-      due_date: ["", [ Validators.required ]],
+      due_date:   ["", [ Validators.required ]],
     });
 
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -82,6 +88,10 @@ export class IterationsDetailComponent {
 
   toggleDeleteConfirmationDialog() {
     this.isDeleteConfirmationDialogOpen = !this.isDeleteConfirmationDialogOpen;
+  }
+
+  toggleImportTaskDialog() {
+    this.isTaskImportDialogOpen = !this.isTaskImportDialogOpen;
   }
 
   onDeleteConfirmation(isPositiveConfirmation: boolean) {

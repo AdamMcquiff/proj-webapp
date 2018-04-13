@@ -18,7 +18,7 @@
             </div>  
 
             <div class="main-body-header-btns">
-                <a class="btn btn--secondary" href="">Import task</a>
+                <button class="btn btn--secondary" (click)="toggleImportTaskDialog()">Import task</button>
                 <button class="btn" (click)="toggleCreateTaskDialog()">Create task</button>   
             </div>
         </header>
@@ -64,6 +64,11 @@
             This project has no tasks yet.
         </div>
     </section>
-
-    <task-dialog *ngIf="project" [isOpen]="isTaskDialogOpen" [iterations]="project.iterations"></task-dialog>
 </main>
+
+<task-dialog *ngIf="project" 
+             [isOpen]="isTaskDialogOpen" 
+             [iterations]="project.iterations">
+</task-dialog>
+
+<task-import-dialog [isOpen]="isTaskImportDialogOpen"></task-import-dialog>

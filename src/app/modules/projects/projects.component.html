@@ -40,7 +40,7 @@
             </div>  
 
             <div class="main-body-header-btns">
-                <a class="btn btn--secondary" href="">Import project</a>
+                <button class="btn btn--secondary" (click)="toggleImportProjectDialog()">Import project</button>    
                 <button class="btn" (click)="toggleCreateProjectDialog()">Create project</button>    
             </div>
         </header>
@@ -86,6 +86,7 @@
             There are no active projects available.
         </div>
     </section>
-
-    <project-dialog [isOpen]="isProjectDialogOpen"></project-dialog>
 </main>
+
+<project-import-dialog [isOpen]="isProjectImportDialogOpen"></project-import-dialog>
+<project-dialog [isOpen]="isProjectDialogOpen"></project-dialog>

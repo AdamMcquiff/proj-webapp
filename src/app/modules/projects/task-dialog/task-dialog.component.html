@@ -40,9 +40,9 @@
                 <option value="" [attr.selected]="!selectedIteration ? 'true' : null">
                     - Select an iteration -
                 </option>
-                <option [ngValue]="iteration.id" 
-                        *ngFor="let iteration of selectedProject.iterations"
-                        [attr.selected]="selectedIteration.id == iteration.id ? 'true' : null">
+                <option *ngFor="let iteration of selectedProject.iterations"
+                        [ngValue]="iteration.id" 
+                        [attr.selected]="(selectedIteration && selectedIteration.id == iteration.id) ? 'true' : null">
                     {{ iteration.title }}
                 </option>
             </select>
@@ -51,9 +51,9 @@
                 <option value="" [attr.selected]="!selectedIteration ? 'true' : null">
                     - Select an iteration -
                 </option>
-                <option [ngValue]="iteration.id" 
-                        *ngFor="let iteration of iterations"
-                        [attr.selected]="selectedIteration.id == iteration.id ? 'true' : null">
+                <option *ngFor="let iteration of iterations"
+                        [ngValue]="iteration.id" 
+                        [attr.selected]="(selectedIteration && selectedIteration.id == iteration.id) ? 'true' : null">
                     {{ iteration.title }}
                 </option>
             </select>

@@ -15,11 +15,15 @@ import { APIResponse } from "../../../common/interfaces/api-response.interface";
 
 export class TasksComponent {
   project: Project;
-  tasks: Array<Task> = [];
+  tasks: Array<Task>;
 
-  isTaskDialogOpen: boolean = false;
+  isTaskDialogOpen: boolean;
+  isTaskImportDialogOpen: boolean;
 
-  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private httpService: HttpService, 
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -28,6 +32,8 @@ export class TasksComponent {
       this.httpService.get('projects/' + projectId)
         .subscribe((data: APIResponse) => { 
           this.project = <Project>data.data;
+
+          this.tasks = [];
          
           this.project.iterations.forEach((iteration: Iteration) => {
             iteration.tasks.forEach((task: Task) => this.tasks.push(task))
@@ -38,5 +44,9 @@ export class TasksComponent {
 
   toggleCreateTaskDialog() {
     this.isTaskDialogOpen = !this.isTaskDialogOpen;
+  }
+
+  toggleImportTaskDialog() {
+    this.isTaskImportDialogOpen = !this.isTaskImportDialogOpen;
   }
 }

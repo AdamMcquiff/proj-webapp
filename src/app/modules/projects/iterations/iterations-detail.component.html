@@ -17,12 +17,12 @@
                 {{ iteration.title }}
             </label>
             <input (keydown.enter)="toggleField('title', false)" 
-                    class="main-field-form" 
-                    type="text" 
-                    *ngIf="isToggled.title" 
-                    formControlName="title"
-                    [value]="iteration.title" 
-                    [(ngModel)]="iteration.title">
+                   class="main-field-form" 
+                   type="text" 
+                   *ngIf="isToggled.title" 
+                   formControlName="title"
+                   [value]="iteration.title" 
+                   [(ngModel)]="iteration.title">
         </h1>
     </header>
     
@@ -46,12 +46,12 @@
                     {{ iteration.summary ? iteration.summary : '--' }}
                 </label>
                 <textarea (keydown.enter)="toggleField('summary', false)" 
-                        rows="5"
-                        class="main-field-form" 
-                        type="text" 
-                        *ngIf="isToggled.summary" 
-                        formControlName="summary"
-                        [(ngModel)]="iteration.summary">
+                          rows="5"
+                          class="main-field-form" 
+                          type="text" 
+                          *ngIf="isToggled.summary" 
+                          formControlName="summary"
+                          [(ngModel)]="iteration.summary">
                     {{ iteration.summary }}
                 </textarea>
             </div>
@@ -63,7 +63,7 @@
             </div>  
 
             <div class="main-body-header-btns">
-                <a class="btn btn--secondary" href="">Import task</a>
+                <button class="btn btn--secondary" (click)="toggleImportTaskDialog()">Import task</button>   
                 <button class="btn" (click)="toggleCreateTaskDialog()">Create task</button>   
             </div>
         </header>
@@ -124,18 +124,18 @@
                     </dt>
                     <dd class="main-detail-list-data">
                         <label class="main-field-editable" 
-                                title="Click to edit"
-                                *ngIf="!isToggled.status"
-                                (click)="toggleField('status', true)">
+                               title="Click to edit"
+                               *ngIf="!isToggled.status"
+                               (click)="toggleField('status', true)">
                                 {{ iteration.status ? iteration.status : '--' }}
                         </label>
                         <input (keydown.enter)="toggleField('status', false)" 
-                                class="main-field-form" 
-                                type="text" 
-                                *ngIf="isToggled.status" 
-                                formControlName="status"
-                                [value]="iteration.status" 
-                                [(ngModel)]="iteration.status">
+                               class="main-field-form" 
+                               type="text" 
+                               *ngIf="isToggled.status" 
+                               formControlName="status"
+                               [value]="iteration.status" 
+                               [(ngModel)]="iteration.status">
                     </dd>
                 </dl>
             </div>
@@ -153,18 +153,18 @@
                     </dt>
                     <dd class="main-detail-list-data">
                         <label class="main-field-editable" 
-                                title="Click to edit"
-                                *ngIf="!isToggled.start_date" 
-                                (click)="toggleField('start_date', true)">
+                               title="Click to edit"
+                               *ngIf="!isToggled.start_date" 
+                               (click)="toggleField('start_date', true)">
                             {{ iteration.start_date ? iteration.start_date : '--' }}
                         </label>
                         <input (keydown.enter)="toggleField('start_date', false)" 
-                                class="main-field-form" 
-                                type="date" 
-                                *ngIf="isToggled.start_date" 
-                                formControlName="start_date"
-                                [value]="iteration.start_date" 
-                                [(ngModel)]="iteration.start_date">
+                               class="main-field-form" 
+                               type="date" 
+                               *ngIf="isToggled.start_date" 
+                               formControlName="start_date"
+                               [value]="iteration.start_date" 
+                               [(ngModel)]="iteration.start_date">
                     </dd>
                     
                     <dt class="main-detail-list-term">
@@ -172,18 +172,18 @@
                     </dt>
                     <dd class="main-detail-list-data">
                         <label class="main-field-editable" 
-                                title="Click to edit"
-                                *ngIf="!isToggled.due_date" 
-                                (click)="toggleField('due_date', true)">
+                               title="Click to edit"
+                               *ngIf="!isToggled.due_date" 
+                               (click)="toggleField('due_date', true)">
                             {{ iteration.due_date ? iteration.due_date : '--' }}
                         </label>
                         <input (keydown.enter)="toggleField('due_date', false)" 
-                                class="main-field-form" 
-                                type="date" 
-                                *ngIf="isToggled.due_date" 
-                                formControlName="due_date"
-                                [value]="iteration.due_date" 
-                                [(ngModel)]="iteration.due_date">
+                               class="main-field-form" 
+                               type="date" 
+                               *ngIf="isToggled.due_date" 
+                               formControlName="due_date"
+                               [value]="iteration.due_date" 
+                               [(ngModel)]="iteration.due_date">
                     </dd>
                 </dl>
             </div>
@@ -194,7 +194,7 @@
                 <h2 class="hidden">Delete</h2>
             </div>
 
-            <div class="main-aside-section-body">
+            <div class="main-aside-section-body main-aside-section-body--fix-to-bottom">
                 <button class="btn btn--warning" 
                         [ngClass]="{ 'btn--disabled': isDeleting }"
                         [disabled]="isDeleting"
@@ -204,10 +204,12 @@
             </div>
         </section>
     </aside>
-
-    <task-dialog *ngIf="project" 
-                 [isOpen]="isTaskDialogOpen" 
-                 [iterations]="project.iterations"
-                 [selectedIteration]="iteration">
-    </task-dialog>
 </main>
+
+<task-dialog *ngIf="project" 
+             [isOpen]="isTaskDialogOpen" 
+             [iterations]="project.iterations"
+             [selectedIteration]="iteration">
+</task-dialog>
+
+<task-import-dialog [isOpen]="isTaskImportDialogOpen"></task-import-dialog>

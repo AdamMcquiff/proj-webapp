@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { Project } from "./project.model";
+import { Client } from "../clients/client.model";
 
 import { HttpService } from "../../common/services/http.service";
 import { APIResponse } from "../../common/interfaces/api-response.interface";
@@ -16,7 +17,7 @@ import * as moment from 'moment';
 
 export class ProjectsDetailComponent {
   project: Project;
-  clients;
+  clients: Array<Client>;
 
   projectForm: FormGroup;
  
@@ -40,6 +41,7 @@ export class ProjectsDetailComponent {
   };
 
   isIterationDialogOpen: boolean;
+  isIterationImportDialogOpen: boolean;
   isProjectPeopleDialogOpen: boolean;
   isDeleting: boolean;
   isDeleteConfirmationDialogOpen: boolean;
@@ -70,12 +72,16 @@ export class ProjectsDetailComponent {
         .subscribe((data: APIResponse) => this.project = this.format(<Project>data.data))  
 
       this.httpService.get('clients')
-        .subscribe((data: APIResponse) => this.clients = data.data)  
+        .subscribe((data: APIResponse) => this.clients = <Array<Client>>data.data)  
     })
   }
   
   toggleCreateIterationDialog() {
     this.isIterationDialogOpen = !this.isIterationDialogOpen;
+  }
+
+  toggleImportIterationDialog() {
+    this.isIterationImportDialogOpen = !this.isIterationImportDialogOpen;
   }
 
   toggleProjectPeopleDialog() {
@@ -89,7 +95,7 @@ export class ProjectsDetailComponent {
 
     this.httpService.put('projects/' + this.project.id, this.parse(this.project))
       .subscribe(
-        (data: APIResponse) => this.project = this.format(<Project> data.data),
+        (data: APIResponse) => this.project = this.format(<Project>data.data),
         (error: Object) => this.serverErrors = error
       )
   }

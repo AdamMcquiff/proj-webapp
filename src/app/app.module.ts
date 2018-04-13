@@ -7,9 +7,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
-import { AppRoutingModule } from './common/app-routing.module'; 
-
 import { AppComponent } from './app.component';
+
+import { AppRoutingModule } from './common/app-routing.module'; 
 
 import { HttpService } from './common/services/http.service';
 
@@ -38,14 +38,17 @@ import { ProjectsDashboardWidgetComponent } from './modules/dashboard/projects-w
 import { ProjectsComponent } from './modules/projects/projects.component';
 import { ProjectsDetailComponent } from './modules/projects/projects-detail.component';
 import { ProjectDialogComponent } from './modules/projects/project-dialog/project-dialog.component';
+import { ProjectImportDialogComponent } from './modules/projects/project-dialog/project-import-dialog.component';
 import { ProjectPeopleDialogComponent } from './modules/projects/project-dialog/project-people-dialog.component';
 import { ProjectNavComponent } from './modules/projects/nav/project-nav.component';
 import { IterationsComponent } from './modules/projects/iterations/iterations.component';
 import { IterationsDetailComponent } from './modules/projects/iterations/iterations-detail.component';
 import { IterationDialogComponent } from './modules/projects/iteration-dialog/iteration-dialog.component';
+import { IterationImportDialogComponent } from './modules/projects/iteration-dialog/iteration-import-dialog.component';
 import { TasksComponent } from './modules/projects/tasks/tasks.component';
 import { TasksDetailComponent } from './modules/projects/tasks/tasks-detail.component';
 import { TaskDialogComponent } from './modules/projects/task-dialog/task-dialog.component';
+import { TaskImportDialogComponent } from './modules/projects/task-dialog/task-import-dialog.component';
 import { KanbanComponent } from './modules/projects/kanban/kanban.component';
 import { SearchComponent } from './modules/projects/search/search.component';
 
@@ -55,6 +58,7 @@ import { TeamInvitationDialogComponent } from './modules/teams/team-invitation-d
 import { ClientsComponent } from './modules/clients/clients.component';
 import { ClientsDetailComponent } from './modules/clients/clients-detail.component';
 import { ClientDialogComponent } from './modules/clients/client-dialog/client-dialog.component';
+import { ClientImportDialogComponent } from './modules/clients/client-dialog/client-import-dialog.component';
 
 import { SinkComponent } from './modules/sink/sink.component';
 
@@ -94,14 +98,17 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ProjectsComponent,
     ProjectsDetailComponent,
     ProjectDialogComponent,
+    ProjectImportDialogComponent,
     ProjectPeopleDialogComponent,
     ProjectNavComponent,
     IterationsComponent,
     IterationsDetailComponent,
     IterationDialogComponent,
+    IterationImportDialogComponent,
     TasksComponent,
     TasksDetailComponent,
     TaskDialogComponent,
+    TaskImportDialogComponent,
     KanbanComponent,
     SearchComponent,
     TeamsComponent,
@@ -109,6 +116,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ClientsComponent,
     ClientsDetailComponent,
     ClientDialogComponent,
+    ClientImportDialogComponent,
     SinkComponent,
     PageNotFoundComponent,
   ],

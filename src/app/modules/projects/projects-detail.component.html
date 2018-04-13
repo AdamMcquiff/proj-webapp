@@ -17,12 +17,12 @@
                 {{ project.title }} <span *ngIf="project.archived">[Archived]</span>
             </label>
             <input (keydown.enter)="toggleField('title', false)" 
-                    class="main-field-form" 
-                    type="text" 
-                    *ngIf="isToggled.title" 
-                    formControlName="title"
-                    [value]="project.title" 
-                    [(ngModel)]="project.title">
+                   class="main-field-form" 
+                   type="text" 
+                   *ngIf="isToggled.title" 
+                   formControlName="title"
+                   [value]="project.title" 
+                   [(ngModel)]="project.title">
         </h1>
     </header>
     
@@ -46,12 +46,12 @@
                     {{ project.summary ? project.summary : 'Click here to add a summary.' }}
                 </label>
                 <textarea (keydown.enter)="toggleField('summary', false)" 
-                       rows="5"
-                       class="main-field-form" 
-                       type="text" 
-                       *ngIf="isToggled.summary" 
-                       formControlName="summary"
-                       [(ngModel)]="project.summary">
+                          rows="5"
+                          class="main-field-form" 
+                          type="text" 
+                          *ngIf="isToggled.summary" 
+                          formControlName="summary"
+                          [(ngModel)]="project.summary">
                     {{ project.summary }}
                 </textarea>
             </div>
@@ -63,7 +63,7 @@
             </div>  
 
             <div class="main-body-header-btns">
-                <a class="btn btn--secondary" href="">Import iteration</a>
+                <button class="btn btn--secondary" (click)="toggleImportIterationDialog()">Import iteration</button>   
                 <button class="btn" (click)="toggleCreateIterationDialog()">Create iteration</button>
             </div>
         </header>
@@ -172,18 +172,18 @@
                     </dt>
                     <dd class="main-detail-list-data">
                         <label class="main-field-editable" 
-                                title="Click to edit"
-                                *ngIf="!isToggled.methodology" 
-                                (click)="toggleField('methodology', true)">
+                               title="Click to edit"
+                               *ngIf="!isToggled.methodology" 
+                               (click)="toggleField('methodology', true)">
                             {{ project.methodology ? project.methodology : '--' }}
                         </label>
                         <input (keydown.enter)="toggleField('methodology', false)" 
-                                class="main-field-form" 
-                                type="text" 
-                                *ngIf="isToggled.methodology" 
-                                formControlName="methodology"
-                                [value]="project.methodology" 
-                                [(ngModel)]="project.methodology">
+                               class="main-field-form" 
+                               type="text" 
+                               *ngIf="isToggled.methodology" 
+                               formControlName="methodology"
+                               [value]="project.methodology" 
+                               [(ngModel)]="project.methodology">
                     </dd>
                     
                     <dt class="main-detail-list-term">
@@ -191,18 +191,18 @@
                     </dt>
                     <dd class="main-detail-list-data">
                         <label class="main-field-editable" 
-                                title="Click to edit"
-                                *ngIf="!isToggled.budget" 
-                                (click)="toggleField('budget', true)">
+                               title="Click to edit"
+                               *ngIf="!isToggled.budget" 
+                               (click)="toggleField('budget', true)">
                             {{ project.budget ? project.budget : '--' }}
                         </label>
                         <input (keydown.enter)="toggleField('budget', false)" 
-                                class="main-field-form" 
-                                type="text" 
-                                *ngIf="isToggled.budget" 
-                                formControlName="budget"
-                                [value]="project.budget" 
-                                [(ngModel)]="project.budget">
+                               class="main-field-form" 
+                               type="text" 
+                               *ngIf="isToggled.budget" 
+                               formControlName="budget"
+                               [value]="project.budget" 
+                               [(ngModel)]="project.budget">
                     </dd>
                 </dl>
             </div>
@@ -317,6 +317,8 @@
                   [isOpen]="isIterationDialogOpen" 
                   [projectId]="project.id">
 </iteration-dialog>
+
+<iteration-import-dialog [isOpen]="isIterationImportDialogOpen"></iteration-import-dialog>
 
 <project-people-dialog *ngIf="project" 
                        [isOpen]="isProjectPeopleDialogOpen" 

@@ -13,13 +13,14 @@ import { APIResponse } from "../../common/interfaces/api-response.interface";
 export class ProjectsComponent {
   projects: Array<Project>;
 
-  filters = {
+  filters: Object = {
     'active': { state: true, title: 'Active' },
     'archived': { state: false, title: 'Archived' },
     'all': { state: false, title: 'All' },
   }
 
   isProjectDialogOpen: boolean;
+  isProjectImportDialogOpen: boolean;
 
   constructor(private httpService: HttpService) {}
 
@@ -30,6 +31,10 @@ export class ProjectsComponent {
 
   toggleCreateProjectDialog() {
     this.isProjectDialogOpen = !this.isProjectDialogOpen;
+  }
+
+  toggleImportProjectDialog() {
+    this.isProjectImportDialogOpen = !this.isProjectImportDialogOpen;
   }
 
   getTitle() {

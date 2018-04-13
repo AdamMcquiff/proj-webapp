@@ -14,9 +14,13 @@ import { APIResponse } from "../../../common/interfaces/api-response.interface";
 export class IterationsComponent {
   project: Project;
 
-  isIterationDialogOpen: boolean = false;
-
-  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {}
+  isIterationDialogOpen: boolean;
+  isIterationImportDialogOpen: boolean;
+  
+  constructor(
+    private httpService: HttpService, 
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -29,5 +33,9 @@ export class IterationsComponent {
 
   toggleCreateIterationDialog() {
     this.isIterationDialogOpen = !this.isIterationDialogOpen;
+  }
+
+  toggleImportIterationDialog() {
+    this.isIterationImportDialogOpen = !this.isIterationImportDialogOpen;
   }
 }

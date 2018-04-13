@@ -20,7 +20,7 @@ export class IterationDialogComponent {
   
   serverErrors;
 
-  isPerformingAPICall: boolean = false;
+  isPerformingAPICall: boolean;
   
   iteration: Iteration;
   
@@ -32,7 +32,11 @@ export class IterationDialogComponent {
            Maecenas sollicitudin elit turpis, at condimentum felis varius malesuada.`
   };
 
-  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private httpService: HttpService, 
+    private router: Router
+  ) {}
   
   ngOnInit(): void {
     this.iterationForm = this.formBuilder.group({

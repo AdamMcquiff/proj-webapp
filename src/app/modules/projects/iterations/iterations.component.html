@@ -16,7 +16,7 @@
             </div>  
 
             <div class="main-body-header-btns">
-                <a class="btn btn--secondary" href="">Import iteration</a>
+                <button class="btn btn--secondary" (click)="toggleImportIterationDialog()">Import iteration</button>   
                 <button class="btn" (click)="toggleCreateIterationDialog()">Create iteration</button>
             </div>
         </header>
@@ -68,6 +68,11 @@
             This project has no iterations yet.
         </div>
     </section>
-
-    <iteration-dialog *ngIf="project" [isOpen]="isIterationDialogOpen" [projectId]="project.id"></iteration-dialog>
 </main>
+
+<iteration-dialog *ngIf="project" 
+                  [isOpen]="isIterationDialogOpen" 
+                  [projectId]="project.id">
+</iteration-dialog>
+
+<iteration-import-dialog [isOpen]="isIterationImportDialogOpen"></iteration-import-dialog>

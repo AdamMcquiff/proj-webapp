@@ -18,7 +18,7 @@
             </div>  
 
             <div class="main-body-header-btns">
-                <a class="btn btn--secondary" href="">Import client</a>
+                <button class="btn btn--secondary" (click)="toggleImportClientDialog()">Import client</button>   
                 <button class="btn" (click)="toggleCreateClientDialog()">Create client</button> 
             </div>
         </header>
@@ -60,3 +60,5 @@
 </main>
 
 <client-dialog [isOpen]="isClientDialogOpen"></client-dialog>
+
+<client-import-dialog [isOpen]="isClientImportDialogOpen"></client-import-dialog>
