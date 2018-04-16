@@ -18,9 +18,9 @@
                 </div>
             </div>
 
-            <div *ngIf="serverErrors && serverErrors.error" class="form-label-error" role="alert">
-                <div *ngIf="serverErrors && serverErrors.error.error">
-                    Something has went wrong. Please try again later.
+            <div *ngIf="serverErrors" class="form-label-error" role="alert">
+                <div *ngIf="serverErrors && serverErrors.status == 404">
+                    No user exists with this email address. 
                 </div>
             </div>
 

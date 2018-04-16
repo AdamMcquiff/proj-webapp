@@ -24,7 +24,7 @@ export class ProjectPeopleDialogComponent {
 
   serverErrors;
 
-  title = "";
+  title: string;
   context: Object = {
     title: "Invitation",
     body: "You can invite anyone who has an account with Proj to a project. They will be able to make changes and view all project data, but they will not join any teams nor the organisation that the project belongs to."
@@ -57,10 +57,7 @@ export class ProjectPeopleDialogComponent {
 
     this.httpService.post('projects/' + this.project.id + '/invite', this.invite)
       .subscribe(
-        (data: APIResponse) => {
-          this.project = <Project> data.data;
-          this.router.navigate(['/projects', this.project.id]);
-        },
+        (data: APIResponse) => this.isOpen = false,
         error => this.serverErrors = error,
         () => this.isPerformingAPICall = false
       );  

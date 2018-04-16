@@ -12,12 +12,20 @@
     <section class="main-body" *ngIf="project">
         <header class="main-body-header">
             <div class="main-body-header-title">
-                <h2 class="main-body-title">All Tasks</h2>
+                <h2 class="main-body-title">Iteration Board</h2>
             </div>  
 
             <div class="main-body-header-btns">
-                <button class="btn btn--secondary" (click)="toggleImportTaskDialog()">Import task</button>
-                <button class="btn" (click)="toggleCreateTaskDialog()">Create task</button>  
+                <button class="btn btn--secondary" 
+                        (click)="toggleImportTaskDialog()"
+                        *ngIf="project.iterations.length">
+                    Import task
+                </button>
+                <button class="btn" 
+                        (click)="toggleCreateTaskDialog()"
+                        *ngIf="project.iterations.length">
+                    Create task
+                </button>  
             </div>
         </header>
 
@@ -41,6 +49,10 @@
                 </div>
             </div>
         </article>
+
+        <div *ngIf="!project.iterations.length" class="table-no-content">
+            This project has no iterations.
+        </div>
     </section>
 </main>
 

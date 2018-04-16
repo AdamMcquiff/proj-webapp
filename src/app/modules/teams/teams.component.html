@@ -1,4 +1,9 @@
 <main class="main">
+    <confirmation-dialog (notify)="onDeleteConfirmation($event)" 
+                         [isOpen]="isDeleteConfirmationDialogOpen"
+                         [context]="deleteDialog">
+    </confirmation-dialog>
+
     <header class="main-header">
         <h1 class="main-header-title">
             Teams
@@ -27,7 +32,11 @@
             </div>  
 
             <div class="main-body-header-btns">
-                <button class="btn" (click)="toggleTeamInvitationDialog()">Invite member</button>    
+                <button class="btn" 
+                        (click)="toggleTeamInvitationDialog()"
+                        *ngIf="selectedTeam">
+                    Invite member
+                </button>    
             </div>
         </header>
 
@@ -37,24 +46,13 @@
                     <tr>
                         <th class="table-head-cell">Name</th>
                         <th class="table-head-cell">Role</th>
-                        <th class="table-head-cell">Day Rate</th>
-                        <th class="table-head-cell">
-                            <span class="hidden">View</span>
-                        </th>
                     </tr>
                 </thead>
     
                 <tbody class="table-body">
                     <tr class="table-body-row" *ngFor="let user of selectedTeam.users"> 
-                        <td class="table-body-cell">{{ user.name }}</td>
-                        <td class="table-body-cell">{{ user.role }}</td>
-                        <td class="table-body-cell">{{ user.day_rate }}</td>
-                        <td class="table-body-cell">
-                            <button class="table-body-delete" 
-                                    attr.aria-label="Delete {{ user.name }}" 
-                                    attr.title="Delete {{ user.name }}">
-                            </button>
-                        </td>
+                        <td class="table-body-cell">{{ user.name ? user.name : '--' }}</td>
+                        <td class="table-body-cell">{{ user.role ? user.role : '--' }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -62,7 +60,7 @@
     </section>
 
     <footer class="main-body-footer" *ngIf="selectedTeam">
-        <button class="btn btn--warning" (click)="deleteTeam()">Delete</button>
+        <button class="btn btn--warning" (click)="toggleDeleteConfirmationDialog()">Delete</button>
     </footer>
 </main>
 

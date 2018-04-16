@@ -16,7 +16,20 @@ export class TeamsComponent {
 
   serverErrors;
 
+  deleteDialog = {
+    title: 'Are you sure?',
+    body: {
+      title: 'Are you sure you want to delete?',
+      text: 'This action is permenant and cannot be undone.'
+    },
+    btn: {
+      primary: 'Delete',
+      secondary: 'No, don’t delete'
+    }
+  };
+
   isTeamInvitationDialogOpen: boolean;
+  isDeleteConfirmationDialogOpen: boolean;
 
   constructor(
     private httpService: HttpService
@@ -36,6 +49,14 @@ export class TeamsComponent {
 
   changeTeam(team): void {
     this.selectedTeam = team;
+  }
+
+  toggleDeleteConfirmationDialog() {
+    this.isDeleteConfirmationDialogOpen = !this.isDeleteConfirmationDialogOpen;
+  }
+
+  onDeleteConfirmation(isPositiveConfirmation: boolean) {
+    if (isPositiveConfirmation) this.deleteTeam();
   }
 
   deleteTeam(): void {
