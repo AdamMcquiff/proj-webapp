@@ -1,4 +1,4 @@
-<dialog class="dialog dialog--small" [attr.open]="isOpen ? true : null" (keydown.esc)="closeDialog()">
+<dialog class="dialog dialog--small" [attr.open]="isOpen ? true : null" (keydown.esc)="closeDialog(false)">
     <div class="dialog-header">
         <h3 class="dialog-header-title">{{ context.title }}</h3>
 
