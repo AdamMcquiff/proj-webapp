@@ -82,5 +82,9 @@ export class TaskDialogComponent {
   get iteration_id() { 
     return this.taskForm.get('iteration_id'); 
   }
+
+  get selected_project() { 
+    return this.taskForm.get('selected_project'); 
+  }
 }
  

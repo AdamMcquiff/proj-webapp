@@ -26,8 +26,14 @@
             <span class="form-label-title">Project</span>
             <span class="form-label-subtext">Select a project that the task belongs to.</span>
 
+            <div *ngIf="selected_project.invalid && selected_project.touched" class="form-label-error" role="alert">
+                <div *ngIf="selected_project.errors?.required">
+                    A project must be selected
+                </div>
+            </div>
+
             <select class="form-input" formControlName="selected_project" (ngModelChange)="changeProject($event)">
-                <option value="" selected>- Select a project -</option>
+                <option value="null" selected>- Select a project -</option>
                 <option [ngValue]="project" *ngFor="let project of projects">{{ project.title }}</option>
             </select>
         </label>
@@ -38,11 +44,11 @@
 
             <div *ngIf="iteration_id.invalid && iteration_id.touched" class="form-label-error" role="alert">
                 <div *ngIf="iteration_id.errors?.required">
-                    An iteration must be selected
+                    An iteration must be selected.
                 </div>
             </div>
 
-            <select formControlName="iteration_id" class="form-input">
+            <select formControlName="iteration_id" class="form-input" *ngIf="selectedProject && selectedProject.iterations.length">
                 <ng-container *ngIf="projects && selectedProject">
                     <option value="null" [attr.selected]="!selectedIteration ? 'true' : null">
                         - Select an iteration -
@@ -64,6 +70,10 @@
                     </option>
                 </ng-container>
             </select>
+
+            <div class="form-label-error" *ngIf="selectedProject && !selectedProject.iterations.length">
+                This project has no iterations. A task must be assigned to an iteration.
+            </div>
         </label>
 
         <input type="submit" 

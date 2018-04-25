@@ -79,6 +79,7 @@
                         <select formControlName="status" 
                                 *ngIf="isToggled.status" 
                                 class="main-field-form" 
+                                (change)="toggleField('status', false)"
                                 (keydown.enter)="toggleField('status', false)" 
                                 [(ngModel)]="task.status"> 
                             <option value="0">In Progress</option>
@@ -100,6 +101,7 @@
                         <select formControlName="iteration" 
                                 *ngIf="isToggled.iteration" 
                                 class="main-field-form" 
+                                (change)="toggleField('iteration', false)"
                                 (keydown.enter)="toggleField('iteration', false)" 
                                 [(ngModel)]="task.iteration.id"> 
                             <option value="">
