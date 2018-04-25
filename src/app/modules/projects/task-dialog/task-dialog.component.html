@@ -26,7 +26,7 @@
             <span class="form-label-title">Project</span>
             <span class="form-label-subtext">Select a project that the task belongs to.</span>
 
-            <select class="form-input" formControlName="selectedProject" (ngModelChange)="changeProject($event)">
+            <select class="form-input" formControlName="selected_project" (ngModelChange)="changeProject($event)">
                 <option value="" selected>- Select a project -</option>
                 <option [ngValue]="project" *ngFor="let project of projects">{{ project.title }}</option>
             </select>
@@ -36,34 +36,41 @@
             <span class="form-label-title">Iteration</span>
             <span class="form-label-subtext">Select an iteration that the task belongs to.</span>
 
-            <select formControlName="iteration_id" class="form-input" *ngIf="projects && selectedProject">
-                <option value="" [attr.selected]="!selectedIteration ? 'true' : null">
-                    - Select an iteration -
-                </option>
-                <option *ngFor="let iteration of selectedProject.iterations"
-                        [ngValue]="iteration.id" 
-                        [attr.selected]="(selectedIteration && selectedIteration.id == iteration.id) ? 'true' : null">
-                    {{ iteration.title }}
-                </option>
-            </select>
+            <div *ngIf="iteration_id.invalid && iteration_id.touched" class="form-label-error" role="alert">
+                <div *ngIf="iteration_id.errors?.required">
+                    An iteration must be selected
+                </div>
+            </div>
 
-            <select formControlName="iteration_id" class="form-input" *ngIf="!projects">
-                <option value="" [attr.selected]="!selectedIteration ? 'true' : null">
-                    - Select an iteration -
-                </option>
-                <option *ngFor="let iteration of iterations"
-                        [ngValue]="iteration.id" 
-                        [attr.selected]="(selectedIteration && selectedIteration.id == iteration.id) ? 'true' : null">
-                    {{ iteration.title }}
-                </option>
+            <select formControlName="iteration_id" class="form-input">
+                <ng-container *ngIf="projects && selectedProject">
+                    <option value="null" [attr.selected]="!selectedIteration ? 'true' : null">
+                        - Select an iteration -
+                    </option>
+                    <option *ngFor="let iteration of selectedProject.iterations"
+                            [ngValue]="iteration.id" 
+                            [attr.selected]="(selectedIteration && selectedIteration.id == iteration.id) ? 'true' : null">
+                        {{ iteration.title }}
+                    </option>
+                </ng-container>
+
+                <ng-container *ngIf="!projects">
+                    <option value="null" selected="true">
+                        - Select an iteration -
+                    </option>
+                    <option *ngFor="let iteration of iterations"
+                            [value]="iteration.id">
+                        {{ iteration.title }}
+                    </option>
+                </ng-container>
             </select>
         </label>
 
         <input type="submit" 
                class="btn form-btn" 
                value="Create" 
-               [ngClass]="{ 'btn--disabled': isPerformingAPICall }"
-               [disabled]="isPerformingAPICall">
+               [ngClass]="{ 'btn--disabled': isPerformingAPICall || taskForm.touched == false }"
+               [disabled]="isPerformingAPICall || taskForm.touched == false">
     </form>
 
 </base-dialog>

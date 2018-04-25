@@ -24,6 +24,7 @@ export class TaskDialogComponent {
 
   taskForm: FormGroup;
   
+  formErrors;
   serverErrors;
 
   isPerformingAPICall: boolean;
@@ -34,17 +35,22 @@ export class TaskDialogComponent {
     body: "Tasks - which are also contextually referred to as issues or stories - are the specific aspects of a project; the literal tasks that need to be complete. Tasks can have dates, statuses and can be associated with anyone on the project. Tasks must be associated with an iteration."
   };
 
-  constructor(private formBuilder: FormBuilder, private httpService: HttpService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder, 
+    private httpService: HttpService, 
+    private router: Router
+  ) {}
   
   ngOnInit(): void {
     this.taskForm = this.formBuilder.group({
-      title: ["", [ Validators.required ]],
-      selectedProject: ["", []],
-      iteration_id: ["", [ Validators.required ]] 
+      title:            ["", [ Validators.required ]],
+      selected_project: [null, []],
+      iteration_id:     [null, [ Validators.required ]]
     });
   }
 
   onFormSubmit() {
+    console.log(this.taskForm)
     if (!this.taskForm.valid) return;
 
     this.task = this.taskForm.value;
@@ -71,6 +77,10 @@ export class TaskDialogComponent {
 
   get title() { 
     return this.taskForm.get('title'); 
+  }
+
+  get iteration_id() { 
+    return this.taskForm.get('iteration_id'); 
   }
 }
  
