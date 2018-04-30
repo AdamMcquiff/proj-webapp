@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Proj - Simple and Customisable Project Management",
+    "short_name": "Proj",
     "icons": [
         {
             "src": "/assets/img/favicons/android-chrome-192x192.png",
