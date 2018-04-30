@@ -67,12 +67,12 @@
         &:active {
             background-color: transparent;
             box-shadow: none;
-            color: $light-red;
+            color: $dark-red;
         }
     }
 
     &--danger {
-        background-color: $light-red;
+        background-color: $dark-red;
 
         &:hover,
         &:focus,

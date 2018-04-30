@@ -1,0 +1,36 @@
+/*
+ * Noscript Styles
+ *
+ * The styles that are applied when JavaScript is not enabled.
+ *
+ */
+
+.noscript {
+    background: $red;
+    border: { top: .5em solid $dark-red; }
+    display: block;
+    height: 100vh;
+    max-width: 100%;
+    padding: 2em; 
+    width: 100vh;
+
+    &-body {
+        margin: 0 auto;
+        max-width: 568px;
+    }
+
+    &-title {
+        @include type-setting(2);
+        color: white;
+        font-family: $montserrat;
+        font-weight: 500;
+        margin: { bottom: .25em; }
+        text-align: center;
+    }
+
+    &-subtitle {
+        @include type-setting(0);
+        color: white;
+        font-family: $libre-franklin;
+    }
+}
