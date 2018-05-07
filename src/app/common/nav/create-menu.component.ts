@@ -22,10 +22,7 @@ export class CreateMenuComponent {
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
-    this.httpService.get('projects')
-      .subscribe((data: APIResponse) => {
-        this.projects = <Array<Project>>data.data;
-      });  
+    this.refreshProjects();
   }
 
   toggleDialog() {
@@ -33,12 +30,21 @@ export class CreateMenuComponent {
   }
 
   toggleTaskDialog() {
+    this.refreshProjects();
     this.isTaskDialogOpen = !this.isTaskDialogOpen;
     this.isOpen = false;
   }
 
   toggleProjectDialog() {
+    this.refreshProjects();
     this.isProjectDialogOpen = !this.isProjectDialogOpen;
     this.isOpen = false;
+  }
+
+  refreshProjects() {
+    this.httpService.get('projects')
+      .subscribe((data: APIResponse) => {
+        this.projects = <Array<Project>>data.data;
+      });  
   }
 }
