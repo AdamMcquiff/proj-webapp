@@ -1,6 +1,10 @@
-# ProjectWebapp
+# _Proj_ Web App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+_Proj_ is a highly customisable and queryable project management tool aimed at small and medium-sized enterprise consultancies. The application was developed in completion of a BSc Computer Science at the University of Sunderland.
+
+This repo hosts the project web app, built as a Progressive Web App upon Angular 2/4 with TypeScript. The web app user interface was built from scratch with SASS, leveraging a "kitchen sink" approach. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+
+There is also a supporting RESTful API, the URL of which must be added to the project environment file. 
 
 ## Development server
 
@@ -14,14 +18,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+## Screenshots
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The proceeding screenshots do not disclosure the entire functionality of the system, but rather provide snippets of key UI views.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![signin screen](https://i.imgur.com/EtegVeJ.png "signin screen")
+![welcome dialog](https://i.imgur.com/4njIJx1.png "welcome dialog")
+![create project dialog](https://i.imgur.com/LfB2hs0.png "create project dialog")
+![project overview](https://i.imgur.com/tb2S3wz.jpg "project overview")
+![search menu](https://i.imgur.com/nSOCAij.jpg "search menu")
